@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      questions: [tree.question],
+      history: [tree],
       remainingTree: tree
     }
   }
@@ -32,29 +32,25 @@ class App extends React.Component {
 
   renderNextQuestion = (resp) => {
     console.log(resp)
-      if(resp == "YES"){
-        if(this.state.remainingTree.yesBranch.isLeaf == "0"){
-          console.log(this.state.remainingTree)
-          let newQuestionList = this.state.questions;
-          console.log(this.state.remainingTree.yesBranch.question)
-          newQuestionList.push(this.state.remainingTree.yesBranch.question)
-          let newTree = this.state.remainingTree.yesBranch;
-          console.log(newTree)
-          this.setState({remainingTree: newTree});
-          this.setState({questions: newQuestionList})
-        }
+      if(resp == "YES" && this.state.remainingTree.isLeaf == "0"){
+        let yesBranch = this.state.remainingTree.yesBranch
+          console.log(this.state.remainingTree);
+          let newHistoryList = this.state.history;
+          console.log(yesBranch);
+          newHistoryList.push(yesBranch);
+          this.setState({remainingTree: yesBranch});
+          this.setState({questions: newHistoryList})
+        
       }
-      if(resp == "NO"){
-        if(this.state.remainingTree.noBranch.isLeaf == "0"){
-          console.log(this.state.remainingTree)
-          let newQuestionList = this.state.questions;
-          console.log(this.state.remainingTree.noBranch);
-          newQuestionList.push(this.state.remainingTree.noBranch.question);
-          console.log(newQuestionList)
-          let newTree = this.state.remainingTree.noBranch;
-          this.setState({remainingTree: newTree});
-          this.setState({questions: newQuestionList})
-        }
+      if(resp == "NO" && this.state.remainingTree.isLeaf == "0"){
+        let yesBranch = this.state.remainingTree.noBranch
+          console.log(this.state.remainingTree);
+          let newHistoryList = this.state.history;
+          console.log(yesBranch);
+          newHistoryList.push(yesBranch);
+          this.setState({remainingTree: yesBranch});
+          this.setState({questions: newHistoryList})
+        
       }
       
   }
@@ -70,21 +66,13 @@ class App extends React.Component {
         <p>
           Special waste disposal
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
 
       <div className='welcomePage'>
       <p>Please read all the information displayed on the page.</p> <p> Not doing so could lead to a dangerous situation</p>
       </div>
-      {this.state.questions.map(item => (
-        <Question key={item} question={item} onClick={this.renderNextQuestion}/>
+      {this.state.history.map(item => (
+        <Question key={item} hist={item} onClick={this.renderNextQuestion}/>
         ))}
       
 
