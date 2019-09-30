@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #063852;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,43 @@
   color: white;
 }
 
+.welcomePage{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("images/color_background.jpg");  
+  min-height: 100vh;
+  font-size: 5vmin
+}
+
+.epflLogo{
+  max-width: 100vw;
+  max-height: 20 vh;
+  min-width: 20 vw;
+  width: 8vw;
+  height: auto; 
+}
+
+
 .App-link {
+  display: flex;
   color: #09d3ac;
 }
+
+.questionButton{
+  background-color: #09092f;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  margin: 5 vh;
+}
+
+#buttonStyle{
+  margin: 2vw;
+}
+
