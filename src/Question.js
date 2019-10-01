@@ -16,29 +16,32 @@ class Question extends React.Component {
         console.log(props)
         this.state = {
           history: this.props.hist,
-          onClickAction : this.props.onClick
+          onClickAction : this.props.onClick,
+          backgroundColor : ""
         }
       }
 
-      htmlDecode(input){
-        var e = document.createElement('div');
-        e.innerHTML = input;
-        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-      }
+    onClickColorChange(response){
+        if(response === "YES"){
+            this.setState({backgroundColor: "greenAwnser"})
+        }else{
+            this.setState({backgroundColor: "redAwnser"})
+        }
+        this.state.onClickAction(response);
+    }
 
     render(){
         let history = this.state.history;
         console.log(this.state.history);
         if(history.isLeaf=="0"){
             return(
-        <div className='questionButton'>
+            
+        <div className='questionButton' id={this.state.backgroundColor}>
             <p>{this.state.history.question}</p>
             <ButtonToolbar>
-            <Button variant="success" id="buttonStyle" onClick={()=> this.state.onClickAction("YES")}>Yes</Button>
-            <Button variant="danger" id="buttonStyle" onClick={() => this.state.onClickAction("NO")}>No</Button>
+            <Button variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
+            <Button variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
             </ButtonToolbar>
-            
-
         </div>
             );
         }else{

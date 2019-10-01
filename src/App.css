@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  scroll-snap-type: y mandatory;
 }
 
 .App-logo {
@@ -25,7 +26,7 @@
   justify-content: center;
   background-image: url("images/color_background.jpg");  
   min-height: 100vh;
-  font-size: 5vmin
+  font-size: 5vmin;
 }
 
 .epflLogo{
@@ -43,6 +44,7 @@
 }
 
 .questionButton{
+  padding: 10vh;
   background-color: #09092f;
   color: white;
   display: flex;
@@ -51,9 +53,17 @@
   justify-content: center;
   min-height: 40vh;
   margin: 5 vh;
+  border-bottom: 0.3vh solid rgba(163, 162, 162, 0.486)
 }
 
 #buttonStyle{
   margin: 2vw;
 }
 
+#redAwnser{
+  background-color:  #5f0000;
+}
+
+#greenAwnser{
+  background-color: rgb(0, 53, 0);
+}
