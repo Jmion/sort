@@ -87,7 +87,7 @@ class App extends React.Component {
   return (
     <div className="App">
 
-     
+     <h1>DO NOT USE TO SORT SPECIAL WASTE. EXACTITUDE OF INFORMATION REMAINS TO BE CHECKED</h1>
       <header className="App-header">
         <img src={logo} className="App-logo epflLogo" alt="logo"/>
         <p>
