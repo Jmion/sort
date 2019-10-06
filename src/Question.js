@@ -30,8 +30,10 @@ class Question extends React.Component {
         super(props);
         //console.log(props)
         this.state = {
+          idx: this.props.idx,
           history: this.props.hist,
           onClickAction : this.props.onClick,
+          resetWebsiteAction: this.props.resetFunction,
           backgroundColor : ""
         }
       }
@@ -42,17 +44,17 @@ class Question extends React.Component {
         }else{
             this.setState({backgroundColor: "redAwnser"})
         }
-        this.state.onClickAction(response);
+        this.state.onClickAction(response,this.state.idx);
     }
 
     renderInformationIfRequired(){
         let history = this.state.history;
         if(history.information != ""){
             console.log("Informatio card beaing displayed")
-
+            let html_information = history.information
             return(
                 <div className='questionButton' id="infoColor">
-                    <p>{history.information}</p>
+                    <p><div dangerouslySetInnerHTML={{ __html: html_information}}/></p>
                 </div>
             )
         }
@@ -86,49 +88,43 @@ class Question extends React.Component {
 
     renderImageHtml(){
         let history = this.state.history;
-        if(history.isLeaf = "0" && history.pictogram != ""){
+        if(history.isLeaf == "0" && history.pictogram != ""){
             let picto = this.imageResolver(history.pictogram);
             return (<Row><Col sm><Image className='image_pictrogram' src={picto} fluid /></Col></Row>);
         }
     }
 
     render(){
+        console.log("idx is : "+JSON.stringify(this.state.idx));
         let history = this.state.history;
-        //console.log(this.state.history);
         if(history.isLeaf=="0"){
             let html_question = history.question
             return(
-        <div>
-            {this.renderInformationIfRequired()}
-            
-
-
-            <div className='questionButton' id={this.state.backgroundColor}>
-
-            
-
-            <Container>
-                <Row>
-                    <Col sm><div id='alignLeft' dangerouslySetInnerHTML={{ __html: html_question}}/></Col>
-                </Row>
-                {this.renderImageHtml()}
-            </Container>
-                
-            
-                <ButtonToolbar>
-                <Button variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
-                <Button variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
-                </ButtonToolbar>
-            </div>
-        </div>
+                <div>
+                    {this.renderInformationIfRequired()}
+                    <div className='questionButton' id={this.state.backgroundColor}>
+                        <Container>
+                            <Row>
+                                <Col sm><div dangerouslySetInnerHTML={{ __html: html_question}}/></Col>
+                            </Row>
+                            {this.renderImageHtml()}
+                        </Container>
+                            
+                        <ButtonToolbar>
+                            <Button variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
+                            <Button variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
+                        </ButtonToolbar>
+                    </div>
+                </div>
             );
         }else{
             let html_information = history.information
             return (
             <div className='questionButton'>
-            <h2>Information : </h2> <div dangerouslySetInnerHTML={{ __html: html_information}}/> 
-            <p> omod_code : {history.omod_code}</p>
-            <p>label : {history.label}</p>
+                <h2>Information : </h2> <div dangerouslySetInnerHTML={{ __html: html_information}}/> 
+                <p> omod_code : {history.omod_code}</p>
+                <p>label : {history.label}</p>
+                <Button onClick={() => this.state.resetWebsiteAction()}>Identify a new waste</Button>
             </div>
             );
         }

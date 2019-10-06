@@ -4,16 +4,7 @@ import './App.css';
 import epfl_logo from './images/EPFL_logo.png';
 import pico_flamable from './images/pictograms/oxidizer.svg';
 
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Media from 'react-bootstrap/Media'
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
-import {Navbar ,Nav, NavDropdown} from 'react-bootstrap/Navbar';
-import {Form, FormControl} from 'react-bootstrap/Form';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import tree from './data/tree.json'
 import Question from './Question'
@@ -26,6 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      resetCounter: 0, //used to triger rerender when use click back in history. Without cells will not rerender
       history: [tree],
       remainingTree: tree
     }
@@ -39,34 +31,59 @@ class App extends React.Component {
     this.setState({awnser: trig})
   }
  
-  renderNextQuestion = (resp) => {
-    console.log("Render next question app resp value : "+resp)
-      if(resp == "YES" ){ //&& this.state.remainingTree.isLeaf == "0"
+  renderNextQuestion = (resp, idxOfCaller) => {
+    console.log("IDX received by app is " + JSON.stringify(idxOfCaller))
+    console.log("Length of history is "+ JSON.stringify(this.state.history.length))
+    if(idxOfCaller+1 != this.state.history.length){
+      console.log("RESET REQ DETECTED")
+      //let nodeThatChanged = this.state.history[idxOfCaller]
+      //let branch = resp == "YES" ? nodeThatChanged.yesBranch : nodeThatChanged.noBranch;
+      //this.setState(prevState => ({
+      //  history : [...(prevState.history.slice(0,idxOfCaller+1)),branch],
+      //  remainingTree: prevState.history.slice(0,idxOfCaller+1)
+      //}));
+    }
+      else if(resp == "YES" && this.state.remainingTree.isLeaf == "0"){ //
         let yesBranch = this.state.remainingTree.yesBranch
-          console.log(this.state.remainingTree);
-          let newHistoryList = this.state.history;
-          console.log(yesBranch);
-          newHistoryList.push(yesBranch);
+          //console.log(this.state.remainingTree);
+          //let newHistoryList = this.state.history;
+          //console.log(yesBranch);
+          //newHistoryList.push(yesBranch);
           this.setState({remainingTree: yesBranch});
-          this.setState({history: newHistoryList})
+          this.setState(prevState => ({
+            resetCounter: prevState.resetCounter+1,
+            history : [ ...prevState.history,yesBranch]           
+          }));
       }
-      if(resp == "NO"){
+      else if(resp == "NO" && this.state.remainingTree.isLeaf == "0"){
         let noBranch = this.state.remainingTree.noBranch
-          console.log(this.state.remainingTree);
-          let newHistoryList = this.state.history;
-          console.log(noBranch);
-          newHistoryList.push(noBranch);
+          //console.log(this.state.remainingTree);
+          //let newHistoryList = this.state.history;
+          //console.log(noBranch);
+          //newHistoryList.push(noBranch);
           this.setState({remainingTree: noBranch});
-          this.setState({history: newHistoryList})
+          this.setState(prevState => ({
+            history : [ ...prevState.history,noBranch]           
+          }));
       }
-      console.log("State of history is :" +this.state.history)
-      console.log(this.state.history)
+      //console.log("State of history is :" +this.state.history)
+      //console.log(this.state.history)
   }
 
+
+  resetWebsite = () =>{
+    console.log("RESET request");
+    this.setState(prevState => ({
+      history : [prevState.history[0]],
+      remainingTree: prevState.history[0]
+    }));
+  }
   
 
 
   render(){
+    console.log("State of history is :" +this.state.history)
+      console.log(this.state.history)
   return (
     <div className="App">
 
@@ -83,9 +100,11 @@ class App extends React.Component {
       </div>
 
 
-      {this.state.history.map(item => (
-        <Question key={item} hist={item} onClick={this.renderNextQuestion}/>
+      {this.state.history.map((item, index) => (
+        <Question idx={index} key={index} hist={item} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
+
+      
       
     </div>
   );

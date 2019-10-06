@@ -74,11 +74,16 @@
 
 .image_pictrogram{
   background-color: white;
-  width: 30px;
+  width: 120px;
 }
 
 
 ul {
+  text-align: center;
+  list-style: inside;
+}
+
+ol {
   text-align: center;
   list-style: inside;
 }

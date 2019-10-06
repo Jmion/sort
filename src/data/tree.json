@@ -127,11 +127,28 @@
                     },
                     "noBranch": {
                         "isLeaf": "0",
-                        "question": "NOOOOOO",
+                        "question": "Is the physical state a <b>gas</b>?",
                         "information": "",
                         "pictogram" : "" ,
-                        "yesBranch": { },
-                        "noBranch": {}
+                        "yesBranch": {
+                            "isLeaf": "1",
+                            "information": "Bring cylinders, sprays, catridges to the assigned waste premises. Inform the responsible person.",
+                            "omod_code" : "N/A",
+                            "label": "N/A"
+                         },
+                        "noBranch": {
+                            "isLeaf": "0",
+                            "question": "<ol><li>The substance is <b>stable</b> and is in its original container.</li><li>This container is closed with the original cap and the label is clearly legible.</li></ol>",
+                            "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
+                            "pictogram" : "" ,
+                            "yesBranch": { 
+                                "isLeaf": "1",
+                                "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, <b>Seal with a ribbon</b>(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
+                                "omod_code" : "N/A",
+                                "label": "N/A"
+                            },
+                            "noBranch": {}
+                        }
                     }
                 }
             }
