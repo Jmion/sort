@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6823ddd8.chunk.css",
+    "main.js": "/static/js/main.a0e380a5.chunk.js",
+    "main.js.map": "/static/js/main.a0e380a5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.13e7593c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.13e7593c.js.map",
+    "static/css/2.d7a94725.chunk.css": "/static/css/2.d7a94725.chunk.css",
+    "static/js/2.1c2c3fc0.chunk.js": "/static/js/2.1c2c3fc0.chunk.js",
+    "static/js/2.1c2c3fc0.chunk.js.map": "/static/js/2.1c2c3fc0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2573c17dc77feaa7ba8ea1aadd24c839.js": "/precache-manifest.2573c17dc77feaa7ba8ea1aadd24c839.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.d7a94725.chunk.css.map": "/static/css/2.d7a94725.chunk.css.map",
+    "static/css/main.6823ddd8.chunk.css.map": "/static/css/main.6823ddd8.chunk.css.map",
+    "static/media/App.css": "/static/media/color_background.e575707b.jpg",
+    "static/media/corrosion.svg": "/static/media/corrosion.3783d046.svg",
+    "static/media/environment.svg": "/static/media/environment.9b1dea1d.svg",
+    "static/media/exclamation_mark.svg": "/static/media/exclamation_mark.11dddf4f.svg",
+    "static/media/exploding_bomb.svg": "/static/media/exploding_bomb.fad7e4b0.svg",
+    "static/media/flamable.svg": "/static/media/flamable.07f6ed65.svg",
+    "static/media/gas_cylinder.svg": "/static/media/gas_cylinder.9c48680c.svg",
+    "static/media/health_hazard.svg": "/static/media/health_hazard.7c8930e6.svg",
+    "static/media/logo.png": "/static/media/logo.61dcc44a.png",
+    "static/media/oxidizer.svg": "/static/media/oxidizer.ad5855b0.svg",
+    "static/media/skull.svg": "/static/media/skull.d5734eb6.svg"
+  }
+}
