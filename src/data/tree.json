@@ -147,7 +147,40 @@
                                 "omod_code" : "N/A",
                                 "label": "N/A"
                             },
-                            "noBranch": {}
+                            "noBranch": {
+                                "isLeaf": "0",
+                                "question": "Unstable (reactive waste containing nitric acid or a category 1 oxidizer.",
+                                "information": "",
+                                "pictogram" : "oxidizer" ,
+                                "yesBranch": {
+                                    "isLeaf": "1",
+                                    "information": "<ul><li>Treat according to SCC instructions (<a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a>)</li><li>Pour into a white high density polyethylene (HDPE) container. Once the solution stabilised, close with a <b>security cap</b> (with overpressure release valve).</li><li>Label particular waste (precise all components, hazards and the pH)</li></ul>",
+                                    "omod_code" : "N/A",
+                                    "label": "N/A" },
+                                "noBranch": {
+                                    "isLeaf": "0",
+                                    "question": "<ul><li>Reacts with air,</li><li>Moisture sensitive and/or</li><li>Thermally unstable</li></ul>",
+                                    "information": "",
+                                    "pictogram" : "" ,
+                                    "yesBranch": {
+                                        "isLeaf": "0",
+                                        "question": "Stable at room temperature",
+                                        "information": "<h3>Any unstable substance must be deactivated in the laboratory where it has been (prod)used.</h3> If it is an explosive, contact <a href=\"mailto:securite@epfl.ch\">securite@epfl.ch</a><ul><li>Put into an adapted container on which a safety cap can be srewwed or put into a \"UN\" certified container (fille with Nétosol&reg; absorbent to block the flask inside).</li></ul><i>If substance still unstable</i><ul><li>Put under insert atmosphere (argon or nitrogen), seal and store away from light.</li></ul>",
+                                        "pictogram" : "" ,
+                                        "yesBranch": {
+                                            "isLeaf": "1",
+                                            "information": "Label <i>Particular waste (procise all components, hazards and the pH)</i>",
+                                            "omod_code" : "16 05 06",
+                                            "label": "2" },
+                                        "noBranch": {
+                                            "isLeaf": "1",
+                                            "information": "<ul><li>put into a rigid overpack, fill with Néstol&reg; absorbent,</li><li>seal and label accordingly,</li><li>store in an EX refrigerator or freezer</li></ul><h4>Label <i>Particular waste</i> <b>to be transported regrigerated</b> (precise all components).</h4>",
+                                            "omod_code" : "16 05 06",
+                                            "label": "2"}
+                                     },
+                                    "noBranch": {}
+                                }
+                            }
                         }
                     }
                 }
