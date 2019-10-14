@@ -76,7 +76,21 @@
                                         "label": "16"
                                     },
                                     "noBranch": {
-                                        "comment": "Laste sqaure of bottom graph"
+                                        "isLeaf": "0",
+                                        "question": "Material contaminated with traces of nanomaterial or with one of these hazards:",
+                                        "information": "",
+                                        "pictogram" : "combo" ,
+                                        "yesBranch": {
+                                            "isLeaf": "1",
+                                            "information": "<ul><li> If no neutralisation is required, leave the substance evaporating in a fume hood,</li><li>Put in a plastic container for toxic waste,</li><li>On the label, precise the material and the contaminent.</li></ul><p>If presence of nanomaterial: confine in adapted sealed double pack (bag or container).</p>",
+                                            "omod_code" : "15 01 10",
+                                            "label": "17"
+                                        },
+                                        "noBranch": {
+                                            "isLeaf": "1",
+                                            "information": "Label <i>Particular waste (procise all components, hazards and the pH)</i>",
+                                            "omod_code" : "16 05 06",
+                                            "label": "2" }
                                     }
                                 }
                             }
@@ -178,7 +192,207 @@
                                             "omod_code" : "16 05 06",
                                             "label": "2"}
                                      },
-                                    "noBranch": {}
+                                    "noBranch": {
+                                        "isLeaf": "0",
+                                        "question": "Contains (micro) organisms",
+                                        "information": "",
+                                        "pictogram" : "" ,
+                                        "yesBranch": {
+                                            "isLeaf": "0",
+                                            "question": "Liquid",
+                                            "information": "",
+                                            "pictogram" : "" ,
+                                            "yesBranch": { 
+                                                "isLeaf": "0",
+                                                "question": "Contains chemicals (cyanides, metals and/or others) ",
+                                                "information": "Deactivate with desinfectant <p>(bleach at 10%, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
+                                                "pictogram" : "" ,
+                                                "yesBranch": {
+                                                    "isLeaf": "1",
+                                                    "information": "Deactivated (micro-)organism waste. Precise: <ul><li>the used desinfectant</lil><li>the chemicals (cyanides, metal and/or others);</li><li>If presence of nanomaterial, <strong>confine in sealed double pack</strong></li>",
+                                                    "omod_code" : "18 01 02",
+                                                    "label": "3"
+                                                },
+                                                "noBranch": {
+                                                    "isLeaf": "1",
+                                                    "information": "Contact the biosafety team",
+                                                    "omod_code" : "N/A",
+                                                    "label": "N/A"
+                                                }
+                                            },
+                                            "noBranch": {
+                                                "isLeaf": "0",
+                                                "question": "Contains nano-material",
+                                                "information": "",
+                                                "pictogram" : "" ,
+                                                "yesBranch": { 
+                                                    "isLeaf": "1",
+                                                    "information": "Contact the biosafety team",
+                                                    "omod_code" : "16 05 06",
+                                                    "label": "2"
+                                                },
+                                                "noBranch": {
+                                                    "isLeaf": "1",
+                                                    "information": "Contact the biosafety team",
+                                                    "omod_code" : "N/A",
+                                                    "label": "N/A"
+                                                }
+                                            }
+                                         },
+                                        "noBranch": {
+                                            "isLeaf": "0",
+                                            "question": "Contains nanomaterial",
+                                            "information": "",
+                                            "pictogram" : "" ,
+                                            "yesBranch": {
+                                                "isLeaf": "0",
+                                                "question": "In suspension",
+                                                "information": "",
+                                                "pictogram" : "" ,
+                                                "yesBranch": {  
+                                                    "isLeaf": "1",
+                                                    "information": "<strong>Confine in sealed double pack</strong> and label with: <u>Nanomaterial, liquid waste</u>:<ul><li>name of the substance or mixture and name(s) of the solvent(s)</li><li>hazard pictograms</li>",
+                                                    "omod_code" : "16 05 06",
+                                                    "label": "2"
+                                                },
+                                                "noBranch": {
+                                                    "isLeaf": "1",
+                                                    "information": "<strong>Confine in sealed double pack</strong> and label with: <u>Nanomaterial, solid waste</u>:<ul><li>name of the substance or mixture and name(s) of the solvent(s)</li><li>hazard pictograms</li>",
+                                                    "omod_code" : "16 05 06",
+                                                    "label": "2"
+                                                }
+                                             },
+                                            "noBranch": {
+                                                "isLeaf": "0",
+                                                "question": "Paint waste",
+                                                "information": "",
+                                                "pictogram" : "" ,
+                                                "yesBranch": { 
+                                                    "isLeaf": "1",
+                                                    "information": "Paint waste",
+                                                    "omod_code" : "08 01 11",
+                                                    "label": "4"
+                                                },
+                                                "noBranch": {
+                                                    "isLeaf": "0",
+                                                    "question": "Aqueous solution with cyanide anions >50 mg/L",
+                                                    "information": "",
+                                                    "pictogram" : "" ,
+                                                    "yesBranch": { 
+                                                        "isLeaf": "1",
+                                                        "information": "<p>Basify to pH> 9</p><p>Waste of basified cyanides <i>(precise the components)</i></p>",
+                                                        "omod_code" : "06 03 11",
+                                                        "label": "5"
+
+                                                    },
+                                                    "noBranch": {
+                                                        "isLeaf": "0",
+                                                        "question": "Contains mercury or derivatives",
+                                                        "information": "",
+                                                        "pictogram" : "" ,
+                                                        "yesBranch": { 
+                                                            "isLeaf": "1",
+                                                            "information": "Waste containing mercury <i>(precise the components)</i>",
+                                                            "omod_code" : "06 04 04",
+                                                            "label": "6"
+                                                        },
+                                                        "noBranch": {
+                                                            "isLeaf": "0",
+                                                            "question": "Liquid",
+                                                            "information": "",
+                                                            "pictogram" : "" ,
+                                                            "yesBranch": { 
+                                                                "isLeaf": "0",
+                                                                "question": "Acidic, basic or neutral aqueous solutions",
+                                                                "information": "<p><strong>Only one layer.</strong></p><p>Otherwise the layers must be separated.</p>",
+                                                                "pictogram" : "" ,
+                                                                "yesBranch": { 
+                                                                    "isLeaf": "0",
+                                                                    "question": "Acidic solution pH ≤ 3",
+                                                                    "information": "",
+                                                                    "pictogram" : "" ,
+                                                                    "yesBranch": {
+                                                                        "isLeaf": "1",
+                                                                        "information": "<p>Acidic aqueous waste <strong>without</strong> HNO<sub>3</sub></p><p><i>(precise the main acid, the other substances and the <b>pH</b>)</i></p>",
+                                                                        "omod_code" : "06 01 06",
+                                                                        "label": "11"
+                                                                     },
+                                                                    "noBranch": {
+                                                                        "isLeaf": "0",
+                                                                        "question": "Basic (alkaline) solution pH ≥ 10",
+                                                                        "information": "",
+                                                                        "pictogram" : "" ,
+                                                                        "yesBranch": { 
+                                                                            "isLeaf": "1",
+                                                                            "information": "<p>Basic (alkaline) aqueous waste</p><p><i>(precise the alkaline substance, the other substances and the <b>pH</b>)</i></p>",
+                                                                            "omod_code" : "06 02 05",
+                                                                            "label": "12"
+                                                                        },
+                                                                        "noBranch": {
+                                                                            "isLeaf": "1",
+                                                                            "information": "<p>Aqueous solution 3 < pH < 10<p/><p>Aqueous waste<i>(precise the components and the <b>pH</b>)</i>",
+                                                                            "omod_code" : "07 01 01",
+                                                                            "label": "13"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "noBranch": {
+                                                                    "isLeaf": "0",
+                                                                    "question": "Oil & petrol",
+                                                                    "information": "",
+                                                                    "pictogram" : "" ,
+                                                                    "yesBranch": { 
+                                                                        "isLeaf": "1",
+                                                                        "information": "Oil waste",
+                                                                        "omod_code" : "13 02 08",
+                                                                        "label": "8"
+                                                                    },
+                                                                    "noBranch": {
+                                                                        "isLeaf": "0",
+                                                                        "question": "Halogenated substance or solvent >2%",
+                                                                        "information": "",
+                                                                        "pictogram" : "" ,
+                                                                        "yesBranch": {
+                                                                            "isLeaf": "1",
+                                                                            "information": "Halogenated waste <i>(precise the components)</i>",
+                                                                            "omod_code" : "07 01 03",
+                                                                            "label": "9"
+                                                                         },
+                                                                        "noBranch": {
+                                                                            "isLeaf": "1",
+                                                                            "information": "Non-halogenated waste  <i>(precise the components)</i>",
+                                                                            "omod_code" : "07 01 04",
+                                                                            "label": "10"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "noBranch": {
+                                                                "isLeaf": "0",
+                                                                "question": "Mineral salts with or without residues of chemicals (ex: alumina, used silica, silica gel)",
+                                                                "information": "",
+                                                                "pictogram" : "" ,
+                                                                "yesBranch": { 
+                                                                    "isLeaf": "1",
+                                                                    "information": "Mineral waste <i>(precise the components)</i>",
+                                                                    "omod_code" : "16 03 03",
+                                                                    "label": "7"
+                                                                },
+                                                                "noBranch": {
+                                                                    "isLeaf": "1",
+                                                                    "information": "To be treated case by case <i>(precise the components)</i>",
+                                                                    "omod_code" : "16 05 06",
+                                                                    "label": "2"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                        }
+
+                                    }
                                 }
                             }
                         }

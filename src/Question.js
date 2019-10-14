@@ -13,6 +13,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import combo from './images/pictograms/combo.svg'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -80,6 +81,8 @@ class Question extends React.Component {
                 return oxidizer;
             case "skull":
                 return skull;
+            case "combo":
+                return combo;
             default:
                 console.warn("Pictogram requested not found. Value of string was "+img)
                 
@@ -111,8 +114,8 @@ class Question extends React.Component {
                         </Container>
                             
                         <ButtonToolbar>
-                            <Button variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
-                            <Button variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
+                            <Button size="lg" variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
+                            <Button size="lg" variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
                         </ButtonToolbar>
                     </div>
                 </div>
