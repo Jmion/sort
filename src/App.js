@@ -118,7 +118,9 @@ class App extends React.Component {
       {this.state.history.map((item, index) => (
         <Question idx={index} key={index} hist={item} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
-
+      <div>
+        Developped by Jeremy Mion for a master project in the domain of computer science
+      </div>
     </div>
   );
 }
