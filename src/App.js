@@ -37,8 +37,8 @@ class App extends React.Component {
    * Adds to list stored in state the next question to be asked.
    * 
    * 
-   * @param  {} resp Will either be YES or NO. If YES the user awnsered yes to the previous question.
-   * @param  {} idxOfCaller Unique ID of the caller. Used to determine if we are resetting due to a change in history or adding a new question
+   * @param  {string} resp Will either be YES or NO. If YES the user awnsered yes to the previous question.
+   * @param  {int} idxOfCaller Unique ID of the caller. Used to determine if we are resetting due to a change in history or adding a new question
    */
   renderNextQuestion = (resp, idxOfCaller) => {
     console.log("IDX received by app is " + JSON.stringify(idxOfCaller))

@@ -41,6 +41,12 @@ class Question extends React.Component {
         }
       }
 
+      /**
+       * Changed to colour and bottons look for this question.
+       * 
+       * 
+       * @param {string} response YES if user clicked on the yes button NO otherwise
+       */
     onClickColorChange(response){
         if(response === "YES"){
             this.setState({
@@ -59,7 +65,9 @@ class Question extends React.Component {
     }
 
     /**
-     * Renders information 
+     * Renders information strip if there is an information strip required from the JSON.
+     * 
+     * Will render an information buble if the string information is not empty.
      */
     renderInformationIfRequired(){
         let history = this.state.history;
@@ -116,6 +124,9 @@ class Question extends React.Component {
         }
     }
 
+    /**
+     * Part of the React life cycle used to render the component to screen.
+     */
     render(){
         console.log("idx is : "+JSON.stringify(this.state.idx));
         let history = this.state.history;
