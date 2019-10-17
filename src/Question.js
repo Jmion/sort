@@ -35,19 +35,32 @@ class Question extends React.Component {
           history: this.props.hist,
           onClickAction : this.props.onClick,
           resetWebsiteAction: this.props.resetFunction,
-          backgroundColor : ""
+          backgroundColor : "",
+          yesButtonColor: 'success',
+          noButtonColor: 'danger'
         }
       }
 
     onClickColorChange(response){
         if(response === "YES"){
-            this.setState({backgroundColor: "greenAwnser"})
+            this.setState({
+                backgroundColor: "greenAwnser",
+                noButtonColor: 'secondary',
+                yesButtonColor: 'success'
+        })
         }else{
-            this.setState({backgroundColor: "redAwnser"})
+            this.setState({
+                backgroundColor: "redAwnser",
+                yesButtonColor:'secondary',
+                noButtonColor: 'danger'
+            })
         }
         this.state.onClickAction(response,this.state.idx);
     }
 
+    /**
+     * Renders information 
+     */
     renderInformationIfRequired(){
         let history = this.state.history;
         if(history.information != ""){
@@ -61,6 +74,9 @@ class Question extends React.Component {
         }
     }
 
+    /**
+     * Used to identify what picture to display from the string stored in the JSON tree file
+     */
     imageResolver(img){
         switch(img){
             case "corrosion" : 
@@ -89,6 +105,9 @@ class Question extends React.Component {
         }
     }
 
+    /**
+     * Renders the picotgram warning in the question if pictogram field is not empty.
+     */
     renderImageHtml(){
         let history = this.state.history;
         if(history.isLeaf == "0" && history.pictogram != ""){
@@ -114,8 +133,8 @@ class Question extends React.Component {
                         </Container>
                             
                         <ButtonToolbar>
-                            <Button size="lg" variant="success" id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
-                            <Button size="lg" variant="danger" id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
+                            <Button size="lg" variant={this.state.yesButtonColor} id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
+                            <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
                         </ButtonToolbar>
                     </div>
                 </div>

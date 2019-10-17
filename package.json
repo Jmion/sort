@@ -2,11 +2,12 @@
   "name": "sort",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://jmion.github.io/sort/",
+  "homepage": "https://jmion.github.io/sort/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-hotkeys": "^2.0.0-pre9",
     "react-scripts": "3.1.2"
   },
   "scripts": {

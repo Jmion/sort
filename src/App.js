@@ -9,28 +9,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import tree from './data/tree.json'
 import Question from './Question'
 import React, { useEffect, useRef } from 'react'
+import { HotKeys } from "react-hotkeys";
+import { getApplicationKeyMap } from 'react-hotkeys';
+
 
 
 class App extends React.Component {
-
-
   constructor(props){
     super(props);
     this.state = {
       resetCounter: 0, //used to triger rerender when use click back in history. Without cells will not rerender
       history: [tree],
-      remainingTree: tree
+      remainingTree: tree,
+      shortcut: false // used to button awnser.
     }
   }
+
+
 
   componentDidMount() {
     console.log(this.state.questions)
   }
  
-  buttonList = (trig) => {
-    this.setState({awnser: trig})
-  }
  
+  
+  /**
+   * Adds to list stored in state the next question to be asked.
+   * 
+   * 
+   * @param  {} resp Will either be YES or NO. If YES the user awnsered yes to the previous question.
+   * @param  {} idxOfCaller Unique ID of the caller. Used to determine if we are resetting due to a change in history or adding a new question
+   */
   renderNextQuestion = (resp, idxOfCaller) => {
     console.log("IDX received by app is " + JSON.stringify(idxOfCaller))
     console.log("Length of history is "+ JSON.stringify(this.state.history.length))
@@ -71,6 +80,10 @@ class App extends React.Component {
   }
 
 
+  /**
+   * Called to reset the webpage. This is used when we want to restart 
+   * the sorting task for a new waste. It will remove the awnsers.
+   */
   resetWebsite = () =>{
     console.log("RESET request");
     this.setState(prevState => ({
@@ -78,16 +91,18 @@ class App extends React.Component {
       remainingTree: prevState.history[0]
     }));
   }
-  
 
 
+/**
+ * React function called to render the website. It is within this methode that everything that 
+ * is displayed is put.
+ */
   render(){
     console.log("State of history is :" +this.state.history)
       console.log(this.state.history)
   return (
     <div className="App">
-
-     <h1>DO NOT USE TO SORT SPECIAL WASTE. EXACTITUDE OF INFORMATION REMAINS TO BE CHECKED</h1>
+     <h1>For demonstration purposes only. Not to be used to sort waste!</h1>
       <header className="App-header">
         <img src={logo} className="App-logo epflLogo" alt="logo"/>
         <p>
@@ -104,8 +119,6 @@ class App extends React.Component {
         <Question idx={index} key={index} hist={item} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
 
-      
-      
     </div>
   );
 }
