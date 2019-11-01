@@ -26,11 +26,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       resetCounter: 0, //used to triger rerender when use click back in history. Without cells will not rerender
-      history: [treeEN],
       lang: 'en', //language of the website
       resestCounter: 0, // Used as part of key when generating questions. Needed to retriger render when reset occurs. Key needs to change each time change to question occures
-      previousHistory: [], //Stores the previous history. Allows to undo one history change
+      history: [treeEN],
       currentAwnsers : [],
+      previousHistory: [], //Stores the previous history. Allows to undo one history change
       previousAwnsers : [],
     }
   }
@@ -65,15 +65,22 @@ class App extends React.Component {
   setTreeAccordingToLang = (newLanguage) => {
     switch (newLanguage) {
       case 'fr':
-        this.setState({
+        this.setState(prevState =>({
+          previousHistory : prevState.history,
+          previousAwnsers : prevState.currentAwnsers,
+          currentAwnsers : [],
           history: [treeFR],
-        })
+
+        }))
         break;
     
       default:
-          this.setState({
+          this.setState(prevState => ({
+            previousHistory : prevState.history,
+            previousAwnsers : prevState.currentAwnsers,
+            currentAwnsers : [],
             history: [treeEN],
-          })
+          }))
         break;
     }
   }
@@ -83,11 +90,13 @@ class App extends React.Component {
    * Undo previous history modification. Allows to undo accidental modification to previously awnsered question
    */
  undoHistoryModification = () => {
-    this.setState(prevState => ({
-      resetCounter : prevState.resestCounter + 1,
-      history : prevState.previousHistory,
-      currentAwnsers : prevState.previousAwnsers
-    }))
+   if(this.state.previousHistory.length !=0){
+      this.setState(prevState => ({
+        resetCounter : prevState.resestCounter + 1,
+        history : prevState.previousHistory,
+        currentAwnsers : prevState.previousAwnsers
+      }))
+    }
  }
   
   /**
@@ -167,10 +176,8 @@ class App extends React.Component {
             />
             {' ' + websiteText[this.state.lang]['title']}
           </Navbar.Brand>
-        <Nav.Link className='nav-lang ml-auto' onClick={this.undoHistoryModification} id='nav_lang' >Undo changes</Nav.Link>
-
+        <Nav.Link className='nav-lang' onClick={this.undoHistoryModification} id='nav_lang' >{websiteText[this.state.lang]['undo button']}</Nav.Link>
         <Nav.Link className='nav-lang ml-auto' onClick={this.changeLanguage} id='nav_lang'>{this.getNonActiveLanguage()}</Nav.Link>
-
         </Navbar>
 
 

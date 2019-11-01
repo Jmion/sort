@@ -6,7 +6,10 @@
         },
         "waringReadInformation": "<p>Please read all the information displayed on the page.</p><p>Not doing so could lead to a dangerous situation</p>",
         "footer": "Developped by Jeremy Mion in collaboration with EPFL's Safety Competence Center",
-        "title": "Special waste sorter"
+        "title": "Special waste sorter",
+        "undo button" : "Undo changes",
+        "more information" : "More information",
+        "Identify a new waste" : "Identify a new waste"
     },
     "fr":{
         "button":{
@@ -15,6 +18,9 @@
         },
         "waringReadInformation": "<p>Veuillez lire toutes les informations affichées sur la page.</p> <p>Ne pas le faire pourrait conduire à une situation dangereuse.</p>",
         "footer": "Développé par Jeremy Mion en collaboration avec le Safety Competence Center de l'EPFL",
-        "title": "Tri des déchets spéciaux"
+        "title": "Tri des déchets spéciaux",
+        "undo button" : "Annuler les modifications",
+        "more information" : "Plus d'information",
+        "Identify a new waste" : "Identifier un nouveau déchet"
     }
 }

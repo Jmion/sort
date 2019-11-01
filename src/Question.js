@@ -21,7 +21,9 @@ import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './App.css';
 import websiteText from './data/websiteText.json'
-
+import Popover from 'react-bootstrap/Popover'
+import Overlay from 'react-bootstrap/Overlay'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 
 class Question extends React.Component {
@@ -154,10 +156,24 @@ class Question extends React.Component {
         }
     }
 
+    
+
     /**
      * Part of the React life cycle used to render the component to screen.
      */
     render(){
+
+        const popover = (
+            <Popover id="popover-basic">
+              <Popover.Title as="h3">Popover right</Popover.Title>
+              <Popover.Content>
+                And here's some <strong>amazing</strong> content. It's very engaging.
+                right?
+              </Popover.Content>
+            </Popover>
+          );
+
+
         console.log("idx is : "+JSON.stringify(this.state.idx));
         console.log("current awnsers is "+ this.state.currentAwnsers)
         let history = this.state.history;
@@ -170,6 +186,13 @@ class Question extends React.Component {
                         <Container>
                             <Row>
                                 <Col sm><div dangerouslySetInnerHTML={{ __html: html_question}}/></Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                <OverlayTrigger trigger="click" placement="below" overlay={popover}>
+                                    <Button variant="dark">{websiteText[this.state.lang]["more information"]}</Button>
+                                </OverlayTrigger>
+                                </Col>
                             </Row>
                             {this.renderImageHtml()}
                         </Container>
@@ -188,7 +211,7 @@ class Question extends React.Component {
                 <h2>Information : </h2> <div dangerouslySetInnerHTML={{ __html: html_information}}/> 
                 <p> omod_code : {history.omod_code}</p>
                 <p>label : {history.label}</p>
-                <Button onClick={() => this.state.resetWebsiteAction()}>Identify a new waste</Button>
+                <Button onClick={() => this.state.resetWebsiteAction()}>{websiteText[this.state.lang]["Identify a new waste"]}</Button>
             </div>
             );
         }
