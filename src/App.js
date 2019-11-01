@@ -24,10 +24,10 @@ class App extends React.Component {
     this.state = {
       resetCounter: 0, //used to triger rerender when use click back in history. Without cells will not rerender
       history: [treeEN],
-      remainingTree: treeEN,
       shortcut: false, // used to button awnser. 
       lang: 'en',
-      resestCounter: 0 // Used as part of key when generating questions. Needed to retriger render when reset occurs. Key needs to change each time change to question occures
+      resestCounter: 0, // Used as part of key when generating questions. Needed to retriger render when reset occurs. Key needs to change each time change to question occures
+      previousHistory: [] //Stores the previous history. Allows to undo one history change
     }
   }
 
@@ -63,14 +63,12 @@ class App extends React.Component {
       case 'fr':
         this.setState({
           history: [treeFR],
-          remainingTree: treeFR
         })
         break;
     
       default:
           this.setState({
             history: [treeEN],
-            remainingTree: treeEN
           })
         break;
     }
@@ -90,32 +88,29 @@ class App extends React.Component {
     console.log("IDX received by app is " + JSON.stringify(idxOfCaller))
     console.log("Length of history is "+ JSON.stringify(this.state.history.length))
     if(idxOfCaller + 1 != this.state.history.length){
+      
       console.log("RESET REQ DETECTED")
+      let sectionOfTreeKeept = this.state.history.slice(0,idxOfCaller + 1)
+      this.setState(prevState => ({
+        resetCounter : prevState.resestCounter + 1,
+        previousHistory : prevState.history,
+        history : [ ...sectionOfTreeKeept, resp == "YES" ? 
+        sectionOfTreeKeept[idxOfCaller].yesBranch 
+        : sectionOfTreeKeept[idxOfCaller].noBranch],
+      }));
     }
-      else if(resp == "YES" && this.state.remainingTree.isLeaf == "0"){ //
-        let yesBranch = this.state.remainingTree.yesBranch
-
-          this.setState({remainingTree: yesBranch});
+      else if(resp == "YES" && this.state.history[idxOfCaller].isLeaf == "0"){ 
+        let yesBranch = this.state.history[idxOfCaller].yesBranch
           this.setState(prevState => ({
-            resetCounter: prevState.resetCounter + 1,
             history : [ ...prevState.history, yesBranch]           
           }));
       }
-      else if(resp == "NO" && this.state.remainingTree.isLeaf == "0"){
-        let noBranch = this.state.remainingTree.noBranch
-          this.setState({remainingTree: noBranch});
+      else if(resp == "NO" && this.state.history[idxOfCaller].isLeaf == "0"){
+        let noBranch = this.state.history[idxOfCaller].noBranch
           this.setState(prevState => ({
             history : [ ...prevState.history, noBranch]           
           }));
       }
-  }
-
-  /**
-   * Called when a question wants to change the history.
-   * Will change the history and remainingTree to reflect the changes
-   */
-  changeToHistory = () =>{
-
   }
 
 
@@ -127,7 +122,6 @@ class App extends React.Component {
     console.log("RESET request");
     this.setState(prevState => ({
       history : [prevState.history[0]],
-      remainingTree: prevState.history[0],
       resestCounter : prevState.resestCounter + 1
     }));
   }
@@ -167,7 +161,7 @@ class App extends React.Component {
 
 
       {this.state.history.map((item, index) => (
-        <Question idx={index} key={index + this.state.lang + this.state.resestCounter} hist={item} lang={this.state.lang} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite} historyFunction={this.changeToHistory}/>
+        <Question idx={index} key={(item.isLeaf == "1" ? item.information : item.question)+ this.state.resestCounter} hist={item} lang={this.state.lang} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
 
         <div className='footer'dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['footer']}}/>

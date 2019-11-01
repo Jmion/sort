@@ -40,8 +40,7 @@ class Question extends React.Component {
           backgroundColor : "",
           yesButtonColor: 'success',
           noButtonColor: 'danger',
-          lang: this.props.lang,
-          historyFunction: this.props.historyFunction
+          lang: this.props.lang
         }
       }
 
@@ -52,6 +51,8 @@ class Question extends React.Component {
        * @param {string} response YES if user clicked on the yes button NO otherwise
        */
     onClickColorChange(response){
+        this.state.onClickAction(response,this.state.idx);
+        
         if(response === "YES"){
             this.setState({
                 backgroundColor: "greenAwnser",
@@ -65,7 +66,6 @@ class Question extends React.Component {
                 noButtonColor: 'danger'
             })
         }
-        this.state.onClickAction(response,this.state.idx);
     }
 
     /**
