@@ -19,7 +19,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-
+const zip = (arr1, arr2) => arr1.map((k, i) => [k, arr2[i]]); // zip function similar to python
 
 class App extends React.Component {
   constructor(props){
@@ -27,10 +27,11 @@ class App extends React.Component {
     this.state = {
       resetCounter: 0, //used to triger rerender when use click back in history. Without cells will not rerender
       history: [treeEN],
-      shortcut: false, // used to button awnser. 
-      lang: 'en',
+      lang: 'en', //language of the website
       resestCounter: 0, // Used as part of key when generating questions. Needed to retriger render when reset occurs. Key needs to change each time change to question occures
-      previousHistory: [] //Stores the previous history. Allows to undo one history change
+      previousHistory: [], //Stores the previous history. Allows to undo one history change
+      currentAwnsers : [],
+      previousAwnsers : [],
     }
   }
 
@@ -83,8 +84,9 @@ class App extends React.Component {
    */
  undoHistoryModification = () => {
     this.setState(prevState => ({
+      resetCounter : prevState.resestCounter + 1,
       history : prevState.previousHistory,
-      resetCounter : prevState.resestCounter + 1
+      currentAwnsers : prevState.previousAwnsers
     }))
  }
   
@@ -98,6 +100,7 @@ class App extends React.Component {
   renderNextQuestion = (resp, idxOfCaller) => {
     console.log("IDX received by app is " + JSON.stringify(idxOfCaller))
     console.log("Length of history is "+ JSON.stringify(this.state.history.length))
+    console.log("CurrentAwnsers is : "+JSON.stringify(this.state.currentAwnsers))
     if(idxOfCaller + 1 != this.state.history.length){ // changing past history
       console.log("RESET REQ DETECTED")
       let sectionOfTreeKeept = this.state.history.slice(0,idxOfCaller + 1)
@@ -107,21 +110,23 @@ class App extends React.Component {
         history : [ ...sectionOfTreeKeept, resp == "YES" ? 
         sectionOfTreeKeept[idxOfCaller].yesBranch 
         : sectionOfTreeKeept[idxOfCaller].noBranch],
+        previousAwnsers : prevState.currentAwnsers,
+        currentAwnsers : [...prevState.currentAwnsers.slice(0,idxOfCaller), resp]
       }));
     }
       else if(resp == "YES" && this.state.history[idxOfCaller].isLeaf == "0"){ 
         let yesBranch = this.state.history[idxOfCaller].yesBranch
           this.setState(prevState => ({
-            history : [ ...prevState.history, yesBranch]           
+            history : [ ...prevState.history, yesBranch],
+            currentAwnsers : [...prevState.currentAwnsers, resp]           
           }));
-          window.scrollBy(0,100);
       }
       else if(resp == "NO" && this.state.history[idxOfCaller].isLeaf == "0"){
         let noBranch = this.state.history[idxOfCaller].noBranch
           this.setState(prevState => ({
-            history : [ ...prevState.history, noBranch]           
+            history : [ ...prevState.history, noBranch],            
+            currentAwnsers : [...prevState.currentAwnsers, resp]
           }));
-          window.scrollBy(0,1000);
       }
   }
 
@@ -134,7 +139,8 @@ class App extends React.Component {
     console.log("RESET request");
     this.setState(prevState => ({
       history : [prevState.history[0]],
-      resestCounter : prevState.resestCounter + 1
+      resestCounter : prevState.resestCounter + 1,
+      currentAwnsers : []
     }));
   }
 
@@ -150,7 +156,7 @@ class App extends React.Component {
     <div className="App">
             <h1>For demonstration purposes only. Not to be used to sort waste!</h1>
 
-       <Navbar bg="dark" variant="dark">
+       <Navbar bg="dark" variant="dark" sticky="top">
           <Navbar.Brand href="#home">
             <img
               alt=""
@@ -161,6 +167,8 @@ class App extends React.Component {
             />
             {' ' + websiteText[this.state.lang]['title']}
           </Navbar.Brand>
+        <Nav.Link className='nav-lang ml-auto' onClick={this.undoHistoryModification} id='nav_lang' >Undo changes</Nav.Link>
+
         <Nav.Link className='nav-lang ml-auto' onClick={this.changeLanguage} id='nav_lang'>{this.getNonActiveLanguage()}</Nav.Link>
 
         </Navbar>
@@ -171,8 +179,8 @@ class App extends React.Component {
       <div dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['waringReadInformation']}}/>
       </div>
 
-      {this.state.history.map((item, index) => (
-        <Question idx={index} key={(item.isLeaf == "1" ? item.information : item.question)+ this.state.resestCounter} hist={item} lang={this.state.lang} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
+      {zip( this.state.history, this.state.currentAwnsers).map((item, index) => (
+        <Question idx={index} key={(item[0].isLeaf == "1" ? item[0].information : item[0].question)+ this.state.resestCounter+item[1]} hist={item[0]} lang={this.state.lang} currentAwnsers={item[1]} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
         <div className='footer'dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['footer']}}/>
 
@@ -180,14 +188,5 @@ class App extends React.Component {
   );
 }
 }
-
-/*
-      <header className="App-header">
-        <img src={logo} className="App-logo epflLogo" alt="logo"/>
-        <p>
-          Special waste disposal
-        </p>
-      </header>
-      */
 
 export default App;

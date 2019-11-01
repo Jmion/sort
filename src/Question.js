@@ -40,7 +40,8 @@ class Question extends React.Component {
           backgroundColor : "",
           yesButtonColor: 'success',
           noButtonColor: 'danger',
-          lang: this.props.lang
+          lang: this.props.lang,
+          currentAwnsers : this.props.currentAwnsers
         }
       }
 
@@ -49,11 +50,33 @@ class Question extends React.Component {
        * Scrolls to next question automatically
        */
       componentDidMount() {
+        this.setColor(this.state.currentAwnsers);
         const height = this.myRef.clientHeight;
         console.log(height)
         window.scrollBy(0,1000);
       } 
 
+
+      /**
+       * Will set the background color and change the buttons to reflect the response.
+       * 
+       * @param {string} response either YES or NO. All other strings will be ignored.
+       */
+      setColor(response){
+        if(response === "YES"){
+            this.setState({
+                backgroundColor: "greenAwnser",
+                noButtonColor: 'secondary',
+                yesButtonColor: 'success'
+        })
+        }else if(response === "NO"){
+            this.setState({
+                backgroundColor: "redAwnser",
+                yesButtonColor:'secondary',
+                noButtonColor: 'danger'
+            })
+        }
+      }
 
       /**
        * Changed to colour and bottons look for this question.
@@ -62,21 +85,13 @@ class Question extends React.Component {
        * @param {string} response YES if user clicked on the yes button NO otherwise
        */
     onClickColorChange(response){
-        this.state.onClickAction(response,this.state.idx);
-        
-        if(response === "YES"){
-            this.setState({
-                backgroundColor: "greenAwnser",
-                noButtonColor: 'secondary',
-                yesButtonColor: 'success'
-        })
-        }else{
-            this.setState({
-                backgroundColor: "redAwnser",
-                yesButtonColor:'secondary',
-                noButtonColor: 'danger'
-            })
+        this.setState({currentAwnsers : response})
+        if(response != this.state.currentAwnsers){
+            this.state.onClickAction(response,this.state.idx);
+            this.setColor(response)
         }
+
+        
     }
 
     /**
@@ -144,6 +159,7 @@ class Question extends React.Component {
      */
     render(){
         console.log("idx is : "+JSON.stringify(this.state.idx));
+        console.log("current awnsers is "+ this.state.currentAwnsers)
         let history = this.state.history;
         if(history.isLeaf=="0"){
             let html_question = history.question
