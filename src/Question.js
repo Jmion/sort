@@ -20,6 +20,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './App.css';
+import websiteText from './data/websiteText.json'
+
 
 
 class Question extends React.Component {
@@ -37,7 +39,9 @@ class Question extends React.Component {
           resetWebsiteAction: this.props.resetFunction,
           backgroundColor : "",
           yesButtonColor: 'success',
-          noButtonColor: 'danger'
+          noButtonColor: 'danger',
+          lang: this.props.lang,
+          historyFunction: this.props.historyFunction
         }
       }
 
@@ -144,8 +148,8 @@ class Question extends React.Component {
                         </Container>
                             
                         <ButtonToolbar>
-                            <Button size="lg" variant={this.state.yesButtonColor} id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>Yes</Button>
-                            <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>No</Button>
+                            <Button size="lg" variant={this.state.yesButtonColor} id="buttonStyle" onClick={()=> this.onClickColorChange("YES")}>{websiteText[this.state.lang]['button']['yes']}</Button>
+                            <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
                 </div>

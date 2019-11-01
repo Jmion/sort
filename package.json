@@ -4,10 +4,13 @@
   "private": true,
   "homepage": "https://jmion.github.io/sort/",
   "dependencies": {
+    "@bit/mui-org.material-ui-icons.language-rounded": "^3.9.2",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
+    "react-bootstrap-select": "^0.14.0",
     "react-dom": "^16.9.0",
     "react-hotkeys": "^2.0.0-pre9",
+    "react-is": "^16.10.2",
     "react-scripts": "3.1.2"
   },
   "scripts": {

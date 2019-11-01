@@ -24,8 +24,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("images/color_background.jpg");  
-  min-height: 100vh;
+  background-image: url("images/color_background_dark.jpg");  
+  background-size: cover;
+  min-height: 60vh;
   font-size: 5vmin;
 }
 
@@ -88,4 +89,14 @@ ul {
 ol {
   text-align: center;
   list-style: inside;
+}
+
+#nav_lang {
+  color: white;
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  font-size: 1.8vh;
 }
