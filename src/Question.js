@@ -31,7 +31,7 @@ class Question extends React.Component {
 
     constructor(props){
         super(props);
-        //console.log(props)
+        this.myRef = React.createRef();
         this.state = {
           idx: this.props.idx,
           history: this.props.hist,
@@ -43,6 +43,17 @@ class Question extends React.Component {
           lang: this.props.lang
         }
       }
+
+
+      /**
+       * Scrolls to next question automatically
+       */
+      componentDidMount() {
+        const height = this.myRef.clientHeight;
+        console.log(height)
+        window.scrollBy(0,1000);
+      } 
+
 
       /**
        * Changed to colour and bottons look for this question.
@@ -79,7 +90,7 @@ class Question extends React.Component {
             console.log("Informatio card beaing displayed")
             let html_information = history.information
             return(
-                <div className='questionButton' id="infoColor">
+                <div className='questionButton' id="infoColor" ref={this.myRef}>
                     <p><div dangerouslySetInnerHTML={{ __html: html_information}}/></p>
                 </div>
             )

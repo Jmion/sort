@@ -318,7 +318,7 @@ Always use the *setState()* method to change the state object, it will ensure th
 # Install
 npm install react-hotkeys@next --save
 npm i @bit/grommet.grommet-icons.tooltip
-
+npm i react-scroll-to-bottom
 
 # History detection mecanisme
 To detect a change to the pas history we are using the fact that the colour of the button is set. If the color is already set then we know that this is not the first clock on the question. Therefor we will call the history 

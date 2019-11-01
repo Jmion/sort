@@ -17,6 +17,9 @@ import LanguageRounded from "@bit/mui-org.material-ui-icons.language-rounded";
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
+import ScrollToBottom from 'react-scroll-to-bottom';
+
+
 
 class App extends React.Component {
   constructor(props){
@@ -75,7 +78,15 @@ class App extends React.Component {
   }
 
  
- 
+  /**
+   * Undo previous history modification. Allows to undo accidental modification to previously awnsered question
+   */
+ undoHistoryModification = () => {
+    this.setState(prevState => ({
+      history : prevState.previousHistory,
+      resetCounter : prevState.resestCounter + 1
+    }))
+ }
   
   /**
    * Adds to list stored in state the next question to be asked.
@@ -87,8 +98,7 @@ class App extends React.Component {
   renderNextQuestion = (resp, idxOfCaller) => {
     console.log("IDX received by app is " + JSON.stringify(idxOfCaller))
     console.log("Length of history is "+ JSON.stringify(this.state.history.length))
-    if(idxOfCaller + 1 != this.state.history.length){
-      
+    if(idxOfCaller + 1 != this.state.history.length){ // changing past history
       console.log("RESET REQ DETECTED")
       let sectionOfTreeKeept = this.state.history.slice(0,idxOfCaller + 1)
       this.setState(prevState => ({
@@ -104,12 +114,14 @@ class App extends React.Component {
           this.setState(prevState => ({
             history : [ ...prevState.history, yesBranch]           
           }));
+          window.scrollBy(0,100);
       }
       else if(resp == "NO" && this.state.history[idxOfCaller].isLeaf == "0"){
         let noBranch = this.state.history[idxOfCaller].noBranch
           this.setState(prevState => ({
             history : [ ...prevState.history, noBranch]           
           }));
+          window.scrollBy(0,1000);
       }
   }
 
@@ -159,11 +171,9 @@ class App extends React.Component {
       <div dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['waringReadInformation']}}/>
       </div>
 
-
       {this.state.history.map((item, index) => (
         <Question idx={index} key={(item.isLeaf == "1" ? item.information : item.question)+ this.state.resestCounter} hist={item} lang={this.state.lang} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
-
         <div className='footer'dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['footer']}}/>
 
     </div>
