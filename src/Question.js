@@ -171,7 +171,14 @@ class Question extends React.Component {
                 right?
               </Popover.Content>
             </Popover>
-          );
+        );
+        
+        let infoButtonStyle = {}
+        if(this.state.history.pictogram != ""){
+        infoButtonStyle = {
+            marginBottom: '10px',
+        };}
+        
 
 
         console.log("idx is : "+JSON.stringify(this.state.idx));
@@ -190,7 +197,7 @@ class Question extends React.Component {
                             <Row>
                                 <Col>
                                 <OverlayTrigger trigger="click" placement="below" overlay={popover}>
-                                    <Button variant="dark">{websiteText[this.state.lang]["more information"]}</Button>
+                                    <Button style={infoButtonStyle} variant="dark">{websiteText[this.state.lang]["more information"]}</Button>
                                 </OverlayTrigger>
                                 </Col>
                             </Row>
