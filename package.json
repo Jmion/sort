@@ -6,6 +6,9 @@
   "dependencies": {
     "@bit/mui-org.material-ui-icons.language-rounded": "^3.9.2",
     "gh-pages": "^2.1.1",
+    "html2canvas": "^1.0.0-rc.5",
+    "html2pdf.js": "^0.9.1",
+    "jspdf": "^1.5.3",
     "react": "^16.9.0",
     "react-bootstrap-select": "^0.14.0",
     "react-dom": "^16.9.0",

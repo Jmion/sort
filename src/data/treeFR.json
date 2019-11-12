@@ -1,19 +1,22 @@
 
 {
         "isLeaf": "0",
-        "question": "FRENCH FRENCHGlassware, gloves, abosorbents, needles, ...",
+        "question": "Verrerie, gants, absorbants, aiguilles, ....",
         "information": "",
         "pictogram" : "" ,
+        "moreInfo" : "",
         "yesBranch": { 
             "isLeaf": "0",
-            "question": "Contaminated Material",
+            "question": "Matière contaminée",
             "information": "",
             "pictogram" : "" ,
+            "moreInfo" : "",
             "yesBranch": {
                 "isLeaf": "0",
                 "question": "Used needles and syringes",
                 "information": "",
                 "pictogram" : "" ,
+                "moreInfo" : "",
                 "yesBranch": {
                     "isLeaf": "1",
                     "information": "<ul><li><b>do not</b> recap</li><li>put into syringe box</li></ul> ",
@@ -25,6 +28,7 @@
                     "question": "Cleaned containers without cap",
                     "information": "",
                     "pictogram" : "" ,
+                    "moreInfo" : "",
                     "yesBranch": {
                         "isLeaf": "1",
                         "information": "<ul><li>Remove label and pictogram and/or cover it with \"clean container\" label</li><li>dispose in the corresponding recycling containers</li></ul> ",
@@ -36,6 +40,7 @@
                         "question": "Material with radionuclide",
                         "information": "",
                         "pictogram" : "" ,
+                        "moreInfo" : "",
                         "yesBranch": {
                             "isLeaf": "1",
                             "information": "Contact radioprotection expert of the laboratory (otherwise contact <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> )",
@@ -47,6 +52,7 @@
                             "question": "Material contaminates with (micro-)organisim",
                             "information": "",
                             "pictogram" : "" ,
+                            "moreInfo" : "",
                             "yesBranch": {
                                 "isLeaf": "1",
                                 "information": "Contact the biosafety team",
@@ -58,6 +64,7 @@
                                 "question": "Material contaminated with mercury",
                                 "information": "",
                                 "pictogram" : "" ,
+                                "moreInfo" : "",
                                 "yesBranch": {
                                     "isLeaf": "1",
                                     "information": "<ul><li>Gloves, paper, small material: put in plastic container (rigid or soft)</li><li>Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" sertified container, seal, label with the name of the absorbant and the absorbed product. Bring to the assigned premises.</li><li>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.</li></ul>",
@@ -69,6 +76,7 @@
                                     "question": "<ul><li>Universal absorbant contaminated with a chemical</li><li>Material contaminates with an oxidizer</li></ul>",
                                     "information": "",
                                     "pictogram" : "oxidizer" ,
+                                    "moreInfo" : "",
                                     "yesBranch": {
                                         "isLeaf": "1",
                                         "information": "<ul><li>Put in a \"UN\" certified container (the oxidizer is covered with universal absorbant).</li><li>Label with the names of the absorbant & the absorbed product. Seal & bring ot the assigned waste premises. If presence of nanomaterial <b><i> confine in adapted sealed double pack</i></b> (bag or container).</li></ul>",
@@ -80,6 +88,7 @@
                                         "question": "Material contaminated with traces of nanomaterial or with one of these hazards:",
                                         "information": "",
                                         "pictogram" : "combo" ,
+                                        "moreInfo" : "",
                                         "yesBranch": {
                                             "isLeaf": "1",
                                             "information": "<ul><li> If no neutralisation is required, leave the substance evaporating in a fume hood,</li><li>Put in a plastic container for toxic waste,</li><li>On the label, precise the material and the contaminent.</li></ul><p>If presence of nanomaterial: confine in adapted sealed double pack (bag or container).</p>",
@@ -111,6 +120,7 @@
             "question": "Completely unknown chemical waste",
             "information": "",
             "pictogram" : "" ,
+            "moreInfo" : "",
             "yesBranch": { 
                 "isLeaf": "1",
                 "information": "<p>Attention only for exceptional cases</p><p>Label with the name of the contact person and any known information about the waste</p><p><em>E-mail assigned waste responsible person.</em></p><b>Special disposal by the responsible person according to SCC advices.</b>",
@@ -122,6 +132,7 @@
                 "question": "Waste with radionuclide",
                 "information": "",
                 "pictogram" : "" ,
+                "moreInfo" : "",
                 "yesBranch": { 
                     "isLeaf": "1",
                     "information": "All waste with radionuclide are managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
@@ -133,6 +144,7 @@
                     "question": "Explosive",
                     "information": "",
                     "pictogram" : "exploding_bomb" ,
+                    "moreInfo" : "",
                     "yesBranch": { 
                         "isLeaf": "1",
                         "information": "Contact <a href=\"mailto:securite@epfl.ch?subject=Explosive%20waste%20request\">securite@epfl.ch</a>",
@@ -144,6 +156,7 @@
                         "question": "Is the physical state a <b>gas</b>?",
                         "information": "",
                         "pictogram" : "" ,
+                        "moreInfo" : "",
                         "yesBranch": {
                             "isLeaf": "1",
                             "information": "Bring cylinders, sprays, catridges to the assigned waste premises. Inform the responsible person.",
@@ -155,6 +168,7 @@
                             "question": "<ol><li>The substance is <b>stable</b> and is in its original container.</li><li>This container is closed with the original cap and the label is clearly legible.</li></ol>",
                             "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
                             "pictogram" : "" ,
+                            "moreInfo" : "",
                             "yesBranch": { 
                                 "isLeaf": "1",
                                 "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, <b>Seal with a ribbon</b>(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
@@ -166,6 +180,7 @@
                                 "question": "Unstable (reactive waste containing nitric acid or a category 1 oxidizer.",
                                 "information": "",
                                 "pictogram" : "oxidizer" ,
+                                "moreInfo" : "",
                                 "yesBranch": {
                                     "isLeaf": "1",
                                     "information": "<ul><li>Treat according to SCC instructions (<a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a>)</li><li>Pour into a white high density polyethylene (HDPE) container. Once the solution stabilised, close with a <b>security cap</b> (with overpressure release valve).</li><li>Label particular waste (precise all components, hazards and the pH)</li></ul>",
@@ -176,11 +191,13 @@
                                     "question": "<ul><li>Reacts with air,</li><li>Moisture sensitive and/or</li><li>Thermally unstable</li></ul>",
                                     "information": "",
                                     "pictogram" : "" ,
+                                    "moreInfo" : "",
                                     "yesBranch": {
                                         "isLeaf": "0",
                                         "question": "Stable at room temperature",
                                         "information": "<h3>Any unstable substance must be deactivated in the laboratory where it has been (prod)used.</h3> If it is an explosive, contact <a href=\"mailto:securite@epfl.ch\">securite@epfl.ch</a><ul><li>Put into an adapted container on which a safety cap can be srewwed or put into a \"UN\" certified container (fille with Nétosol&reg; absorbent to block the flask inside).</li></ul><i>If substance still unstable</i><ul><li>Put under insert atmosphere (argon or nitrogen), seal and store away from light.</li></ul>",
                                         "pictogram" : "" ,
+                                        "moreInfo" : "",
                                         "yesBranch": {
                                             "isLeaf": "1",
                                             "information": "Label <i>Particular waste (procise all components, hazards and the pH)</i>",
@@ -197,16 +214,19 @@
                                         "question": "Contains (micro) organisms",
                                         "information": "",
                                         "pictogram" : "" ,
+                                        "moreInfo" : "",
                                         "yesBranch": {
                                             "isLeaf": "0",
                                             "question": "Liquid",
                                             "information": "",
                                             "pictogram" : "" ,
+                                            "moreInfo" : "",
                                             "yesBranch": { 
                                                 "isLeaf": "0",
                                                 "question": "Contains chemicals (cyanides, metals and/or others) ",
                                                 "information": "Deactivate with desinfectant <p>(bleach at 10%, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
                                                 "pictogram" : "" ,
+                                                "moreInfo" : "",
                                                 "yesBranch": {
                                                     "isLeaf": "1",
                                                     "information": "Deactivated (micro-)organism waste. Precise: <ul><li>the used desinfectant</lil><li>the chemicals (cyanides, metal and/or others);</li><li>If presence of nanomaterial, <strong>confine in sealed double pack</strong></li>",
@@ -225,6 +245,7 @@
                                                 "question": "Contains nano-material",
                                                 "information": "",
                                                 "pictogram" : "" ,
+                                                "moreInfo" : "",
                                                 "yesBranch": { 
                                                     "isLeaf": "1",
                                                     "information": "Contact the biosafety team",
@@ -244,11 +265,13 @@
                                             "question": "Contains nanomaterial",
                                             "information": "",
                                             "pictogram" : "" ,
+                                            "moreInfo" : "",
                                             "yesBranch": {
                                                 "isLeaf": "0",
                                                 "question": "In suspension",
                                                 "information": "",
                                                 "pictogram" : "" ,
+                                                "moreInfo" : "",
                                                 "yesBranch": {  
                                                     "isLeaf": "1",
                                                     "information": "<strong>Confine in sealed double pack</strong> and label with: <u>Nanomaterial, liquid waste</u>:<ul><li>name of the substance or mixture and name(s) of the solvent(s)</li><li>hazard pictograms</li>",
@@ -267,6 +290,7 @@
                                                 "question": "Paint waste",
                                                 "information": "",
                                                 "pictogram" : "" ,
+                                                "moreInfo" : "",
                                                 "yesBranch": { 
                                                     "isLeaf": "1",
                                                     "information": "Paint waste",
@@ -278,6 +302,7 @@
                                                     "question": "Aqueous solution with cyanide anions >50 mg/L",
                                                     "information": "",
                                                     "pictogram" : "" ,
+                                                    "moreInfo" : "",
                                                     "yesBranch": { 
                                                         "isLeaf": "1",
                                                         "information": "<p>Basify to pH> 9</p><p>Waste of basified cyanides <i>(precise the components)</i></p>",
@@ -290,6 +315,7 @@
                                                         "question": "Contains mercury or derivatives",
                                                         "information": "",
                                                         "pictogram" : "" ,
+                                                        "moreInfo" : "",
                                                         "yesBranch": { 
                                                             "isLeaf": "1",
                                                             "information": "Waste containing mercury <i>(precise the components)</i>",
@@ -301,16 +327,19 @@
                                                             "question": "Liquid",
                                                             "information": "",
                                                             "pictogram" : "" ,
+                                                            "moreInfo" : "",
                                                             "yesBranch": { 
                                                                 "isLeaf": "0",
                                                                 "question": "Acidic, basic or neutral aqueous solutions",
                                                                 "information": "<p><strong>Only one layer.</strong></p><p>Otherwise the layers must be separated.</p>",
                                                                 "pictogram" : "" ,
+                                                                "moreInfo" : "",
                                                                 "yesBranch": { 
                                                                     "isLeaf": "0",
                                                                     "question": "Acidic solution pH ≤ 3",
                                                                     "information": "",
                                                                     "pictogram" : "" ,
+                                                                    "moreInfo" : "",
                                                                     "yesBranch": {
                                                                         "isLeaf": "1",
                                                                         "information": "<p>Acidic aqueous waste <strong>without</strong> HNO<sub>3</sub></p><p><i>(precise the main acid, the other substances and the <b>pH</b>)</i></p>",
@@ -322,6 +351,7 @@
                                                                         "question": "Basic (alkaline) solution pH ≥ 10",
                                                                         "information": "",
                                                                         "pictogram" : "" ,
+                                                                        "moreInfo" : "",
                                                                         "yesBranch": { 
                                                                             "isLeaf": "1",
                                                                             "information": "<p>Basic (alkaline) aqueous waste</p><p><i>(precise the alkaline substance, the other substances and the <b>pH</b>)</i></p>",
@@ -341,6 +371,7 @@
                                                                     "question": "Oil & petrol",
                                                                     "information": "",
                                                                     "pictogram" : "" ,
+                                                                    "moreInfo" : "",
                                                                     "yesBranch": { 
                                                                         "isLeaf": "1",
                                                                         "information": "Oil waste",
@@ -352,6 +383,7 @@
                                                                         "question": "Halogenated substance or solvent >2%",
                                                                         "information": "",
                                                                         "pictogram" : "" ,
+                                                                        "moreInfo" : "",
                                                                         "yesBranch": {
                                                                             "isLeaf": "1",
                                                                             "information": "Halogenated waste <i>(precise the components)</i>",
@@ -372,6 +404,7 @@
                                                                 "question": "Mineral salts with or without residues of chemicals (ex: alumina, used silica, silica gel)",
                                                                 "information": "",
                                                                 "pictogram" : "" ,
+                                                                "moreInfo" : "",
                                                                 "yesBranch": { 
                                                                     "isLeaf": "1",
                                                                     "information": "Mineral waste <i>(precise the components)</i>",

@@ -8,12 +8,14 @@ import gas_cylinder from './images/pictograms/gas_cylinder.svg'
 import health_hazard from './images/pictograms/health_hazard.svg'
 import oxidizer from './images/pictograms/oxidizer.svg'
 import skull from './images/pictograms/skull.svg'
+import radioactive from './images/pictograms/radioactive.svg'
 import Image from 'react-bootstrap/Image'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import combo from './images/pictograms/combo.svg'
+import LabelForm from './LabelForm'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -156,51 +158,79 @@ class Question extends React.Component {
         }
     }
 
+    /**
+     * Renders the more infromation button. More information button is only visisble on questions (not leaves). 
+     * The more information button will only be displayed if there is text deffined for 
+     */
+    renderMoreInformation(){
+
+
+        let history = this.state.history; //current question that we are on
+        if(history.isLeaf == "0" && history.moreInfo != ""){ 
+
+            /**
+             * Popover object with content rendred
+             */
+            const popover = (
+                <Popover id="popover-basic">
+                  <Popover.Title as="h3">{history.moreInfoTitle}</Popover.Title>
+                  <Popover.Content>
+                  <Container>
+                    <Row>
+                        <div dangerouslySetInnerHTML={{ __html: history.moreInfo}}/>
+                    </Row>
+                    </Container>
+                  </Popover.Content>
+                </Popover>
+            );
+
+
+            /**
+             * Style applied to the render of the more information button
+             */
+            let infoButtonStyle = {
+                marginTop: '10px',
+            };
+
+            /**
+             * Rendered content to add to page
+             */
+            return(
+            <Row>
+                <Col>
+                <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                    <Button  style={infoButtonStyle} variant="dark">{websiteText[this.state.lang]["more information"]}</Button>
+                </OverlayTrigger>
+                </Col>
+            </Row>)
+        }
+    }
+
+
+    
     
 
     /**
      * Part of the React life cycle used to render the component to screen.
      */
     render(){
-
-        const popover = (
-            <Popover id="popover-basic">
-              <Popover.Title as="h3">Popover right</Popover.Title>
-              <Popover.Content>
-                And here's some <strong>amazing</strong> content. It's very engaging.
-                right?
-              </Popover.Content>
-            </Popover>
-        );
-        
-        let infoButtonStyle = {}
-        if(this.state.history.pictogram != ""){
-        infoButtonStyle = {
-            marginBottom: '10px',
-        };}
+    
+        let history = this.state.history; //Current question that we are working on
         
 
-
+        if(history.more_info)
         console.log("idx is : "+JSON.stringify(this.state.idx));
         console.log("current awnsers is "+ this.state.currentAwnsers)
-        let history = this.state.history;
         if(history.isLeaf=="0"){
-            let html_question = history.question
             return(
                 <div>
                     {this.renderInformationIfRequired()}
                     <div className='questionButton' id={this.state.backgroundColor}>
                         <Container>
                             <Row>
-                                <Col sm><div dangerouslySetInnerHTML={{ __html: html_question}}/></Col>
+                                <Col sm><div dangerouslySetInnerHTML={{ __html: history.question}}/></Col>
                             </Row>
-                            <Row>
-                                <Col>
-                                <OverlayTrigger trigger="click" placement="below" overlay={popover}>
-                                    <Button style={infoButtonStyle} variant="dark">{websiteText[this.state.lang]["more information"]}</Button>
-                                </OverlayTrigger>
-                                </Col>
-                            </Row>
+                            {this.renderMoreInformation()}
                             {this.renderImageHtml()}
                         </Container>
                             
@@ -209,20 +239,30 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
+                    <LabelForm formNumber="1" omodCode="16 05 06"/>
+                    
+
                 </div>
             );
         }else{
+            let labelButtonStyle = {
+                margin: '10px',
+            }
             let html_information = history.information
             return (
-            <div className='questionButton'>
-                <h2>Information : </h2> <div dangerouslySetInnerHTML={{ __html: html_information}}/> 
-                <p> omod_code : {history.omod_code}</p>
-                <p>label : {history.label}</p>
-                <Button onClick={() => this.state.resetWebsiteAction()}>{websiteText[this.state.lang]["Identify a new waste"]}</Button>
+            <div>
+                <div className='questionButton'>
+                    <h2>Information : </h2> <div dangerouslySetInnerHTML={{ __html: html_information}}/> 
+                    <p> omod_code : {history.omod_code}</p>
+                    <p>label : {history.label}</p>
+                    <Button onClick={() => this.state.resetWebsiteAction()}>{websiteText[this.state.lang]["Identify a new waste"]}</Button>
+                </div>
             </div>
             );
         }
     }
+
+
 }
 
 export default Question;
