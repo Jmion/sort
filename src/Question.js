@@ -56,7 +56,6 @@ class Question extends React.Component {
       componentDidMount() {
         this.setColor(this.state.currentAwnsers);
         const height = this.myRef.clientHeight;
-        console.log(height)
         window.scrollBy(0,1000);
       } 
 
@@ -141,6 +140,8 @@ class Question extends React.Component {
                 return skull;
             case "combo":
                 return combo;
+            case "radioactive":
+                return radioactive;
             default:
                 console.warn("Pictogram requested not found. Value of string was "+img)
                 

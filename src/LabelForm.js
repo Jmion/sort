@@ -15,8 +15,15 @@ import FormControl from 'react-bootstrap/FormControl'
 import FormCheck from 'react-bootstrap/FormCheck'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
+
+import jsPDF from 'jspdf'
+import labels from './images/labels/labels.json'
+import pictograms from './images/labels/picotrgram.json' //base64 encoded https://www.base64-image.de/
 
 import "./LabelForm.css"
+import PdfGenerator from './PdfGenerator';
+import Container from 'react-bootstrap/Container';
 
 
 class LabelForm extends React.Component {
@@ -29,18 +36,101 @@ class LabelForm extends React.Component {
             formNumber: this.props.formNumber,
             omodCode: this.props.omodCode,
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    jsPdfGenerator = (data) => {
+        var options = {
+            orientation: 'l',
+            unit: 'mm',
+            format: 'a4',
+            putOnlyUsedFonts:true
+           }
+           
+           // creating the document
+           var doc = new jsPDF(options);
+
+           // adiing some text
+           doc.addImage(labels[1], 'JPEG', 0,0, 297,210)
+
+
+           //OMoD
+           doc.setFont('arial')
+           doc.setFontType("bold")
+           doc.setFontSize(16)
+           doc.text(110,41,data.get("omod"))
+           
+           doc.setFontSize(10)
+           doc.setFontType("normal")
+           // Remettant
+           doc.text(90, 10.5, data.get("remettant"))
+
+           // Group
+           doc.text(6,50, data.get("group name"),{maxWidth: 15})
+
+           // Name
+           doc.text(6,75,data.get("first name") + data.get("last name"),{maxWidth: 15})
+
+           // date
+           doc.text(6,103,data.get("date"))
+
+           //other comments
+           doc.setFontSize(10)
+           doc.setFontType('normal')
+           doc.text(30,64, data.get("comments"), {maxWidth:110})
+
+           const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
+        "health_hazard", "oxidizer", "radioactive", "skull"]
+
+           doc.addImage(pictograms["corrosion"], "PNG", 10, 15, 10, 10)
+           doc.addImage(pictograms["environment"], "PNG", 22, 15, 10, 10)
+           doc.addImage(pictograms["exclamation_mark"], "PNG", 34, 15, 10, 10)
+           doc.addImage(pictograms["exploding_bomb"], "PNG", 46, 15, 10, 10)
+
+           doc.addImage(pictograms["flamable"], "PNG", 16, 21, 10, 10)
+           doc.addImage(pictograms["gas_cylinder"], "PNG", 28, 21, 10, 10)
+           doc.addImage(pictograms["health_hazard"], "PNG", 40, 21, 10, 10)
+
+           doc.addImage(pictograms["oxidizer"], "PNG", 22, 27, 10, 10)
+           doc.addImage(pictograms["radioactive"], "PNG", 34, 27, 10, 8.75)
+
+           doc.addImage(pictograms["skull"], "PNG", 28, 33, 10, 10)
+
+
+           doc.save("label.pdf")
+           
+    }
+   
+    handleSubmit(event)  {
+        event.preventDefault();
+        console.log("handling submit")
+        const data = new FormData(event.target);
+        console.log(stringifyFormData(data))
+        console.log(data.get("radioactive") != null)
+        console.log(data.get("omod"))
+        this.jsPdfGenerator(data)
     }
 
     render(){
+        var date = new Date();
+        var picto = radioactive
         return(
-        <Form className="LabelFormLayout">
+            <div>
+        <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
 
         <Form.Group as={Row} controlId="formPlaintextOmodCode">
             <Form.Label column sm="2">
-            OMoD Code : 
+            OMoD Code:
             </Form.Label>
             <Col sm="10">
-            <Form.Control plaintext readOnly defaultValue={this.state.omodCode} />
+            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} />
+            </Col>
+            <Form.Label column sm="2">
+            Date:
+            </Form.Label>
+            <Col sm="10">
+            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} />
             </Col>
         </Form.Group>
                 
@@ -50,6 +140,7 @@ class LabelForm extends React.Component {
                 <Form.Label>First Name</Form.Label>
                 <Form.Control 
                     required
+                    name = "first name"
                     placeholder="First name"
                     type="text"/>
                 <Form.Control.Feedback type = "valid">Looks good!</Form.Control.Feedback>
@@ -59,7 +150,8 @@ class LabelForm extends React.Component {
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control 
                     required
-                    placeholder = "First name"
+                    name = "last name"
+                    placeholder = "Last name"
                     type = "text"/>
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Col>
@@ -68,6 +160,7 @@ class LabelForm extends React.Component {
                 <Form.Label>Group name</Form.Label>
                 <Form.Control
                 required
+                name = "group name"
                 placeholder = "Group name"
                 type = "text" />
             </Form.Row>
@@ -78,18 +171,143 @@ class LabelForm extends React.Component {
                 <Form.Label>Remettant</Form.Label>
                 <Form.Control
                     required
+                    name = "remettant"
                     placeholder = "Remettant"
                     type = "text" />
             </Form.Row>
         </Form.Group>
 
 
-          
+        <Form.Group controlId="comments">
+            <Form.Label>Remarque</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"  
+              required
+              name = "comments"/>
+        </Form.Group>
             
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>)
+      
+        
+        <Container>
+            <Row>
+                <Col>
+            <Form.Check
+                custom
+                name = "corrosion"
+                label={<Image className='image_checkbox' src={corrosion} fluid />}
+                type="checkbox"
+                id={`corrosion`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "environment"
+                label={<Image className='image_checkbox' src={environment} fluid />}
+                type="checkbox"
+                id={`environment`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "exclamation_mark"
+                label={<Image className='image_checkbox' src={exclamation_mark} fluid />}
+                type="checkbox"
+                id={`exclamation_mark`}
+            />
+            </Col>
+            </Row>
+             
+            <Row>
+                <Col>
+            <Form.Check
+                custom
+                name = "exploding_bomb"
+                label={<Image className='image_checkbox' src={exploding_bomb} fluid />}
+                type="checkbox"
+                id={`exploding_bomb`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "flamable"
+                label={<Image className='image_checkbox' src={flamable} fluid />}
+                type="checkbox"
+                id={`flamable`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "gas_cylinder"
+                label={<Image className='image_checkbox' src={gas_cylinder} fluid />}
+                type="checkbox"
+                id={`gas_cylinder`}
+            />
+            </Col>
+            </Row>
+            <Row>
+                <Col>
+            <Form.Check
+                custom
+                name = "health_hazard"
+                label={<Image className='image_checkbox' src={health_hazard} fluid />}
+                type="checkbox"
+                id={`health_hazard`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "oxidizer"
+                label={<Image className='image_checkbox' src={oxidizer} fluid />}
+                type="checkbox"
+                id={`oxidizer`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "radioactive"
+                label={<Image className='image_checkbox' src={radioactive} fluid />}
+                type="checkbox"
+                id={`radioactive`}
+            />
+            </Col>
+            <Col>
+            <Form.Check
+                custom
+                name = "skull"
+                label={<Image className='image_checkbox' src={skull} fluid />}
+                type="checkbox"
+                id={`skull`}
+            />
+            </Col>
+            </Row>
+            </Container>
+            
+            <Button type="submit" variant="primary"> Submit</Button>
+
+          </Form>
+
+
+
+
+          </div>
+          )
     }
 }
+
+
+function stringifyFormData(fd) {
+    const data = {};
+      for (let key of fd.keys()) {
+        data[key] = fd.get(key);
+    }
+    return JSON.stringify(data, null, 2);
+}
+
 export default LabelForm;
