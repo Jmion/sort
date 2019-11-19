@@ -1,14 +1,14 @@
 import React from 'react';
-import corrosion from './images/pictograms/corrosion.svg'
-import environment from './images/pictograms/environment.svg'
-import exclamation_mark from './images/pictograms/exclamation_mark.svg'
-import exploding_bomb from './images/pictograms/exploding_bomb.svg'
-import flamable from './images/pictograms/flamable.svg'
-import gas_cylinder from './images/pictograms/gas_cylinder.svg'
-import health_hazard from './images/pictograms/health_hazard.svg'
-import oxidizer from './images/pictograms/oxidizer.svg'
-import skull from './images/pictograms/skull.svg'
-import radioactive from './images/pictograms/radioactive.svg'
+import corrosion from '../images/pictograms/corrosion.svg'
+import environment from '../images/pictograms/environment.svg'
+import exclamation_mark from '../images/pictograms/exclamation_mark.svg'
+import exploding_bomb from '../images/pictograms/exploding_bomb.svg'
+import flamable from '../images/pictograms/flamable.svg'
+import gas_cylinder from '../images/pictograms/gas_cylinder.svg'
+import health_hazard from '../images/pictograms/health_hazard.svg'
+import oxidizer from '../images/pictograms/oxidizer.svg'
+import skull from '../images/pictograms/skull.svg'
+import radioactive from '../images/pictograms/radioactive.svg'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
@@ -17,16 +17,15 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 
-import jsPDF from 'jspdf'
-import labels from './images/labels/labels.json'
-import pictograms from './images/labels/picotrgram.json' //base64 encoded https://www.base64-image.de/
+import jsPDF from 'jspdf' //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
+import labels from '../images/labels/labels.json'
+import pictograms from '../images/labels/picotrgram.json' //base64 encoded https://www.base64-image.de/
 
 import "./LabelForm.css"
-import PdfGenerator from './PdfGenerator';
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm extends React.Component {
+class LabelForm1 extends React.Component {
 
 
     constructor(props){
@@ -70,7 +69,7 @@ class LabelForm extends React.Component {
            doc.text(6,50, data.get("group name"),{maxWidth: 15})
 
            // Name
-           doc.text(6,75,data.get("first name") + data.get("last name"),{maxWidth: 15})
+           doc.text(6,75,data.get("first name") + " " + data.get("last name"),{maxWidth: 15})
 
            // date
            doc.text(6,103,data.get("date"))
@@ -83,20 +82,15 @@ class LabelForm extends React.Component {
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
 
-           doc.addImage(pictograms["corrosion"], "PNG", 10, 15, 10, 10)
-           doc.addImage(pictograms["environment"], "PNG", 22, 15, 10, 10)
-           doc.addImage(pictograms["exclamation_mark"], "PNG", 34, 15, 10, 10)
-           doc.addImage(pictograms["exploding_bomb"], "PNG", 46, 15, 10, 10)
-
-           doc.addImage(pictograms["flamable"], "PNG", 16, 21, 10, 10)
-           doc.addImage(pictograms["gas_cylinder"], "PNG", 28, 21, 10, 10)
-           doc.addImage(pictograms["health_hazard"], "PNG", 40, 21, 10, 10)
-
-           doc.addImage(pictograms["oxidizer"], "PNG", 22, 27, 10, 10)
-           doc.addImage(pictograms["radioactive"], "PNG", 34, 27, 10, 8.75)
-
-           doc.addImage(pictograms["skull"], "PNG", 28, 33, 10, 10)
-
+           const pictograms_location = [10, 15, 22, 15, 34, 15, 46, 15, 16, 21, 28, 21, 40, 21, 22, 27, 34, 27, 28, 33]
+           var nbPicto = 0
+           for( var i = 0; i < pictograms_keys.length; i++){
+               var picto_check = data.get(pictograms_keys[i])
+               if(picto_check != null){
+                   doc.addImage(pictograms[pictograms_keys[i]], pictograms_location[nbPicto*2], pictograms_location[nbPicto*2 + 1], 10, 10)
+                   nbPicto++
+               }
+           }
 
            doc.save("label.pdf")
            
@@ -194,6 +188,7 @@ class LabelForm extends React.Component {
                 <Col>
             <Form.Check
                 custom
+                className="pictogramMargin"
                 name = "corrosion"
                 label={<Image className='image_checkbox' src={corrosion} fluid />}
                 type="checkbox"
@@ -218,10 +213,7 @@ class LabelForm extends React.Component {
                 id={`exclamation_mark`}
             />
             </Col>
-            </Row>
-             
-            <Row>
-                <Col>
+            <Col>
             <Form.Check
                 custom
                 name = "exploding_bomb"
@@ -239,8 +231,11 @@ class LabelForm extends React.Component {
                 id={`flamable`}
             />
             </Col>
+            </Row>
+            <Row>
             <Col>
             <Form.Check
+                className="pictogramMargin"
                 custom
                 name = "gas_cylinder"
                 label={<Image className='image_checkbox' src={gas_cylinder} fluid />}
@@ -248,8 +243,6 @@ class LabelForm extends React.Component {
                 id={`gas_cylinder`}
             />
             </Col>
-            </Row>
-            <Row>
                 <Col>
             <Form.Check
                 custom
@@ -310,4 +303,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm;
+export default LabelForm1;

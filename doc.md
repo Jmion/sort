@@ -320,7 +320,10 @@ npm install react-hotkeys@next --save
 npm i @bit/grommet.grommet-icons.tooltip
 npm i react-scroll-to-bottom
 npm install --save html2pdf.js
-
+npm install jspdf --save
 
 # History detection mecanisme
 To detect a change to the pas history we are using the fact that the colour of the button is set. If the color is already set then we know that this is not the first clock on the question. Therefor we will call the history 
+
+# TODO
+* Finish label 3
