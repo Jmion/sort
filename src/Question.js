@@ -18,6 +18,9 @@ import combo from './images/pictograms/combo.svg'
 import LabelForm1 from './labels/LabelForm1'
 import LabelForm2 from './labels/LabelForm2'
 import LabelForm3 from './labels/LabelForm3'
+import LabelForm4 from './labels/LabelForm4'
+import LabelForm5 from './labels/LabelForm5'
+import LabelForm6 from './labels/LabelForm6'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -242,7 +245,7 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
-                    <LabelForm3 formNumber="2" omodCode="16 05 06"/>
+                    <LabelForm6 formNumber="2" omodCode="08 01 11" language={this.state.lang}/>
                     
 
                 </div>

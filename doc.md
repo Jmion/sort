@@ -327,3 +327,17 @@ To detect a change to the pas history we are using the fact that the colour of t
 
 # TODO
 * Finish label 3
+
+
+# Label text form
+The text displayed on the forms that the user fils in on the browser is defined in the ```./data/labelText.json``` . All the strings that finish with the word ```placeholder``` are placeholder text used to display in text areas before the user starts to type. The file defines the strings in 2 languages. All strings must be defined in both languages, failure to do so will make the website crash.
+
+
+# label form settings 
+Some settings concerning the form are deffined in ```./data/labelSettings.json``` to make them easier to modify (eg. pH step size).
+
+Parameters modifiable from this file:
+* pH
+  * pH step size
+  * pH min
+  * pH max

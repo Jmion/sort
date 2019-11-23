@@ -1,14 +1,27 @@
 .LabelFormLayout{
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
-    margin-right: 1.5vw;
-    margin-left: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    align-content: center;
 }
 
 .image_checkbox{
     background-color: white;
-    width: 30px;
+    width: 55px;
+    padding-top: -60px;
+    margin-top: -15px;
   }
-  .pictogramMargin{
-      margin-bottom: 3vh;
-  }
+.pictogramMargin{
+    margin-bottom: 3vh;
+    padding: 10px;
+ }
+
+.pictogramTitle{
+  margin-bottom: 2em;
+}
+
+.checkbox_margin{
+  margin : 1em;
+}

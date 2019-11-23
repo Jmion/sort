@@ -163,7 +163,6 @@ class App extends React.Component {
       console.log(this.state.history)
   return (
     <div className="App">
-            <h1>For demonstration purposes only. Not to be used to sort waste!</h1>
 
        <Navbar bg="dark" variant="dark" sticky="top">
           <Navbar.Brand href="#home">

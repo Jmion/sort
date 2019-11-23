@@ -19,6 +19,7 @@ import Image from 'react-bootstrap/Image'
 import labelText from '../data/labelText.json'
 import labelSettings from '../data/labelSettings.json'
 
+
 import jsPDF from 'jspdf' //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
 import labels from '../images/labels/labels.json'
 import pictograms from '../images/labels/picotrgram.json' //base64 encoded https://www.base64-image.de/
@@ -27,7 +28,7 @@ import "./LabelForm.css"
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm1 extends React.Component {
+class LabelForm5 extends React.Component {
 
 
     constructor(props){
@@ -54,14 +55,14 @@ class LabelForm1 extends React.Component {
            var doc = new jsPDF(options);
 
            // adiing some text
-           doc.addImage(labels[2], 'JPEG', 0,0, 297, 210)
+           doc.addImage(labels[5], 'JPEG', 0, 0, 297, 210)
 
 
            //OMoD
            doc.setFont('arial')
            doc.setFontType("bold")
            doc.setFontSize(16)
-           doc.text(120,41,data.get("omod"))
+           doc.text(115,40.3,data.get("omod"))
            
            doc.setFontSize(10)
            doc.setFontType("normal")
@@ -69,36 +70,22 @@ class LabelForm1 extends React.Component {
            doc.text(90, 10.5, data.get("remettant"))
 
            // Group
-           doc.text(6,50, data.get("group name"),{maxWidth: 15})
+           doc.text(6, 50, data.get("group name"),{maxWidth: 15})
 
            // Name
-           doc.text(6, 70, data.get("first name") + " " +  data.get("last name"),{maxWidth: 15})
+           doc.text(6, 69, data.get("first name") + " " + data.get("last name"), {maxWidth: 15})
 
            // date
-           doc.text(6,103,data.get("date"))
+           doc.text(6, 103, data.get("date"))
 
            //other comments
            doc.setFontSize(10)
            doc.setFontType('normal')
-           doc.text(50, 73, data.get("substance"), {maxWidth:80})
-           doc.text(42, 85, data.get("solvent"), {maxWidth:110})
-           doc.text(35, 98, data.get("pH").toString())
-           doc.text(64, 98, data.get("metal"), {maxWidth: 70})
+           doc.text(35, 97.2, data.get("pH").toString())
+           doc.text(65, 97.2, data.get("metal"), {maxWidth: 80})
+           doc.text(50, 68.5, data.get("substance"), {maxWidth:110})
+           doc.text(42, 81, data.get("solvent"), {maxWidth:110})
 
-           // X ticks
-           doc.setFontType("bold")
-           if(data.get("neutralized") != null){
-                doc.text(27.5, 55, "X")
-           }
-           if(data.get("refrigerated transport") != null){
-               doc.text(85.2, 55, "X")
-           }
-           if(data.get("nanoparticules") != null){
-                doc.text(27.5, 66.2, "X")
-           }
-           if(data.get("chemical waste") != null){
-               doc.text(85.2, 66.2, "X")
-           }
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
@@ -112,7 +99,6 @@ class LabelForm1 extends React.Component {
                    nbPicto++
                }
            }
-
            doc.save("label.pdf")
            
     }
@@ -131,8 +117,8 @@ class LabelForm1 extends React.Component {
         var date = new Date();
         var picto = radioactive
         return(
-        <div className="LabelFormLayout container">
-        <Form  onSubmit={this.handleSubmit}>
+            <div>
+        <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
 
         <Form.Group as={Row} controlId="formPlaintextOmodCode">
             <Form.Label column sm="2">
@@ -166,6 +152,7 @@ class LabelForm1 extends React.Component {
                     name = "last name"
                     placeholder = {labelText[this.state.language]['last name placeholder']}
                     type = "text"/>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Col>
             </Form.Row>
             <Form.Row>
@@ -234,53 +221,7 @@ class LabelForm1 extends React.Component {
             </Form.Row>
         </Form.Group>
 
-        <h3>{labelText[this.state.language]["special waste"]}:</h3>
-            <p>{labelText[this.state.language]['indicate all information']}</p>
-
-        <Container>
-
-            <Row>
-                <Col>
-                    <Form.Check
-                        custom
-                        className = "checkbox_margin"
-                        name = "neutralized"
-                        label = {labelText[this.state.language]['neutralised waste']}
-                        type = "checkbox"
-                        id={"neutrlized"} />
-                </Col>
-                <Col>
-                    <Form.Check
-                        custom
-                        className = "checkbox_margin"
-                        name = "refrigerated transport"
-                        label = {labelText[this.state.language]["refrigerated transport"]}
-                        type = "checkbox"
-                        id={"regrideratedWaste"} />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Form.Check
-                        custom
-                        className = "checkbox_margin"
-                        name = "nanoparticules"
-                        label = {labelText[this.state.language]["nanoparticules"]}
-                        type = "checkbox"
-                        id={"nanoparticules"} />
-                </Col>
-                <Col>
-                        <Form.Check
-                            custom
-                            className = "checkbox_margin"
-                            name = "chemical waste"
-                            label = {labelText[this.state.language]["chemical waste"]}
-                            type = "checkbox"
-                            id={"chemicalWaste"} />
-                </Col>
-            </Row>
-        </Container>
-
+            
       
         
         <Container>
@@ -412,4 +353,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm1;
+export default LabelForm5;

@@ -110,7 +110,7 @@
             },
             "noBranch":{
                 "isLeaf": "1",
-                "information": "<p>These items must be put in the corresponding recyling bin at the waste collection point. <a href=\"https://securite.epfl.ch/waste\" target=\"_blank\">More information here.</a></p>",
+                "information": "<p>These items must be put in the corresponding bin for un-contaminated waste. Larger items must be put in the recycling bin at the waste collection point <a href=\"https://securite.epfl.ch/waste\" target=\"_blank\">More information here.</a></p>",
                 "omod_code" : "N/A",
                 "label": "N/A"
             }

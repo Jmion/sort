@@ -1,0 +1,79 @@
+{
+    "en": {
+        "first name": "First name",
+        "first name placeholder": "First name",
+        "last name": "Last name",
+        "last name placeholder": "Last name",
+        "group name": "Group name",
+        "group name placeholder": "group name",
+        "remettant": "Remettant",
+        "remettant placeholder": "remettant",
+        "description": "Description",
+        "description placeholder": "description",
+        "generate pdf": "Generate Label",
+
+        "neutralised waste": "neutralised waste",
+        "refrigerated transport": "refrigerated transport",
+        "nanoparticules": "nanoparticules",
+        "chemical waste": "chemical waste",
+
+        "metal": "Metals",
+        "metal placeholder": "coper, lead",
+        "pH": "pH",
+        "danger pictograms": "Danger pictograms",
+        "special waste": "SPECIAL waste",
+        "indicate all information": "indicate all information",
+
+        "substance": "Substances",
+        "solvant": "Solvant",
+        "desinfectant used": "Desinfectant used:",
+        "bleach" : "bleach 10%",
+        "other": "other",
+        "omod code" : "OMoD code",
+        "solid": "solid",
+        "liquid": "liquid",
+
+        "If other is selected please specify": "If other is selected please specify",
+        "If other is selected please specify placeholder": "If other is selected please specify",
+        "Waste containing Mercury or its derivatives": "Waste containing Mercury or its derivatives"
+
+
+
+    },
+    "fr": {
+        "first name": "Prénom",
+        "first name placeholder": "prénom",
+        "last name": "Nom de famille",
+        "last name placeholder": "Nom de famille",
+        "group name": "Nom du groupe",
+        "group name placeholder": "Nom du groupe",
+        "remettant": "Remettant",
+        "remettant placeholder": "remettant",
+        "description": "Description",
+        "description placeholder": "description",
+        "generate pdf": "Générer une étiquette",
+        "neutralised waste": "déchets neutralisés",
+        "refrigerated transport": "transport réfrigéré",
+        "nanoparticules": "nanoparticules",
+        "chemical waste": "déchet chimique",
+        "metal": "Métaux",
+        "metal placeholder": "cuivre, plomb",
+        "pH": "pH",
+        "danger pictograms": "Pictogrammes de danger",
+        "special waste": "Déchet PARTICULIER",
+        "indicate all information": "préciser toutes les informations",
+        "substance": "Substances",
+        "solvant": "Solvant",
+        "desinfectant used": "Desinfectant utilisée:",
+        "bleach" : "eau de Javel 10%",
+        "other": "autre",
+        "omod code" : "Code OMoD",
+        "solid": "solide",
+        "liquid": "liquide",
+        
+
+        "If other is selected please specify": "Si autre est sélectionné, veuillez préciser",
+        "If other is selected please specify placeholder": "Si autre est sélectionné, veuillez préciser",
+        "Waste containing Mercury or its derivatives" : "Déchets contenant du Mercure ou ses dérivés"
+    }
+}

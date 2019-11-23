@@ -16,6 +16,8 @@ import FormCheck from 'react-bootstrap/FormCheck'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
+import labelText from '../data/labelText.json'
+
 
 import jsPDF from 'jspdf' //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
 import labels from '../images/labels/labels.json'
@@ -25,7 +27,7 @@ import "./LabelForm.css"
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm1 extends React.Component {
+class LabelForm4 extends React.Component {
 
 
     constructor(props){
@@ -34,6 +36,7 @@ class LabelForm1 extends React.Component {
         this.state = {
             formNumber: this.props.formNumber,
             omodCode: this.props.omodCode,
+            language: this.props.language
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,14 +54,14 @@ class LabelForm1 extends React.Component {
            var doc = new jsPDF(options);
 
            // adiing some text
-           doc.addImage(labels[1], 'JPEG', 0,0, 297,210)
+           doc.addImage(labels[4], 'JPEG', 0,0, 297,210)
 
 
            //OMoD
            doc.setFont('arial')
            doc.setFontType("bold")
            doc.setFontSize(16)
-           doc.text(110,41,data.get("omod"))
+           doc.text(113,42.1,data.get("omod"))
            
            doc.setFontSize(10)
            doc.setFontType("normal")
@@ -66,18 +69,18 @@ class LabelForm1 extends React.Component {
            doc.text(90, 10.5, data.get("remettant"))
 
            // Group
-           doc.text(6,50, data.get("group name"),{maxWidth: 15})
+           doc.text(6,55, data.get("group name"),{maxWidth: 15})
 
            // Name
-           doc.text(6,75,data.get("first name") + data.get("last name"),{maxWidth: 15})
+           doc.text(6,75,data.get("first name") + " " + data.get("last name"),{maxWidth: 15})
 
            // date
-           doc.text(6,103,data.get("date"))
+           doc.text(6,106,data.get("date"))
 
            //other comments
            doc.setFontSize(10)
            doc.setFontType('normal')
-           doc.text(30,64, data.get("comments"), {maxWidth:110})
+           doc.text(30,69, data.get("description"), {maxWidth:110})
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
@@ -115,7 +118,7 @@ class LabelForm1 extends React.Component {
 
         <Form.Group as={Row} controlId="formPlaintextOmodCode">
             <Form.Label column sm="2">
-            OMoD Code:
+            {labelText[this.state.language]['omod code']}
             </Form.Label>
             <Col sm="10">
             <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} />
@@ -131,159 +134,167 @@ class LabelForm1 extends React.Component {
         <Form.Group controlId= "formGroupName">
             <Form.Row>
                 <Col>
-                <Form.Label>First Name</Form.Label>
-                <Form.Control 
+                <Form.Label>{labelText[this.state.language]['first name']}</Form.Label>
+                <Form.Control
                     required
                     name = "first name"
-                    placeholder="First name"
+                    placeholder={labelText[this.state.language]['first name placeholder']}
                     type="text"/>
-                <Form.Control.Feedback type = "valid">Looks good!</Form.Control.Feedback>
-                <Form.Control.Feedback type = "invalid">We need to know you</Form.Control.Feedback>
                 </Col>
                 <Col>
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label>{labelText[this.state.language]['last name']}</Form.Label>
                 <Form.Control 
                     required
                     name = "last name"
-                    placeholder = "Last name"
+                    placeholder = {labelText[this.state.language]['last name placeholder']}
                     type = "text"/>
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Col>
             </Form.Row>
             <Form.Row>
-                <Form.Label>Group name</Form.Label>
+                <Form.Label>{labelText[this.state.language]['group name']}</Form.Label>
                 <Form.Control
                 required
                 name = "group name"
-                placeholder = "Group name"
+                placeholder = {labelText[this.state.language]['group name placeholder']}
                 type = "text" />
             </Form.Row>
         </Form.Group>
 
         <Form.Group controlId = "formRemettant">
             <Form.Row>
-                <Form.Label>Remettant</Form.Label>
+                <Form.Label>{labelText[this.state.language]['remettant']}</Form.Label>
                 <Form.Control
                     required
+                    defaultValue = "ISIC-CH/PH-1015 Lausanne"
                     name = "remettant"
-                    placeholder = "Remettant"
+                    placeholder = {labelText[this.state.language]['remettant placeholder']}
                     type = "text" />
             </Form.Row>
         </Form.Group>
 
 
+
         <Form.Group controlId="comments">
-            <Form.Label>Remarque</Form.Label>
+            <Form.Label>{labelText[this.state.language]['description']}</Form.Label>
             <Form.Control
               as="textarea"
               rows="3"  
               required
-              name = "comments"/>
+              name = "description"/>
         </Form.Group>
             
       
         
         <Container>
+            <Form.Label className="pictogramTitle">{labelText[this.state.language]['danger pictograms']}</Form.Label>
             <Row>
                 <Col>
             <Form.Check
                 custom
-                className="pictogramMargin"
+                className = "pictogramMargin"
                 name = "corrosion"
-                label={<Image className='image_checkbox' src={corrosion} fluid />}
-                type="checkbox"
-                id={`corrosion`}
+                label = {<Image className='image_checkbox' src={corrosion} fluid />}
+                type = "checkbox"
+                id = {`corrosion`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "environment"
-                label={<Image className='image_checkbox' src={environment} fluid />}
-                type="checkbox"
-                id={`environment`}
+                label = {<Image className='image_checkbox' src={environment} fluid />}
+                type = "checkbox"
+                id = {`environment`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "exclamation_mark"
-                label={<Image className='image_checkbox' src={exclamation_mark} fluid />}
-                type="checkbox"
-                id={`exclamation_mark`}
+                label = {<Image className='image_checkbox' src={exclamation_mark} fluid />}
+                type = "checkbox"
+                id = {`exclamation_mark`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "exploding_bomb"
-                label={<Image className='image_checkbox' src={exploding_bomb} fluid />}
-                type="checkbox"
-                id={`exploding_bomb`}
+                label = {<Image className='image_checkbox' src={exploding_bomb} fluid />}
+                type = "checkbox"
+                id = {`exploding_bomb`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className="pictogramMargin"
                 name = "flamable"
-                label={<Image className='image_checkbox' src={flamable} fluid />}
-                type="checkbox"
-                id={`flamable`}
+                label = {<Image className='image_checkbox' src={flamable} fluid />}
+                type = "checkbox"
+                id = {`flamable`}
             />
             </Col>
             </Row>
             <Row>
             <Col>
             <Form.Check
-                className="pictogramMargin"
                 custom
+                className = "pictogramMargin"
                 name = "gas_cylinder"
-                label={<Image className='image_checkbox' src={gas_cylinder} fluid />}
-                type="checkbox"
-                id={`gas_cylinder`}
+                label = {<Image className='image_checkbox' src={gas_cylinder} fluid />}
+                type = "checkbox"
+                id = {`gas_cylinder`}
             />
             </Col>
                 <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "health_hazard"
-                label={<Image className='image_checkbox' src={health_hazard} fluid />}
-                type="checkbox"
-                id={`health_hazard`}
+                label = {<Image className='image_checkbox' src={health_hazard} fluid />}
+                type = "checkbox"
+                id = {`health_hazard`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "oxidizer"
-                label={<Image className='image_checkbox' src={oxidizer} fluid />}
-                type="checkbox"
-                id={`oxidizer`}
+                label = {<Image className='image_checkbox' src={oxidizer} fluid />}
+                type = "checkbox"
+                id = {`oxidizer`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "radioactive"
-                label={<Image className='image_checkbox' src={radioactive} fluid />}
-                type="checkbox"
-                id={`radioactive`}
+                label = {<Image className='image_checkbox' src={radioactive} fluid />}
+                type = "checkbox"
+                id = {`radioactive`}
             />
             </Col>
             <Col>
             <Form.Check
                 custom
+                className = "pictogramMargin"
                 name = "skull"
-                label={<Image className='image_checkbox' src={skull} fluid />}
-                type="checkbox"
-                id={`skull`}
+                label = {<Image className='image_checkbox' src={skull} fluid />}
+                type = "checkbox"
+                id = {`skull`}
             />
             </Col>
             </Row>
             </Container>
             
-            <Button type="submit" variant="primary"> Submit</Button>
-
+            <Button type="submit" variant="primary"> {labelText[this.state.language]['generate pdf']}</Button>
           </Form>
 
 
@@ -303,4 +314,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm1;
+export default LabelForm4;
