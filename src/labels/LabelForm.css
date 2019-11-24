@@ -23,5 +23,6 @@
 }
 
 .checkbox_margin{
-  margin : 1em;
+  margin : 0.5em;
+  margin-bottom: 1em;
 }

@@ -36,12 +36,17 @@
         "titanium oxide": "titanium oxide",
         "silica": "silica",
         "silica gel": "silica gel",
+        "sulphur": "sulphur",
+        "absorbant Nétosol": "absorbent Nétosol",
+        "materials": "materials",
+        "chemical substances": "Chemical substances",
 
         "If other is selected please specify": "If other is selected please specify",
         "If other is selected please specify placeholder": "If other is selected please specify",
         "Waste containing Mercury or its derivatives": "Waste containing Mercury or its derivatives",
         "contains PolyChlorinated Biphenyl": "contains PolyChlorinated Biphenyl",
-        "You do not need to enter any extra information. Please generate your label bellow." : "You do not need to enter any extra information. Please generate your label bellow."
+        "You do not need to enter any extra information. Please generate your label bellow." : "You do not need to enter any extra information. Please generate your label bellow.",
+        "Indicate what has been absorbed and the type of absorbent used:": "Indicate what has been absorbed and the type of absorbent used:"
 
     },
     "fr": {
@@ -78,13 +83,16 @@
         "titanium oxide": "oxide de titane",
         "silica": "silice",
         "silica gel": "gel de silice",
-        
+        "sulphur": "soufre",
+        "absorbant Nétosol": "absorbant Nétosol",
+        "materials": "Matériaux",
+        "chemical substances": "Substances chimique",
 
         "If other is selected please specify": "Si autre est sélectionné, veuillez préciser",
         "If other is selected please specify placeholder": "Si autre est sélectionné, veuillez préciser",
         "Waste containing Mercury or its derivatives" : "Déchets contenant du Mercure ou ses dérivés",
         "contains PolyChlorinated Biphenyl": "contient du PolyChlorinated Biphenyl",
-        "You do not need to enter any extra information. Please generate your label bellow.": "Vous n'avez pas besoin d'entrer d'informations supplémentaires. Veuillez générer votre étiquette ci-dessous."
-
+        "You do not need to enter any extra information. Please generate your label bellow.": "Vous n'avez pas besoin d'entrer d'informations supplémentaires. Veuillez générer votre étiquette ci-dessous.",
+        "Indicate what has been absorbed and the type of absorbent used:" : "Indiquer ce qui a été absorbé et l’absorbant utilisé:"
     }
 }
