@@ -40,8 +40,8 @@
         "If other is selected please specify": "If other is selected please specify",
         "If other is selected please specify placeholder": "If other is selected please specify",
         "Waste containing Mercury or its derivatives": "Waste containing Mercury or its derivatives",
-        "contains PolyChlorinated Biphenyl": "contains PolyChlorinated Biphenyl"
-
+        "contains PolyChlorinated Biphenyl": "contains PolyChlorinated Biphenyl",
+        "You do not need to enter any extra information. Please generate your label bellow." : "You do not need to enter any extra information. Please generate your label bellow."
 
     },
     "fr": {
@@ -83,6 +83,8 @@
         "If other is selected please specify": "Si autre est sélectionné, veuillez préciser",
         "If other is selected please specify placeholder": "Si autre est sélectionné, veuillez préciser",
         "Waste containing Mercury or its derivatives" : "Déchets contenant du Mercure ou ses dérivés",
-        "contains PolyChlorinated Biphenyl": "contient du PolyChlorinated Biphenyl"
+        "contains PolyChlorinated Biphenyl": "contient du PolyChlorinated Biphenyl",
+        "You do not need to enter any extra information. Please generate your label bellow.": "Vous n'avez pas besoin d'entrer d'informations supplémentaires. Veuillez générer votre étiquette ci-dessous."
+
     }
 }
