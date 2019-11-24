@@ -224,6 +224,53 @@ class Question extends React.Component {
     }
 
 
+    /**
+     * Renders the correct label. Uses the form number to render the correct label
+     */
+    renderLabel(){
+        let history = this.state.history;
+        console.log(history)
+        switch (history.label) {
+            case "1":
+                return  <LabelForm1 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "2":
+                return  <LabelForm2 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "3": 
+                return  <LabelForm3 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "4":
+                return  <LabelForm4 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "5":
+                return  <LabelForm5 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "6":
+                return  <LabelForm6 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "7":
+                return  <LabelForm7 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "8":
+                return  <LabelForm8 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "9":
+                return  <LabelForm9 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "10":
+                return  <LabelForm10 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "11":
+                return  <LabelForm11 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "12":
+                return  <LabelForm12 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "13":
+                return  <LabelForm13 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "14":
+                return  <LabelForm14 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "15":
+                return  <LabelForm15 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "16":
+                return  <LabelForm16 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "17":
+                return  <LabelForm17 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            default:
+                console.log("DEFAULT LABEL CASE")
+                console.log(history.label)
+                break;
+        }
+    }
     
     
 
@@ -256,7 +303,6 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
-                    <LabelForm17 formNumber="2" omodCode="08 01 11" language={this.state.lang}/>
                     
 
                 </div>
@@ -273,6 +319,9 @@ class Question extends React.Component {
                     <p> omod_code : {history.omod_code}</p>
                     <p>label : {history.label}</p>
                     <Button onClick={() => this.state.resetWebsiteAction()}>{websiteText[this.state.lang]["Identify a new waste"]}</Button>
+
+                    {this.renderLabel()}
+
                 </div>
             </div>
             );

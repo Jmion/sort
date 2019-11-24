@@ -125,13 +125,13 @@ class LabelForm13 extends React.Component {
             {labelText[this.state.language]['omod code']}
             </Form.Label>
             <Col sm="10">
-            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} />
+            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode}  id="fixFormValue"/>
             </Col>
             <Form.Label column sm="2">
             Date:
             </Form.Label>
             <Col sm="10">
-            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} />
+            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()}  id="fixFormValue"/>
             </Col>
         </Form.Group>
                 

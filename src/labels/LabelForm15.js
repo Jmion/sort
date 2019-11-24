@@ -54,7 +54,7 @@ class LabelForm15 extends React.Component {
            var doc = new jsPDF(options);
 
            // adiing some text
-           doc.addImage(labels[4], 'JPEG', 0,0, 297,210)
+           doc.addImage(labels[15], 'JPEG', 0,0, 297,210)
            doc.save("label.pdf")
            
     }

@@ -54,7 +54,7 @@ class LabelForm14 extends React.Component {
            var doc = new jsPDF(options);
 
            // adiing some text
-           doc.addImage(labels[4], 'JPEG', 0,0, 297,210)
+           doc.addImage(labels[14], 'JPEG', 0,0, 297,210)
 
 
            //OMoD
@@ -80,7 +80,7 @@ class LabelForm14 extends React.Component {
            //other comments
            doc.setFontSize(10)
            doc.setFontType('normal')
-           doc.text(30,69, data.get("description"), {maxWidth:110})
+           doc.text(30,75, data.get("description"), {maxWidth:110})
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
@@ -121,13 +121,13 @@ class LabelForm14 extends React.Component {
             {labelText[this.state.language]['omod code']}
             </Form.Label>
             <Col sm="10">
-            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} />
+            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} id="fixFormValue"/>
             </Col>
             <Form.Label column sm="2">
             Date:
             </Form.Label>
             <Col sm="10">
-            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} />
+            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} id="fixFormValue"/>
             </Col>
         </Form.Group>
                 
