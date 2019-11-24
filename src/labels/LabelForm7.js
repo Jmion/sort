@@ -27,7 +27,7 @@ import "./LabelForm.css"
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm2 extends React.Component {
+class LabelForm7 extends React.Component {
 
 
     constructor(props){
@@ -54,51 +54,49 @@ class LabelForm2 extends React.Component {
            var doc = new jsPDF(options);
 
            // adiing some text
-           doc.addImage(labels[2], 'JPEG', 0,0, 297, 210)
+           doc.addImage(labels[7], 'JPEG', 0, 0, 297, 210)
 
 
            //OMoD
            doc.setFont('arial')
            doc.setFontType("bold")
            doc.setFontSize(16)
-           doc.text(120,41,data.get("omod"))
+           doc.text(115,40.3,data.get("omod"))
            
            doc.setFontSize(10)
            doc.setFontType("normal")
            // Remettant
-           doc.text(90, 10.5, data.get("remettant"))
+           doc.text(90, 10.1, data.get("remettant"))
 
            // Group
-           doc.text(6,50, data.get("group name"),{maxWidth: 15})
+           doc.text(6, 50, data.get("group name"),{maxWidth: 15})
 
            // Name
-           doc.text(6, 70, data.get("first name") + " " +  data.get("last name"),{maxWidth: 15})
+           doc.text(6, 75, data.get("first name") + " " + data.get("last name"), {maxWidth: 15})
 
            // date
-           doc.text(6,103,data.get("date"))
+           doc.text(6, 103, data.get("date"))
 
            //other comments
            doc.setFontSize(10)
            doc.setFontType('normal')
-           doc.text(50, 73, data.get("substance"), {maxWidth:80})
-           doc.text(42, 85, data.get("solvent"), {maxWidth:110})
-           doc.text(35, 98, data.get("pH").toString())
-           doc.text(64, 98, data.get("metal"), {maxWidth: 70})
+           doc.text(40, 97.6, data.get("metal"), {maxWidth: 40})
+           doc.text(27.5, 88, data.get('other comment'))
 
-           // X ticks
-           doc.setFontType("bold")
-           if(data.get("neutralized") != null){
-                doc.text(27.5, 55, "X")
+           // Check box
+           const x_location = [27.5, 54, 96, 116.7 ]
+           const x_labels = ['alumina', 'titanium oxide', 'silica', 'silica gel']
+           doc.setFontType('bold')
+           for(var i = 0; i < x_labels.length; i++){
+               if(data.get(x_labels[i]) != null && i != 4){
+                    doc.text(x_location[i], 72.7, 'X')
+               }
            }
-           if(data.get("refrigerated transport") != null){
-               doc.text(85.2, 55, "X")
-           }
-           if(data.get("nanoparticules") != null){
-                doc.text(27.5, 66.2, "X")
-           }
-           if(data.get("chemical waste") != null){
-               doc.text(85.2, 66.2, "X")
-           }
+           if(data.get("other") != null){
+                doc.text(27.5, 78, "X")
+            }
+
+
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
@@ -131,8 +129,8 @@ class LabelForm2 extends React.Component {
         var date = new Date();
         var picto = radioactive
         return(
-        <div className="LabelFormLayout container">
-        <Form  onSubmit={this.handleSubmit}>
+            <div>
+        <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
 
         <Form.Group as={Row} controlId="formPlaintextOmodCode">
             <Form.Label column sm="2">
@@ -190,26 +188,6 @@ class LabelForm2 extends React.Component {
             </Form.Row>
         </Form.Group>
 
-
-
-        <Form.Group controlId="substance">
-            <Form.Label>{labelText[this.state.language]['substance']}</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows="3"  
-              required
-              name = "substance"/>
-        </Form.Group>
-            
-        <Form.Group controlId="solvent">
-            <Form.Label>{labelText[this.state.language]['solvant']}</Form.Label>
-            <Form.Control
-                as="textarea"
-                rows="3"  
-                required
-                name = "solvent"/>
-        </Form.Group>
-
         <Form.Group controlId = "formMetalPh">
             <Form.Row>
                 <Col>
@@ -220,67 +198,64 @@ class LabelForm2 extends React.Component {
                     placeholder = {labelText[this.state.language]['metal placeholder']}
                     type = "text" />
                 </Col>
-                <Col>
-                    <Form.Label>{labelText[this.state.language]['pH']}</Form.Label>
-                    <Form.Control
-                    required
-                    name = "pH"
-                    placeholder = {labelText[this.state.language]['pH']}
-                    type = "number"
-                    step = {labelSettings['pH']['step']}
-                    max = {labelSettings['pH']['max']}
-                    min = {labelSettings['pH']['min']} />
-                    </Col>
             </Form.Row>
         </Form.Group>
 
-        <h3>{labelText[this.state.language]["special waste"]}:</h3>
-            <p>{labelText[this.state.language]['indicate all information']}</p>
-
         <Container>
-
+        <Form.Label>{labelText[this.state.language]['desinfectant used']}</Form.Label>
             <Row>
                 <Col>
                     <Form.Check
                         custom
-                        className = "checkbox_margin"
-                        name = "neutralized"
-                        label = {labelText[this.state.language]['neutralised waste']}
+                        className="pictogramMargin"
+                        name = "alumina"
+                        label = {labelText[this.state.language]['alumina']}
                         type = "checkbox"
-                        id={"neutrlized"} />
+                        id={"alumina"} />
                 </Col>
                 <Col>
                     <Form.Check
                         custom
-                        className = "checkbox_margin"
-                        name = "refrigerated transport"
-                        label = {labelText[this.state.language]["refrigerated transport"]}
+                        name = "titanium oxide"
+                        label = {labelText[this.state.language]['titanium oxide']}
                         type = "checkbox"
-                        id={"regrideratedWaste"} />
+                        id={"titanium oxide"} />
+                </Col>
+                <Col>
+                    <Form.Check
+                        custom
+                        name = "silica"
+                        label = {labelText[this.state.language]['silica']}
+                        type = "checkbox"
+                        id={"silica"} />  
+                </Col>
+                <Col>
+                    <Form.Check
+                        custom
+                        name = "silica gel"
+                        label = {labelText[this.state.language]['silica gel']}
+                        type = "checkbox"
+                        id={"silica gel"} />  
+                </Col>
+                <Col>
+                    <Form.Check
+                        custom
+                        name = "other"
+                        label = {labelText[this.state.language]['other']}
+                        type = "checkbox"
+                        id={"other"} />  
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <Form.Check
-                        custom
-                        className = "checkbox_margin"
-                        name = "nanoparticules"
-                        label = {labelText[this.state.language]["nanoparticules"]}
-                        type = "checkbox"
-                        id={"nanoparticules"} />
-                </Col>
-                <Col>
-                        <Form.Check
-                            custom
-                            className = "checkbox_margin"
-                            name = "chemical waste"
-                            label = {labelText[this.state.language]["chemical waste"]}
-                            type = "checkbox"
-                            id={"chemicalWaste"} />
-                </Col>
+                <Form.Label>{labelText[this.state.language]['If other is selected please specify']}</Form.Label>
+                <Form.Control 
+                    required
+                    name = "other comment"
+                    placeholder = {labelText[this.state.language]['If other is selected please specify placeholder']}
+                    type = "text"/>
             </Row>
         </Container>
-
+            
       
         
         <Container>
@@ -412,4 +387,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm2;
+export default LabelForm7;

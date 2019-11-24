@@ -27,7 +27,7 @@ import "./LabelForm.css"
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm1 extends React.Component {
+class LabelForm3 extends React.Component {
 
 
     constructor(props){
@@ -380,4 +380,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm1;
+export default LabelForm3;
