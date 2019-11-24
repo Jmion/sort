@@ -25,6 +25,7 @@ import LabelForm7 from './labels/LabelForm7'
 import LabelForm8 from './labels/LabelForm8'
 import LabelForm9 from './labels/LabelForm9'
 import LabelForm10 from './labels/LabelForm10'
+import LabelForm11 from './labels/LabelForm11'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -249,7 +250,7 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
-                    <LabelForm10 formNumber="2" omodCode="08 01 11" language={this.state.lang}/>
+                    <LabelForm11 formNumber="2" omodCode="08 01 11" language={this.state.lang}/>
                     
 
                 </div>
