@@ -255,7 +255,7 @@ class LabelForm4 extends React.Component {
               {labelText[this.state.language]["danger pictograms"]}
             </Form.Label>
             <Row>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -267,7 +267,7 @@ class LabelForm4 extends React.Component {
                   id={`corrosion`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -279,7 +279,7 @@ class LabelForm4 extends React.Component {
                   id={`environment`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -295,7 +295,7 @@ class LabelForm4 extends React.Component {
                   id={`exclamation_mark`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -311,7 +311,7 @@ class LabelForm4 extends React.Component {
                   id={`exploding_bomb`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -323,9 +323,7 @@ class LabelForm4 extends React.Component {
                   id={`flamable`}
                 />
               </Col>
-            </Row>
-            <Row>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -341,7 +339,7 @@ class LabelForm4 extends React.Component {
                   id={`gas_cylinder`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -357,7 +355,7 @@ class LabelForm4 extends React.Component {
                   id={`health_hazard`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -369,7 +367,7 @@ class LabelForm4 extends React.Component {
                   id={`oxidizer`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"
@@ -381,7 +379,7 @@ class LabelForm4 extends React.Component {
                   id={`radioactive`}
                 />
               </Col>
-              <Col>
+              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <Form.Check
                   custom
                   className="pictogramMargin"

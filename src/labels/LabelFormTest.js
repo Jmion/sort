@@ -18,6 +18,7 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import labelText from "../data/labelText.json";
 import labelSettings from "../data/labelSettings.json";
+import DangerPictogramCheckbox from "./DangerPictogramCheckbox";
 
 import jsPDF from "jspdf"; //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
 import labels from "../images/labels/labels.json";
@@ -98,7 +99,8 @@ class LabelForm2 extends React.Component {
       doc.text(85.2, 66.2, "X");
     }
 
-    const pictograms_keys = labelSettings['pictograms']
+    //
+    const pictograms_keys = Object.keys(pictograms);
 
     var nbPicto = 0;
     let pictograms_to_display = [];
@@ -231,7 +233,7 @@ class LabelForm2 extends React.Component {
 
           <Form.Group controlId="formGroupName">
             <Form.Row>
-              <Col>
+              <Col sm="9">
                 <Form.Label>
                   {labelText[this.state.language]["first name"]}
                 </Form.Label>
@@ -244,7 +246,7 @@ class LabelForm2 extends React.Component {
                   type="text"
                 />
               </Col>
-              <Col>
+              <Col sm="3">
                 <Form.Label>
                   {labelText[this.state.language]["last name"]}
                 </Form.Label>
@@ -384,137 +386,7 @@ class LabelForm2 extends React.Component {
             </Row>
           </Container>
 
-          <Container>
-            <Form.Label className="pictogramTitle">
-              {labelText[this.state.language]["danger pictograms"]}
-            </Form.Label>
-            <Row>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="corrosion"
-                  label={
-                    <Image className="image_checkbox" src={corrosion} fluid />
-                  }
-                  type="checkbox"
-                  id={`corrosion`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="environment"
-                  label={
-                    <Image className="image_checkbox" src={environment} fluid />
-                  }
-                  type="checkbox"
-                  id={`environment`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="exclamation_mark"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={exclamation_mark}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`exclamation_mark`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="exploding_bomb"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={exploding_bomb}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`exploding_bomb`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="flamable"
-                  label={
-                    <Image className="image_checkbox" src={flamable} fluid />
-                  }
-                  type="checkbox"
-                  id={`flamable`}
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="gas_cylinder"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={gas_cylinder}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`gas_cylinder`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="health_hazard"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={health_hazard}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`health_hazard`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="oxidizer"
-                  label={
-                    <Image className="image_checkbox" src={oxidizer} fluid />
-                  }
-                  type="checkbox"
-                  id={`oxidizer`}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="skull"
-                  label={<Image className="image_checkbox" src={skull} fluid />}
-                  type="checkbox"
-                  id={`skull`}
-                />
-              </Col>
-            </Row>
-          </Container>
+          <DangerPictogramCheckbox language={this.state.language} />
 
           <Button type="submit" variant="primary">
             {" "}

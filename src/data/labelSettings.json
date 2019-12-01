@@ -14,15 +14,24 @@
     "min": "0",
     "max": "500"
   },
-  "pictograms": [
-    "corrosion",
-    "environment",
-    "exclamation_mark",
-    "exploding_bomb",
-    "flamable",
-    "gas_cylinder",
-    "health_hazard",
-    "oxidizer",
-    "skull"
-  ]
+  "pictograms_not_to_show": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": [],
+    "10": [],
+    "11": [],
+    "12": [],
+    "13": [],
+    "14": [],
+    "15": [],
+    "16": [],
+    "17": [],
+    "18": []
+  }
 }
