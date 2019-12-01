@@ -175,8 +175,9 @@ class App extends React.Component {
             />
             {' ' + websiteText[this.state.lang]['title']}
           </Navbar.Brand>
-        <Nav.Link className='nav-lang' onClick={this.undoHistoryModification} id='nav_lang' >{websiteText[this.state.lang]['undo button']}</Nav.Link>
-        <Nav.Link className='nav-lang ml-auto' onClick={this.changeLanguage} id='nav_lang'>{this.getNonActiveLanguage()}</Nav.Link>
+          
+            <Nav.Link className='nav-lang navbar-right' onClick={this.undoHistoryModification} id='nav_lang' >{websiteText[this.state.lang]['undo button']}</Nav.Link>
+            <Nav.Link className='nav-lang ml-auto navbar-right' onClick={this.changeLanguage} id='nav_lang'>{this.getNonActiveLanguage()}</Nav.Link>
         </Navbar>
 
 

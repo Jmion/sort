@@ -17,6 +17,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 import labelText from '../data/labelText.json'
+import labelSettings from '../data/labelSettings.json'
 
 
 import jsPDF from 'jspdf' //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
@@ -27,7 +28,7 @@ import "./LabelForm.css"
 import Container from 'react-bootstrap/Container';
 
 
-class LabelForm14 extends React.Component {
+class LabelForm18 extends React.Component {
 
 
     constructor(props){
@@ -36,12 +37,17 @@ class LabelForm14 extends React.Component {
         this.state = {
             formNumber: this.props.formNumber,
             omodCode: this.props.omodCode,
-            language: this.props.language
+            language: this.props.language,
+            mCi: "",
+            MBq: ""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /**
+     * Creates the PDF.
+     */
     jsPdfGenerator = (data) => {
         var options = {
             orientation: 'l',
@@ -53,15 +59,8 @@ class LabelForm14 extends React.Component {
            // creating the document
            var doc = new jsPDF(options);
 
-           // adiing some text
-           doc.addImage(labels[14], 'JPEG', 0,0, 297,210)
-
-
-           //OMoD
-           doc.setFont('arial')
-           doc.setFontType("bold")
-           doc.setFontSize(16)
-           doc.text(113,42.1,data.get("omod"))
+           // background image
+           doc.addImage(labels[18], 'JPEG', 0, 0, 297, 210)
            
            doc.setFontSize(10)
            doc.setFontType("normal")
@@ -69,32 +68,33 @@ class LabelForm14 extends React.Component {
            doc.text(90, 10.5, data.get("remettant"))
 
            // Group
-           doc.text(6,55, data.get("group name"),{maxWidth: 15})
-
-           // Name
-           doc.text(6,75,data.get("first name") + " " + data.get("last name"),{maxWidth: 15})
+           doc.text(6, 50, data.get("group name"),{maxWidth: 15})
 
            // date
-           doc.text(6,106,data.get("date"))
+           doc.text(6, 90, data.get("date"))
 
            //other comments
            doc.setFontSize(10)
            doc.setFontType('normal')
-           doc.text(30,75, data.get("description"), {maxWidth:110})
+           doc.text(35, 85.2, data.get("pH").toString())
+           doc.text(65, 85.2, data.get("metal"), {maxWidth: 80})
+           doc.text(90, 60, data.get("substance"), {maxWidth:110})
+           doc.text(40, 68, "mCi : "+ data.get("hl-mci")+ "\tMBq : "+ data.get("hl-mbq"), {maxWidth:110})
+           doc.text(28, 60, data.get("nuclide"), {maxWidth: 60})
+           doc.text(28, 76.5, data.get("half-life"), {maxWidth: 60})
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
         "health_hazard", "oxidizer", "radioactive", "skull"]
 
-           const pictograms_location = [10, 15, 22, 15, 34, 15, 46, 15, 16, 21, 28, 21, 40, 21, 22, 27, 34, 27, 28, 33]
+           const pictograms_location = [22, 15, 34, 15, 46, 15, 28, 21, 40, 21, 52, 21, 34, 27, 46, 27, 40, 33]
            var nbPicto = 0
-           for( var i = 0; i < pictograms_keys.length; i++){
+           for( var i = 0; i < pictograms_keys.length && nbPicto*2 < pictograms_location.length; i++){
                var picto_check = data.get(pictograms_keys[i])
                if(picto_check != null){
                    doc.addImage(pictograms[pictograms_keys[i]], pictograms_location[nbPicto*2], pictograms_location[nbPicto*2 + 1], 10, 10)
                    nbPicto++
                }
            }
-
            doc.save("label.pdf")
            
     }
@@ -104,9 +104,31 @@ class LabelForm14 extends React.Component {
         console.log("handling submit")
         const data = new FormData(event.target);
         console.log(stringifyFormData(data))
-        console.log(data.get("radioactive") != null)
         console.log(data.get("omod"))
         this.jsPdfGenerator(data)
+    }
+
+    convertRadioactivity = (e, unit) => {
+        const mCi_to_MBq_ratio = 37 // 1mCi = 37MBq
+
+    
+        if(unit === "mCi"){
+
+            const new_mCi = e.target.value;
+            this.setState({
+                mCi: new_mCi,
+                MBq: (new_mCi * mCi_to_MBq_ratio).toFixed(labelSettings['MBq']['precision'])
+            })
+
+        }else if(unit === "MBq"){
+
+            const new_MBq = e.target.value;
+            this.setState({
+                mCi: (new_MBq / mCi_to_MBq_ratio).toFixed(labelSettings['mCi']['precision']),
+                MBq: new_MBq
+            })
+        }
+        console.log(e.target.value)
     }
 
     render(){
@@ -114,43 +136,22 @@ class LabelForm14 extends React.Component {
         var picto = radioactive
         return(
             <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
 
-        <Form.Group as={Row} controlId="formPlaintextOmodCode">
-            <Form.Label column sm="2">
-            {labelText[this.state.language]['omod code']}
-            </Form.Label>
-            <Col sm="10">
-            <Form.Control plaintext name="omod" readOnly defaultValue={this.state.omodCode} id="fixFormValue"/>
-            </Col>
-            <Form.Label column sm="2">
-            Date:
-            </Form.Label>
-            <Col sm="10">
-            <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} id="fixFormValue"/>
-            </Col>
-        </Form.Group>
+            <Row>
+            <Form.Group controlId="date">
+                <Col sm="4">
+                <Form.Label>
+                Date:
+                </Form.Label>
+                </Col>
+                <Col sm="8">
+                <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} id="fixFormValue"/>
+                </Col>
+            </Form.Group>
+            </Row>
                 
         <Form.Group controlId= "formGroupName">
-            <Form.Row>
-                <Col>
-                <Form.Label>{labelText[this.state.language]['first name']}</Form.Label>
-                <Form.Control
-                    required
-                    name = "first name"
-                    placeholder={labelText[this.state.language]['first name placeholder']}
-                    type="text"/>
-                </Col>
-                <Col>
-                <Form.Label>{labelText[this.state.language]['last name']}</Form.Label>
-                <Form.Control 
-                    required
-                    name = "last name"
-                    placeholder = {labelText[this.state.language]['last name placeholder']}
-                    type = "text"/>
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                </Col>
-            </Form.Row>
             <Form.Row>
                 <Form.Label>{labelText[this.state.language]['group name']}</Form.Label>
                 <Form.Control
@@ -166,7 +167,6 @@ class LabelForm14 extends React.Component {
                 <Form.Label>{labelText[this.state.language]['remettant']}</Form.Label>
                 <Form.Control
                     required
-                    defaultValue = "ISIC-CH/PH-1015 Lausanne"
                     name = "remettant"
                     placeholder = {labelText[this.state.language]['remettant placeholder']}
                     type = "text" />
@@ -174,22 +174,107 @@ class LabelForm14 extends React.Component {
         </Form.Group>
 
 
+        
 
-        <Form.Group controlId="comments">
-            <Form.Label>{labelText[this.state.language]['description']}</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows="3"  
-              required
-              name = "description"/>
+            <Form.Row>
+                <Col>
+                    <Form.Label>{labelText[this.state.language]['other substances']}</Form.Label>
+                    <Form.Control  
+                    required
+                    type = "text"
+                    name = "substance"/>
+                </Col>
+                <Col>
+                    <Form.Group controlId="nuclide">
+                        <Form.Label>{labelText[this.state.language]["nuclide"]}</Form.Label>
+                        <Form.Control
+                        required
+                        name = "nuclide"
+                        placeholder = {labelText[this.state.language]["nuclide"]}
+                        type = "text"/>
+                    </Form.Group>
+                </Col>
+            </Form.Row>
+
+            <Form.Group controlId = "activity">
+            <Form.Label>{labelText[this.state.language]["activity"]}</Form.Label>
+            <Form.Row>
+                <Col>
+                    <Form.Group controlId = "mci">
+                        <Form.Label>mCi</Form.Label>
+                        <Form.Control
+                            required
+                            value = {this.state.mCi}
+                            name = "hl-mci"
+                            placeholder = "mCi"
+                            type = "number"
+                            onChange = {(e) => {this.convertRadioactivity(e, "mCi")}}
+                            step = {1/ Math.pow(10, labelSettings['mCi']['precision'])}
+                            max = {labelSettings['mCi']['max']}
+                            min = {labelSettings['mCi']['min']}/>
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group controlId="mbq">
+                        <Form.Label>MBq</Form.Label>
+                        <Form.Control
+                            required
+                            value = {this.state.MBq}
+                            name = "hl-mbq"
+                            placeholder = "MBq"
+                            type = "number"
+                            onChange = {(e) => {this.convertRadioactivity(e, "MBq")}}
+                            step = {1/ Math.pow(10, labelSettings['MBq']['precision'])}
+                            max = {labelSettings['MBq']['max']}
+                            min = {labelSettings['MBq']['min']}/>
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group controlId = "half-life">
+                    <Form.Label>{labelText[this.state.language]["half-life"]}</Form.Label>
+                    <Form.Control
+                        required
+                        placeholder = {labelText[this.state.language]["half-life"]}
+                        type = "text"
+                        name = "half-life"
+                        />
+            </Form.Group>
+                </Col>
+            </Form.Row>
+            </Form.Group>
+
+
+        <Form.Group controlId = "formMetalPh">
+            <Form.Row>
+                <Col>
+                <Form.Label>{labelText[this.state.language]['metal']}</Form.Label>
+                <Form.Control
+                    required
+                    name = "metal"
+                    placeholder = {labelText[this.state.language]['metal placeholder']}
+                    type = "text" />
+                </Col>
+                <Col>
+                    <Form.Label>{labelText[this.state.language]['pH']}</Form.Label>
+                    <Form.Control
+                    required
+                    name = "pH"
+                    placeholder = {labelText[this.state.language]['pH']}
+                    type = "number"
+                    step = {labelSettings['pH']['step']}
+                    max = {labelSettings['pH']['max']}
+                    min = {labelSettings['pH']['min']} />
+                    </Col>
+            </Form.Row>
         </Form.Group>
+
             
       
         
         <Container>
             <Form.Label className="pictogramTitle">{labelText[this.state.language]['danger pictograms']}</Form.Label>
             <Row>
-                <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -199,7 +284,7 @@ class LabelForm14 extends React.Component {
                 id = {`corrosion`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -209,7 +294,7 @@ class LabelForm14 extends React.Component {
                 id = {`environment`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -219,7 +304,7 @@ class LabelForm14 extends React.Component {
                 id = {`exclamation_mark`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -229,7 +314,7 @@ class LabelForm14 extends React.Component {
                 id = {`exploding_bomb`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className="pictogramMargin"
@@ -239,7 +324,9 @@ class LabelForm14 extends React.Component {
                 id = {`flamable`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            </Row>
+            <Row>
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -249,7 +336,7 @@ class LabelForm14 extends React.Component {
                 id = {`gas_cylinder`}
             />
             </Col>
-                <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -259,7 +346,7 @@ class LabelForm14 extends React.Component {
                 id = {`health_hazard`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -269,17 +356,7 @@ class LabelForm14 extends React.Component {
                 id = {`oxidizer`}
             />
             </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "radioactive"
-                label = {<Image className='image_checkbox' src={radioactive} fluid />}
-                type = "checkbox"
-                id = {`radioactive`}
-            />
-            </Col>
-            <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <Col>
             <Form.Check
                 custom
                 className = "pictogramMargin"
@@ -293,6 +370,7 @@ class LabelForm14 extends React.Component {
             </Container>
             
             <Button type="submit" variant="primary"> {labelText[this.state.language]['generate pdf']}</Button>
+
           </Form>
 
 
@@ -312,4 +390,4 @@ function stringifyFormData(fd) {
     return JSON.stringify(data, null, 2);
 }
 
-export default LabelForm14;
+export default LabelForm18;

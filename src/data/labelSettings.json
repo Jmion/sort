@@ -1,8 +1,18 @@
 {
     "pH" : { 
-        "step" : "0.01",
+        "step" : 1,
         "min": "0",
         "max": "14"
+    },
+    "mCi": {
+        "precision": 3,
+        "min": "0",
+        "max": "50"
+    },
+    "MBq": {
+        "precision": 2,
+        "min": "0",
+        "max": "500"
     }
     
 }

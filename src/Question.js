@@ -32,6 +32,7 @@ import LabelForm14 from './labels/LabelForm14'
 import LabelForm15 from './labels/LabelForm15'
 import LabelForm16 from './labels/LabelForm16'
 import LabelForm17 from './labels/LabelForm17'
+import LabelForm18 from './labels/LabelForm18'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -39,6 +40,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import './App.css';
 import websiteText from './data/websiteText.json'
+import popover_image from './images/popover_image.json'
 import Popover from 'react-bootstrap/Popover'
 import Overlay from 'react-bootstrap/Overlay'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
@@ -72,7 +74,7 @@ class Question extends React.Component {
       componentDidMount() {
         this.setColor(this.state.currentAwnsers);
         const height = this.myRef.clientHeight;
-        window.scrollBy(0,1000);
+        window.scrollBy(0,window.screen.availHeight*0.4);
       } 
 
 
@@ -175,6 +177,16 @@ class Question extends React.Component {
         }
     }
 
+
+    /**
+     * Method called when rendering moreInformation. Used to add picture if needed
+     */
+    popover_image(){
+        if(this.state.history.moreInfoPicture != ""){
+            return <Image src={popover_image[this.state.history.moreInfoPicture]} fluid/>
+        }
+    }
+
     /**
      * Renders the more infromation button. More information button is only visisble on questions (not leaves). 
      * The more information button will only be displayed if there is text deffined for 
@@ -184,6 +196,8 @@ class Question extends React.Component {
 
         let history = this.state.history; //current question that we are on
         if(history.isLeaf == "0" && history.moreInfo != ""){ 
+
+            
 
             /**
              * Popover object with content rendred
@@ -195,6 +209,9 @@ class Question extends React.Component {
                   <Container>
                     <Row>
                         <div dangerouslySetInnerHTML={{ __html: history.moreInfo}}/>
+                    </Row>
+                    <Row>
+                    {this.popover_image()}
                     </Row>
                     </Container>
                   </Popover.Content>
@@ -265,6 +282,8 @@ class Question extends React.Component {
                 return  <LabelForm16 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
             case "17":
                 return  <LabelForm17 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
+            case "18":
+                return <LabelForm18 formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
             default:
                 console.log("DEFAULT LABEL CASE")
                 console.log(history.label)
@@ -303,8 +322,6 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
-                    
-
                 </div>
             );
         }else{

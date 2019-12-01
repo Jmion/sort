@@ -41,13 +41,18 @@
         "materials": "materials",
         "chemical substances": "Chemical substances",
         "with nanoparticles": "With nanoparticles",
+        "nuclide": "Nuclide",
+        "activity": "Activity",
+        "half-life": "Half-life",
+        "other substances": "Other substances",
 
         "If other is selected please specify": "If other is selected please specify",
         "If other is selected please specify placeholder": "If other is selected please specify",
         "Waste containing Mercury or its derivatives": "Waste containing Mercury or its derivatives",
         "contains PolyChlorinated Biphenyl": "contains PolyChlorinated Biphenyl",
         "You do not need to enter any extra information. Please generate your label bellow." : "You do not need to enter any extra information. Please generate your label bellow.",
-        "Indicate what has been absorbed and the type of absorbent used:": "Indicate what has been absorbed and the type of absorbent used:"
+        "Indicate what has been absorbed and the type of absorbent used:": "Indicate what has been absorbed and the type of absorbent used:",
+        "No label is available for the option that you choosed. If you think that this is not normal please contact securite@epfl.ch.": "No label is available for the option that you choosed. If you think that this is not normal please contact securite@epfl.ch."
 
     },
     "fr": {
@@ -89,12 +94,17 @@
         "materials": "Matériaux",
         "chemical substances": "Substances chimique",
         "with nanoparticles": "avec Nanoparticules",
+        "nuclide": "Nucléide",
+        "activity": "Activité",
+        "half-life": "Demi-vie",
+        "other substances": "Autres substances",
 
         "If other is selected please specify": "Si autre est sélectionné, veuillez préciser",
         "If other is selected please specify placeholder": "Si autre est sélectionné, veuillez préciser",
         "Waste containing Mercury or its derivatives" : "Déchets contenant du Mercure ou ses dérivés",
         "contains PolyChlorinated Biphenyl": "contient du PolyChlorinated Biphenyl",
         "You do not need to enter any extra information. Please generate your label bellow.": "Vous n'avez pas besoin d'entrer d'informations supplémentaires. Veuillez générer votre étiquette ci-dessous.",
-        "Indicate what has been absorbed and the type of absorbent used:" : "Indiquer ce qui a été absorbé et l’absorbant utilisé:"
+        "Indicate what has been absorbed and the type of absorbent used:" : "Indiquer ce qui a été absorbé et l’absorbant utilisé:",
+        "No label is available for the option that you choosed. If you think that this is not normal please contact securite@epfl.ch.": "Aucune étiquette n'est disponible pour l'option que vous avez choisie. Si vous pensez que ce n'est pas normal, veuillez contacter securite@epfl.ch"
     }
 }

@@ -4,7 +4,8 @@
     "question": "Glassware, gloves, abosorbents, needles, ...",
     "information": "",
     "pictogram" : "" ,
-    "moreInfo" : "Some amazingly fun facts.",
+    "moreInfo" : "test",
+    "moreInfoPicture" : "1",
     "moreInfoTitle": "More information",
     "yesBranch": { 
         "isLeaf": "0",
@@ -12,6 +13,7 @@
         "information": "",
         "pictogram" : "" ,
         "moreInfo" : "",
+        "moreInfoPicture" : "",
         "moreInfoTitle": "",
         "yesBranch": {
             "isLeaf": "0",
@@ -19,6 +21,7 @@
             "information": "",
             "pictogram" : "" ,
             "moreInfo" : "",
+            "moreInfoPicture" : "",
             "moreInfoTitle": "",
             "yesBranch": {
                 "isLeaf": "1",
@@ -32,6 +35,7 @@
                 "information": "",
                 "pictogram" : "" ,
                 "moreInfo" : "",
+                "moreInfoPicture" : "",
                 "moreInfoTitle": "",
                 "yesBranch": {
                     "isLeaf": "1",
@@ -45,12 +49,13 @@
                     "information": "",
                     "pictogram" : "" ,
                     "moreInfo" : "",
+                    "moreInfoPicture" : "",
                     "moreInfoTitle": "",
                     "yesBranch": {
                         "isLeaf": "1",
                         "information": "Contact radioprotection expert of the laboratory (otherwise contact <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> )",
                         "omod_code" : "N/A",
-                        "label": "N/A"
+                        "label": "18"
                     },
                     "noBranch": {
                         "isLeaf": "0",
@@ -58,6 +63,7 @@
                         "information": "",
                         "pictogram" : "" ,
                         "moreInfo" : "",
+                        "moreInfoPicture" : "",
                         "moreInfoTitle": "",
                         "yesBranch": {
                             "isLeaf": "1",
@@ -71,6 +77,7 @@
                             "information": "",
                             "pictogram" : "" ,
                             "moreInfo" : "",
+                            "moreInfoPicture" : "",
                             "moreInfoTitle": "",
                             "yesBranch": {
                                 "isLeaf": "1",
@@ -84,6 +91,7 @@
                                 "information": "",
                                 "pictogram" : "oxidizer" ,
                                 "moreInfo" : "",
+                                "moreInfoPicture" : "",
                                 "moreInfoTitle": "",
                                 "yesBranch": {
                                     "isLeaf": "1",
@@ -97,6 +105,7 @@
                                     "information": "",
                                     "pictogram" : "combo" ,
                                     "moreInfo" : "",
+                                    "moreInfoPicture" : "",
                                     "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "1",
@@ -119,7 +128,7 @@
         },
         "noBranch":{
             "isLeaf": "1",
-            "information": "<p>These items must be put in the corresponding recyling bin at the waste collection point. <a href=\"https://securite.epfl.ch/waste\" target=\"_blank\">More information here.</a></p>",
+            "information": "<p>These items must be put in the corresponding bin for un-contaminated waste. Larger items must be put in the recycling bin at the waste collection point <a href=\"https://securite.epfl.ch/waste\" target=\"_blank\">More information here.</a></p>",
             "omod_code" : "N/A",
             "label": "N/A"
         }
@@ -130,6 +139,7 @@
         "information": "",
         "pictogram" : "" ,
         "moreInfo" : "",
+        "moreInfoPicture" : "",
         "moreInfoTitle": "",
         "yesBranch": { 
             "isLeaf": "1",
@@ -143,12 +153,13 @@
             "information": "",
             "pictogram" : "" ,
             "moreInfo" : "",
+        "moreInfoPicture" : "",
             "moreInfoTitle": "",
             "yesBranch": { 
                 "isLeaf": "1",
                 "information": "All waste with radionuclide are managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
                 "omod_code" : "N/A",
-                "label": "N/A"
+                "label": "18"
             },
             "noBranch": {
                 "isLeaf": "0",
@@ -156,6 +167,7 @@
                 "information": "",
                 "pictogram" : "exploding_bomb" ,
                 "moreInfo" : "",
+                "moreInfoPicture" : "",
                 "moreInfoTitle": "",
                 "yesBranch": { 
                     "isLeaf": "1",
@@ -169,6 +181,7 @@
                     "information": "",
                     "pictogram" : "" ,
                     "moreInfo" : "",
+                    "moreInfoPicture" : "",
                     "moreInfoTitle": "",
                     "yesBranch": {
                         "isLeaf": "1",
@@ -182,6 +195,7 @@
                         "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
                         "pictogram" : "" ,
                         "moreInfo" : "",
+                        "moreInfoPicture" : "",
                         "moreInfoTitle": "",
                         "yesBranch": { 
                             "isLeaf": "1",
@@ -195,6 +209,7 @@
                             "information": "",
                             "pictogram" : "oxidizer" ,
                             "moreInfo" : "",
+                            "moreInfoPicture" : "",
                             "moreInfoTitle": "",
                             "yesBranch": {
                                 "isLeaf": "1",
@@ -207,6 +222,7 @@
                                 "information": "",
                                 "pictogram" : "" ,
                                 "moreInfo" : "",
+                                "moreInfoPicture" : "",
                                 "moreInfoTitle": "",
                                 "yesBranch": {
                                     "isLeaf": "0",
@@ -214,6 +230,7 @@
                                     "information": "<h3>Any unstable substance must be deactivated in the laboratory where it has been (prod)used.</h3> If it is an explosive, contact <a href=\"mailto:securite@epfl.ch\">securite@epfl.ch</a><ul><li>Put into an adapted container on which a safety cap can be srewwed or put into a \"UN\" certified container (fille with Nétosol&reg; absorbent to block the flask inside).</li></ul><i>If substance still unstable</i><ul><li>Put under insert atmosphere (argon or nitrogen), seal and store away from light.</li></ul>",
                                     "pictogram" : "" ,
                                     "moreInfo" : "",
+                                    "moreInfoPicture" : "",
                                     "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "1",
@@ -232,6 +249,7 @@
                                     "information": "",
                                     "pictogram" : "" ,
                                     "moreInfo" : "",
+                                    "moreInfoPicture" : "",
                                     "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "0",
@@ -239,6 +257,7 @@
                                         "information": "",
                                         "pictogram" : "" ,
                                         "moreInfo" : "",
+                                        "moreInfoPicture" : "",
                                         "moreInfoTitle": "",
                                         "yesBranch": { 
                                             "isLeaf": "0",
@@ -246,6 +265,7 @@
                                             "information": "Deactivate with desinfectant <p>(bleach at 10%, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
                                             "pictogram" : "" ,
                                             "moreInfo" : "",
+                                            "moreInfoPicture" : "",
                                             "moreInfoTitle": "",
                                             "yesBranch": {
                                                 "isLeaf": "1",
@@ -266,6 +286,7 @@
                                             "information": "",
                                             "pictogram" : "" ,
                                             "moreInfo" : "",
+                                            "moreInfoPicture" : "",
                                             "moreInfoTitle": "",
                                             "yesBranch": { 
                                                 "isLeaf": "1",
@@ -287,6 +308,7 @@
                                         "information": "",
                                         "pictogram" : "" ,
                                         "moreInfo" : "",
+                                        "moreInfoPicture" : "",
                                         "moreInfoTitle": "",
                                         "yesBranch": {
                                             "isLeaf": "0",
@@ -294,6 +316,7 @@
                                             "information": "",
                                             "pictogram" : "" ,
                                             "moreInfo" : "",
+                                            "moreInfoPicture" : "",
                                             "moreInfoTitle": "",
                                             "yesBranch": {  
                                                 "isLeaf": "1",
@@ -314,6 +337,7 @@
                                             "information": "",
                                             "pictogram" : "" ,
                                             "moreInfo" : "",
+                                            "moreInfoPicture" : "",
                                             "moreInfoTitle": "",
                                             "yesBranch": { 
                                                 "isLeaf": "1",
@@ -327,6 +351,7 @@
                                                 "information": "",
                                                 "pictogram" : "" ,
                                                 "moreInfo" : "",
+                                                "moreInfoPicture" : "",
                                                 "moreInfoTitle": "",
                                                 "yesBranch": { 
                                                     "isLeaf": "1",
@@ -341,6 +366,7 @@
                                                     "information": "",
                                                     "pictogram" : "" ,
                                                     "moreInfo" : "",
+                                                    "moreInfoPicture" : "",
                                                     "moreInfoTitle": "",
                                                     "yesBranch": { 
                                                         "isLeaf": "1",
@@ -354,6 +380,7 @@
                                                         "information": "",
                                                         "pictogram" : "" ,
                                                         "moreInfo" : "",
+                                                        "moreInfoPicture" : "",
                                                         "moreInfoTitle": "",
                                                         "yesBranch": { 
                                                             "isLeaf": "0",
@@ -361,6 +388,7 @@
                                                             "information": "<p><strong>Only one layer.</strong></p><p>Otherwise the layers must be separated.</p>",
                                                             "pictogram" : "" ,
                                                             "moreInfo" : "",
+                                                            "moreInfoPicture" : "",
                                                             "moreInfoTitle": "",
                                                             "yesBranch": { 
                                                                 "isLeaf": "0",
@@ -368,6 +396,7 @@
                                                                 "information": "",
                                                                 "pictogram" : "" ,
                                                                 "moreInfo" : "",
+                                                                "moreInfoPicture" : "",
                                                                 "moreInfoTitle": "",
                                                                 "yesBranch": {
                                                                     "isLeaf": "1",
@@ -381,6 +410,7 @@
                                                                     "information": "",
                                                                     "pictogram" : "" ,
                                                                     "moreInfo" : "",
+                                                                    "moreInfoPicture" : "",
                                                                     "moreInfoTitle": "",
                                                                     "yesBranch": { 
                                                                         "isLeaf": "1",
@@ -402,6 +432,7 @@
                                                                 "information": "",
                                                                 "pictogram" : "" ,
                                                                 "moreInfo" : "",
+                                                                "moreInfoPicture" : "",
                                                                 "moreInfoTitle": "",
                                                                 "yesBranch": { 
                                                                     "isLeaf": "1",
@@ -415,6 +446,7 @@
                                                                     "information": "",
                                                                     "pictogram" : "" ,
                                                                     "moreInfo" : "",
+                                                                    "moreInfoPicture" : "",
                                                                     "moreInfoTitle": "",
                                                                     "yesBranch": {
                                                                         "isLeaf": "1",
@@ -437,6 +469,7 @@
                                                             "information": "",
                                                             "pictogram" : "" ,
                                                             "moreInfo" : "",
+                                                            "moreInfoPicture" : "",
                                                             "moreInfoTitle": "",
                                                             "yesBranch": { 
                                                                 "isLeaf": "1",

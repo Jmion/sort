@@ -45,7 +45,7 @@
                             "isLeaf": "1",
                             "information": "Contact radioprotection expert of the laboratory (otherwise contact <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> )",
                             "omod_code" : "N/A",
-                            "label": "N/A"
+                            "label": "18"
                         },
                         "noBranch": {
                             "isLeaf": "0",
@@ -137,7 +137,7 @@
                     "isLeaf": "1",
                     "information": "All waste with radionuclide are managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
                     "omod_code" : "N/A",
-                    "label": "N/A"
+                    "label": "18"
                 },
                 "noBranch": {
                     "isLeaf": "0",
