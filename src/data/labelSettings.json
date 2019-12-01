@@ -1,18 +1,28 @@
 {
-    "pH" : { 
-        "step" : 1,
-        "min": "0",
-        "max": "14"
-    },
-    "mCi": {
-        "precision": 3,
-        "min": "0",
-        "max": "50"
-    },
-    "MBq": {
-        "precision": 2,
-        "min": "0",
-        "max": "500"
-    }
-    
+  "pH": {
+    "step": 1,
+    "min": "0",
+    "max": "14"
+  },
+  "mCi": {
+    "precision": 3,
+    "min": "0",
+    "max": "50"
+  },
+  "MBq": {
+    "precision": 2,
+    "min": "0",
+    "max": "500"
+  },
+  "pictograms": [
+    "corrosion",
+    "environment",
+    "exclamation_mark",
+    "exploding_bomb",
+    "flamable",
+    "gas_cylinder",
+    "health_hazard",
+    "oxidizer",
+    "skull"
+  ]
 }

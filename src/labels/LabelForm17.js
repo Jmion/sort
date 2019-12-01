@@ -88,7 +88,7 @@ class LabelForm17 extends React.Component {
            doc.setFontType("bold")
            if(data.get("nanoparticules") != null){
                 doc.text(59.4, 65.8, "X")
-           }
+           } 
       
 
            const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",

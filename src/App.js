@@ -123,14 +123,14 @@ class App extends React.Component {
         currentAwnsers : [...prevState.currentAwnsers.slice(0,idxOfCaller), resp]
       }));
     }
-      else if(resp == "YES" && this.state.history[idxOfCaller].isLeaf == "0"){ 
+      else if(resp === "YES" && this.state.history[idxOfCaller].isLeaf == "0"){ 
         let yesBranch = this.state.history[idxOfCaller].yesBranch
           this.setState(prevState => ({
             history : [ ...prevState.history, yesBranch],
             currentAwnsers : [...prevState.currentAwnsers, resp]           
           }));
       }
-      else if(resp == "NO" && this.state.history[idxOfCaller].isLeaf == "0"){
+      else if(resp === "NO" && this.state.history[idxOfCaller].isLeaf == "0"){
         let noBranch = this.state.history[idxOfCaller].noBranch
           this.setState(prevState => ({
             history : [ ...prevState.history, noBranch],            
@@ -189,7 +189,7 @@ class App extends React.Component {
       {zip( this.state.history, this.state.currentAwnsers).map((item, index) => (
         <Question idx={index} key={(item[0].isLeaf == "1" ? item[0].information : item[0].question)+ this.state.resestCounter+item[1]} hist={item[0]} lang={this.state.lang} currentAwnsers={item[1]} onClick={this.renderNextQuestion} resetFunction={this.resetWebsite}/>
         ))}
-        <div className='footer'dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['footer']}}/>
+        <footer dangerouslySetInnerHTML={{ __html: websiteText[this.state.lang]['footer']}} />
 
     </div>
   );
@@ -197,3 +197,4 @@ class App extends React.Component {
 }
 
 export default App;
+

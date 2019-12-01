@@ -33,6 +33,7 @@ import LabelForm15 from './labels/LabelForm15'
 import LabelForm16 from './labels/LabelForm16'
 import LabelForm17 from './labels/LabelForm17'
 import LabelForm18 from './labels/LabelForm18'
+import LabelFormTest from './labels/LabelFormTest'
 
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -167,7 +168,7 @@ class Question extends React.Component {
     }
 
     /**
-     * Renders the picotgram warning in the question if pictogram field is not empty.
+     * Renders the picotgram warning in the question if pictogram field is not empty.F
      */
     renderImageHtml(){
         let history = this.state.history;
@@ -322,6 +323,7 @@ class Question extends React.Component {
                             <Button size="lg" variant={this.state.noButtonColor} id="buttonStyle" onClick={() => this.onClickColorChange("NO")}>{websiteText[this.state.lang]['button']['no']}</Button>
                         </ButtonToolbar>
                     </div>
+                    <LabelFormTest formNumber={history.label} omodCode={history.omod_code} language={this.state.lang}/>
                 </div>
             );
         }else{

@@ -1,393 +1,493 @@
-import React from 'react';
-import corrosion from '../images/pictograms/corrosion.svg'
-import environment from '../images/pictograms/environment.svg'
-import exclamation_mark from '../images/pictograms/exclamation_mark.svg'
-import exploding_bomb from '../images/pictograms/exploding_bomb.svg'
-import flamable from '../images/pictograms/flamable.svg'
-import gas_cylinder from '../images/pictograms/gas_cylinder.svg'
-import health_hazard from '../images/pictograms/health_hazard.svg'
-import oxidizer from '../images/pictograms/oxidizer.svg'
-import skull from '../images/pictograms/skull.svg'
-import radioactive from '../images/pictograms/radioactive.svg'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl'
-import FormCheck from 'react-bootstrap/FormCheck'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
-import labelText from '../data/labelText.json'
-import labelSettings from '../data/labelSettings.json'
+import React from "react";
+import corrosion from "../images/pictograms/corrosion.svg";
+import environment from "../images/pictograms/environment.svg";
+import exclamation_mark from "../images/pictograms/exclamation_mark.svg";
+import exploding_bomb from "../images/pictograms/exploding_bomb.svg";
+import flamable from "../images/pictograms/flamable.svg";
+import gas_cylinder from "../images/pictograms/gas_cylinder.svg";
+import health_hazard from "../images/pictograms/health_hazard.svg";
+import oxidizer from "../images/pictograms/oxidizer.svg";
+import skull from "../images/pictograms/skull.svg";
+import radioactive from "../images/pictograms/radioactive.svg";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import FormControl from "react-bootstrap/FormControl";
+import FormCheck from "react-bootstrap/FormCheck";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import labelText from "../data/labelText.json";
+import labelSettings from "../data/labelSettings.json";
 
+import jsPDF from "jspdf"; //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
+import labels from "../images/labels/labels.json";
+import pictograms from "../images/labels/picotrgram.json"; //base64 encoded https://www.base64-image.de/
 
-import jsPDF from 'jspdf' //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
-import labels from '../images/labels/labels.json'
-import pictograms from '../images/labels/picotrgram.json' //base64 encoded https://www.base64-image.de/
-
-import "./LabelForm.css"
-import Container from 'react-bootstrap/Container';
-
+import "./LabelForm.css";
+import Container from "react-bootstrap/Container";
 
 class LabelForm18 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+    this.state = {
+      formNumber: this.props.formNumber,
+      omodCode: this.props.omodCode,
+      language: this.props.language,
+      mCi: "",
+      MBq: ""
+    };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    constructor(props){
-        super(props);
-        this.myRef = React.createRef();
-        this.state = {
-            formNumber: this.props.formNumber,
-            omodCode: this.props.omodCode,
-            language: this.props.language,
-            mCi: "",
-            MBq: ""
-        }
+  /**
+   * Creates the PDF.
+   */
+  jsPdfGenerator = data => {
+    var options = {
+      orientation: "l",
+      unit: "mm",
+      format: "a4",
+      putOnlyUsedFonts: true
+    };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+    // creating the document
+    var doc = new jsPDF(options);
+
+    // background image
+    doc.addImage(labels[18], "JPEG", 0, 0, 297, 210);
+
+    doc.setFontSize(10);
+    doc.setFontType("normal");
+    // Remettant
+    doc.text(90, 10.5, data.get("remettant"));
+
+    // Group
+    doc.text(6, 50, data.get("group name"), { maxWidth: 15 });
+
+    // date
+    doc.text(6, 90, data.get("date"));
+
+    //other comments
+    doc.setFontSize(10);
+    doc.setFontType("normal");
+    doc.text(35, 85.2, data.get("pH").toString());
+    doc.text(65, 85.2, data.get("metal"), { maxWidth: 80 });
+    doc.text(90, 60, data.get("substance"), { maxWidth: 110 });
+    doc.text(
+      40,
+      68,
+      "mCi : " + data.get("hl-mci") + "\tMBq : " + data.get("hl-mbq"),
+      { maxWidth: 110 }
+    );
+    doc.text(28, 60, data.get("nuclide"), { maxWidth: 60 });
+    doc.text(28, 76.5, data.get("half-life"), { maxWidth: 60 });
+
+    const pictograms_keys = [
+      "corrosion",
+      "environment",
+      "exclamation_mark",
+      "exploding_bomb",
+      "flamable",
+      "gas_cylinder",
+      "health_hazard",
+      "oxidizer",
+      "radioactive",
+      "skull"
+    ];
+
+    const pictograms_location = [
+      22,
+      15,
+      34,
+      15,
+      46,
+      15,
+      28,
+      21,
+      40,
+      21,
+      52,
+      21,
+      34,
+      27,
+      46,
+      27,
+      40,
+      33
+    ];
+    var nbPicto = 0;
+    for (
+      var i = 0;
+      i < pictograms_keys.length && nbPicto * 2 < pictograms_location.length;
+      i++
+    ) {
+      var picto_check = data.get(pictograms_keys[i]);
+      if (picto_check != null) {
+        doc.addImage(
+          pictograms[pictograms_keys[i]],
+          pictograms_location[nbPicto * 2],
+          pictograms_location[nbPicto * 2 + 1],
+          10,
+          10
+        );
+        nbPicto++;
+      }
     }
+    doc.save("label.pdf");
+  };
 
-    /**
-     * Creates the PDF.
-     */
-    jsPdfGenerator = (data) => {
-        var options = {
-            orientation: 'l',
-            unit: 'mm',
-            format: 'a4',
-            putOnlyUsedFonts:true
-           }
-           
-           // creating the document
-           var doc = new jsPDF(options);
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("handling submit");
+    const data = new FormData(event.target);
+    console.log(stringifyFormData(data));
+    console.log(data.get("omod"));
+    this.jsPdfGenerator(data);
+  }
 
-           // background image
-           doc.addImage(labels[18], 'JPEG', 0, 0, 297, 210)
-           
-           doc.setFontSize(10)
-           doc.setFontType("normal")
-           // Remettant
-           doc.text(90, 10.5, data.get("remettant"))
+  convertRadioactivity = (e, unit) => {
+    const mCi_to_MBq_ratio = 37; // 1mCi = 37MBq
 
-           // Group
-           doc.text(6, 50, data.get("group name"),{maxWidth: 15})
-
-           // date
-           doc.text(6, 90, data.get("date"))
-
-           //other comments
-           doc.setFontSize(10)
-           doc.setFontType('normal')
-           doc.text(35, 85.2, data.get("pH").toString())
-           doc.text(65, 85.2, data.get("metal"), {maxWidth: 80})
-           doc.text(90, 60, data.get("substance"), {maxWidth:110})
-           doc.text(40, 68, "mCi : "+ data.get("hl-mci")+ "\tMBq : "+ data.get("hl-mbq"), {maxWidth:110})
-           doc.text(28, 60, data.get("nuclide"), {maxWidth: 60})
-           doc.text(28, 76.5, data.get("half-life"), {maxWidth: 60})
-
-           const pictograms_keys = ["corrosion", "environment", "exclamation_mark", "exploding_bomb", "flamable", "gas_cylinder",
-        "health_hazard", "oxidizer", "radioactive", "skull"]
-
-           const pictograms_location = [22, 15, 34, 15, 46, 15, 28, 21, 40, 21, 52, 21, 34, 27, 46, 27, 40, 33]
-           var nbPicto = 0
-           for( var i = 0; i < pictograms_keys.length && nbPicto*2 < pictograms_location.length; i++){
-               var picto_check = data.get(pictograms_keys[i])
-               if(picto_check != null){
-                   doc.addImage(pictograms[pictograms_keys[i]], pictograms_location[nbPicto*2], pictograms_location[nbPicto*2 + 1], 10, 10)
-                   nbPicto++
-               }
-           }
-           doc.save("label.pdf")
-           
+    if (unit === "mCi") {
+      const new_mCi = e.target.value;
+      this.setState({
+        mCi: new_mCi,
+        MBq: (new_mCi * mCi_to_MBq_ratio).toFixed(
+          labelSettings["MBq"]["precision"]
+        )
+      });
+    } else if (unit === "MBq") {
+      const new_MBq = e.target.value;
+      this.setState({
+        mCi: (new_MBq / mCi_to_MBq_ratio).toFixed(
+          labelSettings["mCi"]["precision"]
+        ),
+        MBq: new_MBq
+      });
     }
-   
-    handleSubmit(event)  {
-        event.preventDefault();
-        console.log("handling submit")
-        const data = new FormData(event.target);
-        console.log(stringifyFormData(data))
-        console.log(data.get("omod"))
-        this.jsPdfGenerator(data)
-    }
+    console.log(e.target.value);
+  };
 
-    convertRadioactivity = (e, unit) => {
-        const mCi_to_MBq_ratio = 37 // 1mCi = 37MBq
-
-    
-        if(unit === "mCi"){
-
-            const new_mCi = e.target.value;
-            this.setState({
-                mCi: new_mCi,
-                MBq: (new_mCi * mCi_to_MBq_ratio).toFixed(labelSettings['MBq']['precision'])
-            })
-
-        }else if(unit === "MBq"){
-
-            const new_MBq = e.target.value;
-            this.setState({
-                mCi: (new_MBq / mCi_to_MBq_ratio).toFixed(labelSettings['mCi']['precision']),
-                MBq: new_MBq
-            })
-        }
-        console.log(e.target.value)
-    }
-
-    render(){
-        var date = new Date();
-        var picto = radioactive
-        return(
-            <div>
+  render() {
+    var date = new Date();
+    var picto = radioactive;
+    return (
+      <div>
         <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
-
-            <Row>
+          <Row>
             <Form.Group controlId="date">
-                <Col sm="4">
-                <Form.Label>
-                Date:
-                </Form.Label>
-                </Col>
-                <Col sm="8">
-                <Form.Control plaintext name="date" readOnly defaultValue={date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()} id="fixFormValue"/>
-                </Col>
-            </Form.Group>
-            </Row>
-                
-        <Form.Group controlId= "formGroupName">
-            <Form.Row>
-                <Form.Label>{labelText[this.state.language]['group name']}</Form.Label>
+              <Col sm="4">
+                <Form.Label>Date:</Form.Label>
+              </Col>
+              <Col sm="8">
                 <Form.Control
+                  plaintext
+                  name="date"
+                  readOnly
+                  defaultValue={
+                    date.getDate() +
+                    "/" +
+                    date.getMonth() +
+                    "/" +
+                    date.getFullYear()
+                  }
+                  id="fixFormValue"
+                />
+              </Col>
+            </Form.Group>
+          </Row>
+
+          <Form.Group controlId="formGroupName">
+            <Form.Row>
+              <Form.Label>
+                {labelText[this.state.language]["group name"]}
+              </Form.Label>
+              <Form.Control
                 required
-                name = "group name"
-                placeholder = {labelText[this.state.language]['group name placeholder']}
-                type = "text" />
+                name="group name"
+                placeholder={
+                  labelText[this.state.language]["group name placeholder"]
+                }
+                type="text"
+              />
             </Form.Row>
-        </Form.Group>
+          </Form.Group>
 
-        <Form.Group controlId = "formRemettant">
+          <Form.Group controlId="formRemettant">
             <Form.Row>
-                <Form.Label>{labelText[this.state.language]['remettant']}</Form.Label>
+              <Form.Label>
+                {labelText[this.state.language]["remettant"]}
+              </Form.Label>
+              <Form.Control
+                required
+                name="remettant"
+                placeholder={
+                  labelText[this.state.language]["remettant placeholder"]
+                }
+                type="text"
+              />
+            </Form.Row>
+          </Form.Group>
+
+          <Form.Row>
+            <Col>
+              <Form.Label>
+                {labelText[this.state.language]["other substances"]}
+              </Form.Label>
+              <Form.Control required type="text" name="substance" />
+            </Col>
+            <Col>
+              <Form.Group controlId="nuclide">
+                <Form.Label>
+                  {labelText[this.state.language]["nuclide"]}
+                </Form.Label>
                 <Form.Control
+                  required
+                  name="nuclide"
+                  placeholder={labelText[this.state.language]["nuclide"]}
+                  type="text"
+                />
+              </Form.Group>
+            </Col>
+          </Form.Row>
+
+          <Form.Group controlId="activity">
+            <Form.Label>
+              {labelText[this.state.language]["activity"]}
+            </Form.Label>
+            <Form.Row>
+              <Col>
+                <Form.Group controlId="mci">
+                  <Form.Label>mCi</Form.Label>
+                  <Form.Control
                     required
-                    name = "remettant"
-                    placeholder = {labelText[this.state.language]['remettant placeholder']}
-                    type = "text" />
-            </Form.Row>
-        </Form.Group>
-
-
-        
-
-            <Form.Row>
-                <Col>
-                    <Form.Label>{labelText[this.state.language]['other substances']}</Form.Label>
-                    <Form.Control  
+                    value={this.state.mCi}
+                    name="hl-mci"
+                    placeholder="mCi"
+                    type="number"
+                    onChange={e => {
+                      this.convertRadioactivity(e, "mCi");
+                    }}
+                    step={1 / Math.pow(10, labelSettings["mCi"]["precision"])}
+                    max={labelSettings["mCi"]["max"]}
+                    min={labelSettings["mCi"]["min"]}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group controlId="mbq">
+                  <Form.Label>MBq</Form.Label>
+                  <Form.Control
                     required
-                    type = "text"
-                    name = "substance"/>
-                </Col>
-                <Col>
-                    <Form.Group controlId="nuclide">
-                        <Form.Label>{labelText[this.state.language]["nuclide"]}</Form.Label>
-                        <Form.Control
-                        required
-                        name = "nuclide"
-                        placeholder = {labelText[this.state.language]["nuclide"]}
-                        type = "text"/>
-                    </Form.Group>
-                </Col>
+                    value={this.state.MBq}
+                    name="hl-mbq"
+                    placeholder="MBq"
+                    type="number"
+                    onChange={e => {
+                      this.convertRadioactivity(e, "MBq");
+                    }}
+                    step={1 / Math.pow(10, labelSettings["MBq"]["precision"])}
+                    max={labelSettings["MBq"]["max"]}
+                    min={labelSettings["MBq"]["min"]}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group controlId="half-life">
+                  <Form.Label>
+                    {labelText[this.state.language]["half-life"]}
+                  </Form.Label>
+                  <Form.Control
+                    required
+                    placeholder={labelText[this.state.language]["half-life"]}
+                    type="text"
+                    name="half-life"
+                  />
+                </Form.Group>
+              </Col>
             </Form.Row>
+          </Form.Group>
 
-            <Form.Group controlId = "activity">
-            <Form.Label>{labelText[this.state.language]["activity"]}</Form.Label>
+          <Form.Group controlId="formMetalPh">
             <Form.Row>
-                <Col>
-                    <Form.Group controlId = "mci">
-                        <Form.Label>mCi</Form.Label>
-                        <Form.Control
-                            required
-                            value = {this.state.mCi}
-                            name = "hl-mci"
-                            placeholder = "mCi"
-                            type = "number"
-                            onChange = {(e) => {this.convertRadioactivity(e, "mCi")}}
-                            step = {1/ Math.pow(10, labelSettings['mCi']['precision'])}
-                            max = {labelSettings['mCi']['max']}
-                            min = {labelSettings['mCi']['min']}/>
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Form.Group controlId="mbq">
-                        <Form.Label>MBq</Form.Label>
-                        <Form.Control
-                            required
-                            value = {this.state.MBq}
-                            name = "hl-mbq"
-                            placeholder = "MBq"
-                            type = "number"
-                            onChange = {(e) => {this.convertRadioactivity(e, "MBq")}}
-                            step = {1/ Math.pow(10, labelSettings['MBq']['precision'])}
-                            max = {labelSettings['MBq']['max']}
-                            min = {labelSettings['MBq']['min']}/>
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Form.Group controlId = "half-life">
-                    <Form.Label>{labelText[this.state.language]["half-life"]}</Form.Label>
-                    <Form.Control
-                        required
-                        placeholder = {labelText[this.state.language]["half-life"]}
-                        type = "text"
-                        name = "half-life"
-                        />
-            </Form.Group>
-                </Col>
-            </Form.Row>
-            </Form.Group>
-
-
-        <Form.Group controlId = "formMetalPh">
-            <Form.Row>
-                <Col>
-                <Form.Label>{labelText[this.state.language]['metal']}</Form.Label>
+              <Col>
+                <Form.Label>
+                  {labelText[this.state.language]["metal"]}
+                </Form.Label>
                 <Form.Control
-                    required
-                    name = "metal"
-                    placeholder = {labelText[this.state.language]['metal placeholder']}
-                    type = "text" />
-                </Col>
-                <Col>
-                    <Form.Label>{labelText[this.state.language]['pH']}</Form.Label>
-                    <Form.Control
-                    required
-                    name = "pH"
-                    placeholder = {labelText[this.state.language]['pH']}
-                    type = "number"
-                    step = {labelSettings['pH']['step']}
-                    max = {labelSettings['pH']['max']}
-                    min = {labelSettings['pH']['min']} />
-                    </Col>
+                  required
+                  name="metal"
+                  placeholder={
+                    labelText[this.state.language]["metal placeholder"]
+                  }
+                  type="text"
+                />
+              </Col>
+              <Col>
+                <Form.Label>{labelText[this.state.language]["pH"]}</Form.Label>
+                <Form.Control
+                  required
+                  name="pH"
+                  placeholder={labelText[this.state.language]["pH"]}
+                  type="number"
+                  step={labelSettings["pH"]["step"]}
+                  max={labelSettings["pH"]["max"]}
+                  min={labelSettings["pH"]["min"]}
+                />
+              </Col>
             </Form.Row>
-        </Form.Group>
+          </Form.Group>
 
-            
-      
-        
-        <Container>
-            <Form.Label className="pictogramTitle">{labelText[this.state.language]['danger pictograms']}</Form.Label>
+          <Container>
+            <Form.Label className="pictogramTitle">
+              {labelText[this.state.language]["danger pictograms"]}
+            </Form.Label>
             <Row>
-                <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "corrosion"
-                label = {<Image className='image_checkbox' src={corrosion} fluid />}
-                type = "checkbox"
-                id = {`corrosion`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "environment"
-                label = {<Image className='image_checkbox' src={environment} fluid />}
-                type = "checkbox"
-                id = {`environment`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "exclamation_mark"
-                label = {<Image className='image_checkbox' src={exclamation_mark} fluid />}
-                type = "checkbox"
-                id = {`exclamation_mark`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "exploding_bomb"
-                label = {<Image className='image_checkbox' src={exploding_bomb} fluid />}
-                type = "checkbox"
-                id = {`exploding_bomb`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className="pictogramMargin"
-                name = "flamable"
-                label = {<Image className='image_checkbox' src={flamable} fluid />}
-                type = "checkbox"
-                id = {`flamable`}
-            />
-            </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="corrosion"
+                  label={
+                    <Image className="image_checkbox" src={corrosion} fluid />
+                  }
+                  type="checkbox"
+                  id={`corrosion`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="environment"
+                  label={
+                    <Image className="image_checkbox" src={environment} fluid />
+                  }
+                  type="checkbox"
+                  id={`environment`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="exclamation_mark"
+                  label={
+                    <Image
+                      className="image_checkbox"
+                      src={exclamation_mark}
+                      fluid
+                    />
+                  }
+                  type="checkbox"
+                  id={`exclamation_mark`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="exploding_bomb"
+                  label={
+                    <Image
+                      className="image_checkbox"
+                      src={exploding_bomb}
+                      fluid
+                    />
+                  }
+                  type="checkbox"
+                  id={`exploding_bomb`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="flamable"
+                  label={
+                    <Image className="image_checkbox" src={flamable} fluid />
+                  }
+                  type="checkbox"
+                  id={`flamable`}
+                />
+              </Col>
             </Row>
             <Row>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "gas_cylinder"
-                label = {<Image className='image_checkbox' src={gas_cylinder} fluid />}
-                type = "checkbox"
-                id = {`gas_cylinder`}
-            />
-            </Col>
-                <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "health_hazard"
-                label = {<Image className='image_checkbox' src={health_hazard} fluid />}
-                type = "checkbox"
-                id = {`health_hazard`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "oxidizer"
-                label = {<Image className='image_checkbox' src={oxidizer} fluid />}
-                type = "checkbox"
-                id = {`oxidizer`}
-            />
-            </Col>
-            <Col>
-            <Form.Check
-                custom
-                className = "pictogramMargin"
-                name = "skull"
-                label = {<Image className='image_checkbox' src={skull} fluid />}
-                type = "checkbox"
-                id = {`skull`}
-            />
-            </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="gas_cylinder"
+                  label={
+                    <Image
+                      className="image_checkbox"
+                      src={gas_cylinder}
+                      fluid
+                    />
+                  }
+                  type="checkbox"
+                  id={`gas_cylinder`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="health_hazard"
+                  label={
+                    <Image
+                      className="image_checkbox"
+                      src={health_hazard}
+                      fluid
+                    />
+                  }
+                  type="checkbox"
+                  id={`health_hazard`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="oxidizer"
+                  label={
+                    <Image className="image_checkbox" src={oxidizer} fluid />
+                  }
+                  type="checkbox"
+                  id={`oxidizer`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  custom
+                  className="pictogramMargin"
+                  name="skull"
+                  label={<Image className="image_checkbox" src={skull} fluid />}
+                  type="checkbox"
+                  id={`skull`}
+                />
+              </Col>
             </Row>
-            </Container>
-            
-            <Button type="submit" variant="primary"> {labelText[this.state.language]['generate pdf']}</Button>
+          </Container>
 
-          </Form>
-
-
-
-
-          </div>
-          )
-    }
+          <Button type="submit" variant="primary">
+            {" "}
+            {labelText[this.state.language]["generate pdf"]}
+          </Button>
+        </Form>
+      </div>
+    );
+  }
 }
 
-
 function stringifyFormData(fd) {
-    const data = {};
-      for (let key of fd.keys()) {
-        data[key] = fd.get(key);
-    }
-    return JSON.stringify(data, null, 2);
+  const data = {};
+  for (let key of fd.keys()) {
+    data[key] = fd.get(key);
+  }
+  return JSON.stringify(data, null, 2);
 }
 
 export default LabelForm18;

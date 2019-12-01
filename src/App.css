@@ -18,33 +18,32 @@
   color: white;
 }
 
-.welcomePage{
+.welcomePage {
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("images/color_background_dark.jpg");  
+  background-image: url("images/color_background_dark.jpg");
   background-size: cover;
   min-height: 60vh;
   font-size: 5vmin;
 }
 
-.epflLogo{
+.epflLogo {
   max-width: 100vw;
   max-height: 30 vh;
   min-width: 30 vw;
   width: 50vh;
-  height: auto; 
+  height: auto;
 }
-
 
 .App-link {
   display: flex;
   color: #09d3ac;
 }
 
-.questionButton{
+.questionButton {
   padding: 10vh;
   background-color: #09092f;
   color: white;
@@ -58,28 +57,26 @@
   font-size: x-large;
 }
 
-#buttonStyle{
+#buttonStyle {
   margin: 2vw;
-
 }
 
-#redAwnser{
-  background-color:  rgb(58, 0, 0);
+#redAwnser {
+  background-color: rgb(58, 0, 0);
 }
 
-#greenAwnser{
+#greenAwnser {
   background-color: rgb(0, 43, 0);
 }
 
-#infoColor{
-  background-color: #16161f
+#infoColor {
+  background-color: #16161f;
 }
 
-.image_pictrogram{
+.image_pictrogram {
   background-color: white;
   width: 120px;
 }
-
 
 ul {
   text-align: center;
@@ -95,18 +92,50 @@ ol {
   color: white;
 }
 
-.footer{
+footer {
   background-color: black;
-  color: white;
-  font-size: 1.8vh;
+  color: rgb(204, 204, 204);
 }
 
-
-
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-cly1{text-align:left;vertical-align:middle}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.tg td {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: black;
+}
+.tg th {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: black;
+}
+.tg .tg-cly1 {
+  text-align: left;
+  vertical-align: middle;
+}
+.tg .tg-baqh {
+  text-align: center;
+  vertical-align: top;
+}
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+.tg .tg-amwm {
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+}
