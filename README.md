@@ -1,3 +1,7 @@
+# This website is in Alpha testin
+
+Please note that this website is not yet ready to be used. We are still veryfing the corectness of the content.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
