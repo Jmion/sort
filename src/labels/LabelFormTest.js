@@ -386,7 +386,10 @@ class LabelForm2 extends React.Component {
             </Row>
           </Container>
 
-          <DangerPictogramCheckbox language={this.state.language} />
+          <DangerPictogramCheckbox
+            language={this.state.language}
+            labelNumber={this.state.formNumber}
+          />
 
           <Button type="submit" variant="primary">
             {" "}

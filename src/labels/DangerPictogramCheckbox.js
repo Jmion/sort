@@ -46,7 +46,8 @@ class SinglePicto extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkBoxName: props.checkBoxName
+      checkBoxName: props.checkBoxName,
+      labelNumber: props.labelNumber
     };
   }
 
@@ -89,7 +90,7 @@ class SinglePicto extends React.Component {
    */
   render() {
     const picotrgram_to_not_display =
-      labelSettings["pictograms_not_to_show"]["2"];
+      labelSettings["pictograms_not_to_show"][this.state.labelNumber];
     if (!picotrgram_to_not_display.includes(this.state.checkBoxName)) {
       let picto = this.imageResolver(this.state.checkBoxName);
       return (
@@ -121,7 +122,8 @@ class DangerPictogramCheckbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: props.language
+      language: props.language,
+      labelNumber: props.labelNumber
     };
   }
 
@@ -135,7 +137,11 @@ class DangerPictogramCheckbox extends React.Component {
         </Form.Label>
         <Row>
           {temp.map(item => (
-            <SinglePicto checkBoxName={item} />
+            <SinglePicto
+              key={item}
+              checkBoxName={item}
+              labelNumber={this.state.labelNumber}
+            />
           ))}
         </Row>
       </Container>

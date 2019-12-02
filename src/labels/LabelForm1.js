@@ -17,6 +17,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import labelText from "../data/labelText.json";
+import DangerPictogramCheckbox from "./DangerPictogramCheckbox";
+import calculatePictoSize from "./Helper.js";
 
 import jsPDF from "jspdf"; //doc from https://raw.githack.com/MrRio/jsPDF/master/docs/   Project from: https://github.com/MrRio/jsPDF
 import labels from "../images/labels/labels.json";
@@ -79,55 +81,36 @@ class LabelForm1 extends React.Component {
     doc.setFontType("normal");
     doc.text(30, 64, data.get("comments"), { maxWidth: 110 });
 
-    const pictograms_keys = [
-      "corrosion",
-      "environment",
-      "exclamation_mark",
-      "exploding_bomb",
-      "flamable",
-      "gas_cylinder",
-      "health_hazard",
-      "oxidizer",
-      "radioactive",
-      "skull"
-    ];
+    const pictograms_keys = Object.keys(pictograms);
 
-    const pictograms_location = [
-      10,
-      15,
-      22,
-      15,
-      34,
-      15,
-      46,
-      15,
-      16,
-      21,
-      28,
-      21,
-      40,
-      21,
-      22,
-      27,
-      34,
-      27,
-      28,
-      33
-    ];
     var nbPicto = 0;
+    let pictograms_to_display = [];
     for (var i = 0; i < pictograms_keys.length; i++) {
-      var picto_check = data.get(pictograms_keys[i]);
-      if (picto_check != null) {
-        doc.addImage(
-          pictograms[pictograms_keys[i]],
-          pictograms_location[nbPicto * 2],
-          pictograms_location[nbPicto * 2 + 1],
-          10,
-          10
-        );
+      if (data.get(pictograms_keys[i]) != null) {
         nbPicto++;
+        pictograms_to_display.push(pictograms_keys[i]);
       }
     }
+
+    let pictogramPlacement = calculatePictoSize(60, 29, nbPicto);
+    console.log(pictograms_to_display);
+    console.log(pictogramPlacement);
+    for (i = 0; i < pictogramPlacement[0]; i++) {
+      for (var j = 0; j < pictogramPlacement[1]; j++) {
+        if (pictogramPlacement[1] * i + j < pictograms_to_display.length) {
+          console.log(pictogramPlacement[1] * i + j);
+          doc.addImage(
+            pictograms[pictograms_to_display[pictogramPlacement[1] * i + j]],
+            5 + pictogramPlacement[2] * j,
+            13 + pictogramPlacement[2] * i,
+            pictogramPlacement[2],
+            pictogramPlacement[2]
+          );
+        }
+      }
+    }
+
+    //doc.rect(5, 13, 60, 29, "F");
 
     doc.save("label.pdf");
   };
@@ -246,151 +229,13 @@ class LabelForm1 extends React.Component {
             <Form.Label>
               {labelText[this.state.language]["description"]}
             </Form.Label>
-            <Form.Control as="textarea" rows="3" required name="description" />
+            <Form.Control as="textarea" rows="3" required name="comments" />
           </Form.Group>
 
-          <Container>
-            <Form.Label className="pictogramTitle">
-              {labelText[this.state.language]["danger pictograms"]}
-            </Form.Label>
-            <Row>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="corrosion"
-                  label={
-                    <Image className="image_checkbox" src={corrosion} fluid />
-                  }
-                  type="checkbox"
-                  id={`corrosion`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="environment"
-                  label={
-                    <Image className="image_checkbox" src={environment} fluid />
-                  }
-                  type="checkbox"
-                  id={`environment`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="exclamation_mark"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={exclamation_mark}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`exclamation_mark`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="exploding_bomb"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={exploding_bomb}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`exploding_bomb`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="flamable"
-                  label={
-                    <Image className="image_checkbox" src={flamable} fluid />
-                  }
-                  type="checkbox"
-                  id={`flamable`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="gas_cylinder"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={gas_cylinder}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`gas_cylinder`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="health_hazard"
-                  label={
-                    <Image
-                      className="image_checkbox"
-                      src={health_hazard}
-                      fluid
-                    />
-                  }
-                  type="checkbox"
-                  id={`health_hazard`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="oxidizer"
-                  label={
-                    <Image className="image_checkbox" src={oxidizer} fluid />
-                  }
-                  type="checkbox"
-                  id={`oxidizer`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="radioactive"
-                  label={
-                    <Image className="image_checkbox" src={radioactive} fluid />
-                  }
-                  type="checkbox"
-                  id={`radioactive`}
-                />
-              </Col>
-              <Col className="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                <Form.Check
-                  custom
-                  className="pictogramMargin"
-                  name="skull"
-                  label={<Image className="image_checkbox" src={skull} fluid />}
-                  type="checkbox"
-                  id={`skull`}
-                />
-              </Col>
-            </Row>
-          </Container>
-
+          <DangerPictogramCheckbox
+            language={this.state.language}
+            labelNumber={this.state.formNumber}
+          />
           <Button type="submit" variant="primary">
             {" "}
             {labelText[this.state.language]["generate pdf"]}
