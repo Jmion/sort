@@ -438,11 +438,6 @@ class Question extends React.Component {
               </Button>
             </ButtonToolbar>
           </div>
-          <LabelForm10
-            formNumber="18"
-            omodCode={history.omod_code}
-            language={this.state.lang}
-          />
         </div>
       );
     } else {
