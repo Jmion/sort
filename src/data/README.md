@@ -4,11 +4,12 @@ All of the content that is easly modifiable is deffined in this directory.
 
 ## Tree
 
-Our website has two trees. One for french and one for english ```treeEN.json``` and ```treeFR.json```. A tree is composed of nodes and leaves. Leaves are at the end of a tree, just like a tree in nature. 
+Our website has two trees. One for french and one for english `treeEN.json` and `treeFR.json`. A tree is composed of nodes and leaves. Leaves are at the end of a tree, just like a tree in nature.
 
 ### Node
 
-A node is deffined as 
+A node is deffined as
+
 ```JSON
         "isLeaf": "0",
         "question": "The question to ask the user. Allows HTML formating",
@@ -19,9 +20,10 @@ A node is deffined as
         "noBranch": { Some other tree element (leaf or node) }
 ```
 
-All nodes nead to have the *isLeaf* variable set to 0. The rest is left up to customization. Not respecting the proper format of the tree could lead to the website crashing
+All nodes nead to have the _isLeaf_ variable set to 0. The rest is left up to customization. Not respecting the proper format of the tree could lead to the website crashing
 
 ### Leaf
+
 A leaf is the final element of the tree. No new question will be asked to the user. A leaf corresponds to having identified the waste that we want to sort.
 
 ```JSON
@@ -30,27 +32,29 @@ A leaf is the final element of the tree. No new question will be asked to the us
 "omod_code" : "N/A",
 "label": "N/A"
 ```
-All leaves need to have the variable *isLeaf* set to 1
+
+All leaves need to have the variable _isLeaf_ set to 1
 The label number is used to determine what form the user should be prompted to fill in to generate the label. The OMoD code is used to generate the label with the correct code.
 
-
 ### Pictogram
+
 You can chose the pictograms from the list of the following pictograms:
 
-* corrosion
-* environment
-* exclamation_mark 
-* exploding_bomb 
-* flamable 
-* gas_cylinder
-* health_hazard
-* oxidizer
-* skull
-* combo
-* radioactive
+- corrosion
+- environment
+- exclamation_mark
+- exploding_bomb
+- flamable
+- gas_cylinder
+- health_hazard
+- oxidizer
+- skull
+- combo
+- radioactive
 
 ## Website Text
-All of the other text that is not linked to a question is deffined in ```websiteText.json```.
+
+All of the other text that is not linked to a question is deffined in `websiteText.json`.
 Please feel free to edit any of the values. Modifying the key of a an element in this table will cause the website to break.
 
 If you do not know what a JSON key or value is read on.
@@ -61,12 +65,15 @@ If you do not know what a JSON key or value is read on.
 }
 ```
 
+Changing the key will make the website unable to find the text to display.
+
 ## Label text
-If there is a need to change the text displayed with the form when the user is filling in the required information to generate a label please modify ```labelText.json```. The same set of constraints apply to as with modifying the information. **Only modify the ```value``` and leave the ```key``` as is**.
+
+If there is a need to change the text displayed with the form when the user is filling in the required information to generate a label please modify `labelText.json`. The same set of constraints apply to as with modifying the information. **Only modify the `value` and leave the `key` as is**.
 
 ## Label Settings
 
-Some fields that are being requested by the form have settings that can be modified in the ```labelSettings.json```. Example of values that can be changed in the label settings is: 
+Some fields that are being requested by the form have settings that can be modified in the `labelSettings.json`. Example of values that can be changed in the label settings is:
 
 ```JSON
 "mCi": {
@@ -75,3 +82,5 @@ Some fields that are being requested by the form have settings that can be modif
         "max": "value allowed"
     }
 ```
+
+To see what settings are available to be tweaked please look at the content of the file.

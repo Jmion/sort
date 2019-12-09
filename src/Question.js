@@ -162,7 +162,7 @@ class Question extends React.Component {
   }
 
   /**
-   * Renders the picotgram warning in the question if pictogram field is not empty.F
+   * Renders the picotgram warning in the question if pictogram field is not empty.
    */
   renderImageHtml() {
     let history = this.state.history;
@@ -179,7 +179,7 @@ class Question extends React.Component {
   }
 
   /**
-   * Method called when rendering moreInformation. Used to add picture if needed
+   * Method called when rendering moreInformation. Used to add picture if needed to tooltip(poopup)
    */
   popover_image() {
     if (this.state.history.moreInfoPicture != "") {
@@ -190,7 +190,7 @@ class Question extends React.Component {
   }
 
   /**
-   * Renders the more infromation button. More information button is only visisble on questions (not leaves).
+   * Renders the more information button. More information button is only visisble on questions (not leaves).
    * The more information button will only be displayed if there is text deffined for
    */
   renderMoreInformation() {

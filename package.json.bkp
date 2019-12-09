@@ -2,7 +2,7 @@
   "name": "sort",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://jmion.github.io/sort/",
   "dependencies": {
     "@bit/mui-org.material-ui-icons.language-rounded": "^3.9.2",
     "gh-pages": "^2.1.1",

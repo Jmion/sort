@@ -4,9 +4,9 @@
     "question": "Glassware, gloves, abosorbents, needles, ...",
     "information": "",
     "pictogram" : "" ,
-    "moreInfo" : "test",
-    "moreInfoPicture" : "1",
-    "moreInfoTitle": "More information",
+    "moreInfo" : "",
+    "moreInfoPicture" : "",
+    "moreInfoTitle": "",
     "yesBranch": { 
         "isLeaf": "0",
         "question": "Contaminated Material",
