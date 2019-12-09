@@ -1,21 +1,9 @@
 import React from "react";
-import corrosion from "../images/pictograms/corrosion.svg";
-import environment from "../images/pictograms/environment.svg";
-import exclamation_mark from "../images/pictograms/exclamation_mark.svg";
-import exploding_bomb from "../images/pictograms/exploding_bomb.svg";
-import flamable from "../images/pictograms/flamable.svg";
-import gas_cylinder from "../images/pictograms/gas_cylinder.svg";
-import health_hazard from "../images/pictograms/health_hazard.svg";
-import oxidizer from "../images/pictograms/oxidizer.svg";
-import skull from "../images/pictograms/skull.svg";
 import radioactive from "../images/pictograms/radioactive.svg";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
-import FormCheck from "react-bootstrap/FormCheck";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import labelText from "../data/labelText.json";
 import labelSettings from "../data/labelSettings.json";
 import DangerPictogramCheckbox from "./DangerPictogramCheckbox";
@@ -98,7 +86,7 @@ class LabelForm3 extends React.Component {
 
     var nbPicto = 0;
     let pictograms_to_display = [];
-    for (var i = 0; i < pictograms_keys.length; i++) {
+    for (i = 0; i < pictograms_keys.length; i++) {
       if (data.get(pictograms_keys[i]) != null) {
         nbPicto++;
         pictograms_to_display.push(pictograms_keys[i]);
@@ -226,7 +214,6 @@ class LabelForm3 extends React.Component {
               </Form.Label>
               <Form.Control
                 required
-                defaultValue="ISIC-CH/PH-1015 Lausanne"
                 name="remettant"
                 placeholder={
                   labelText[this.state.language]["remettant placeholder"]

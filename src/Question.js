@@ -10,7 +10,6 @@ import oxidizer from "./images/pictograms/oxidizer.svg";
 import skull from "./images/pictograms/skull.svg";
 import radioactive from "./images/pictograms/radioactive.svg";
 import Image from "react-bootstrap/Image";
-import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -35,7 +34,6 @@ import LabelForm17 from "./labels/LabelForm17";
 import LabelForm18 from "./labels/LabelForm18";
 import LabelFormTest from "./labels/LabelFormTest";
 
-import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
@@ -43,7 +41,6 @@ import "./App.css";
 import websiteText from "./data/websiteText.json";
 import popover_image from "./images/popover_image.json";
 import Popover from "react-bootstrap/Popover";
-import Overlay from "react-bootstrap/Overlay";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 class Question extends React.Component {
@@ -68,7 +65,6 @@ class Question extends React.Component {
    */
   componentDidMount() {
     this.setColor(this.state.currentAwnsers);
-    const height = this.myRef.clientHeight;
     window.scrollBy(0, window.screen.availHeight * 0.4);
   }
 
@@ -101,7 +97,7 @@ class Question extends React.Component {
    */
   onClickColorChange(response) {
     this.setState({ currentAwnsers: response });
-    if (response != this.state.currentAwnsers) {
+    if (response !== this.state.currentAwnsers) {
       this.state.onClickAction(response, this.state.idx);
       this.setColor(response);
     }
@@ -114,7 +110,7 @@ class Question extends React.Component {
    */
   renderInformationIfRequired() {
     let history = this.state.history;
-    if (history.information != "") {
+    if (history.information !== "") {
       console.log("Informatio card beaing displayed");
       let html_information = history.information;
       return (
@@ -166,7 +162,7 @@ class Question extends React.Component {
    */
   renderImageHtml() {
     let history = this.state.history;
-    if (history.isLeaf == "0" && history.pictogram != "") {
+    if (history.isLeaf === "0" && history.pictogram !== "") {
       let picto = this.imageResolver(history.pictogram);
       return (
         <Row>
@@ -182,7 +178,7 @@ class Question extends React.Component {
    * Method called when rendering moreInformation. Used to add picture if needed to tooltip(poopup)
    */
   popover_image() {
-    if (this.state.history.moreInfoPicture != "") {
+    if (this.state.history.moreInfoPicture !== "") {
       return (
         <Image src={popover_image[this.state.history.moreInfoPicture]} fluid />
       );
@@ -195,7 +191,7 @@ class Question extends React.Component {
    */
   renderMoreInformation() {
     let history = this.state.history; //current question that we are on
-    if (history.isLeaf == "0" && history.moreInfo != "") {
+    if (history.isLeaf === "0" && history.moreInfo !== "") {
       /**
        * Popover object with content rendred
        */
@@ -404,7 +400,7 @@ class Question extends React.Component {
     if (history.more_info)
       console.log("idx is : " + JSON.stringify(this.state.idx));
     console.log("current awnsers is " + this.state.currentAwnsers);
-    if (history.isLeaf == "0") {
+    if (history.isLeaf === "0") {
       return (
         <div>
           {this.renderInformationIfRequired()}
