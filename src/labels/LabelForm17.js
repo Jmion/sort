@@ -153,7 +153,7 @@ class LabelForm17 extends React.Component {
                 defaultValue={
                   date.getDate() +
                   "/" +
-                  date.getMonth() +
+                  (date.getMonth() + 1) +
                   "/" +
                   date.getFullYear()
                 }

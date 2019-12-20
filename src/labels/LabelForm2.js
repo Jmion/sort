@@ -163,7 +163,7 @@ class LabelForm2 extends React.Component {
                 defaultValue={
                   date.getDate() +
                   "/" +
-                  date.getMonth() +
+                  (date.getMonth() + 1) +
                   "/" +
                   date.getFullYear()
                 }
@@ -222,7 +222,7 @@ class LabelForm2 extends React.Component {
                 {labelText[this.state.language]["remettant"]}
               </Form.Label>
               <Form.Control
-                required            
+                required
                 name="remettant"
                 placeholder={
                   labelText[this.state.language]["remettant placeholder"]
@@ -262,7 +262,6 @@ class LabelForm2 extends React.Component {
               <Col>
                 <Form.Label>{labelText[this.state.language]["pH"]}</Form.Label>
                 <Form.Control
-                  required
                   name="pH"
                   placeholder={labelText[this.state.language]["pH"]}
                   type="number"

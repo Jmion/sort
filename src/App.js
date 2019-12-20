@@ -169,24 +169,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar bg="dark" variant="dark" sticky="top">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <img
               alt=""
-              src={logo}
-              width="30"
+              src={epfl_logo}
               height="30"
-              className="d-inline-block align-top"
+              className="d-inline-block align-top epflLogo"
             />
             {" " + websiteText[this.state.lang]["title"]}
           </Navbar.Brand>
 
           <Nav.Link
-            className="nav-lang navbar-right"
+            className="nav-lang navbar-right "
             onClick={this.undoHistoryModification}
             id="nav_lang"
           >
             {websiteText[this.state.lang]["undo button"]}
           </Nav.Link>
+
           <Nav.Link
             className="nav-lang ml-auto navbar-right"
             onClick={this.changeLanguage}

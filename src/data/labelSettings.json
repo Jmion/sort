@@ -2,7 +2,8 @@
   "pH": {
     "step": 1,
     "min": "0",
-    "max": "14"
+    "max": "14",
+    "required": false
   },
   "mCi": {
     "precision": 3,

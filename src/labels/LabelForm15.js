@@ -61,15 +61,6 @@ class LabelForm15 extends React.Component {
     return (
       <div>
         <Form className="LabelFormLayout" onSubmit={this.handleSubmit}>
-          <p>
-            <Form.Label>
-              {
-                labelText[this.state.language][
-                  "You do not need to enter any extra information. Please generate your label bellow."
-                ]
-              }
-            </Form.Label>
-          </p>
           <Button type="submit" variant="primary">
             {" "}
             {labelText[this.state.language]["generate pdf"]}

@@ -155,7 +155,7 @@ class LabelForm6 extends React.Component {
                 defaultValue={
                   date.getDate() +
                   "/" +
-                  date.getMonth() +
+                  (date.getMonth() + 1) +
                   "/" +
                   date.getFullYear()
                 }
@@ -256,7 +256,6 @@ class LabelForm6 extends React.Component {
               <Col>
                 <Form.Label>{labelText[this.state.language]["pH"]}</Form.Label>
                 <Form.Control
-                  required
                   name="pH"
                   placeholder={labelText[this.state.language]["pH"]}
                   type="number"

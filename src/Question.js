@@ -39,7 +39,7 @@ import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import "./App.css";
 import websiteText from "./data/websiteText.json";
-import popover_image from "./images/popover_image.json";
+import images from "./images/images.json";
 import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
@@ -179,9 +179,16 @@ class Question extends React.Component {
    */
   popover_image() {
     if (this.state.history.moreInfoPicture !== "") {
-      return (
-        <Image src={popover_image[this.state.history.moreInfoPicture]} fluid />
-      );
+      return <Image src={images[this.state.history.moreInfoPicture]} fluid />;
+    }
+  }
+
+  /**
+   * Renders an image if needed for the questions (leaves)
+   */
+  question_image() {
+    if (this.state.history.picture !== "") {
+      return <Image src={images[this.state.history.picture]} fluid className="image_question"/>;
     }
   }
 
@@ -391,6 +398,35 @@ class Question extends React.Component {
     }
   }
 
+  renderSentenceWithOMoDCode() {
+    let label_number = this.state.history.label;
+    let omod = this.state.history.omod_code;
+    if (label_number !== "N/A") {
+      if (omod !== "N/A") {
+        return (
+          <ol>
+            <li>
+              Fill the form below or collect label number {label_number} (OMoD
+              code {omod}) from the assigned responsible person or the assigned
+              waste collection point.{" "}
+            </li>
+          </ol>
+        );
+      } else {
+        return (
+          <ol>
+            <li>
+              Fill the form below or collect label number {label_number} from
+              the assigned responsible person or the assigned waste collection
+              point.{" "}
+            </li>
+          </ol>
+        );
+      }
+    }
+    return;
+  }
+
   /**
    * Part of the React life cycle used to render the component to screen.
    */
@@ -441,14 +477,18 @@ class Question extends React.Component {
       return (
         <div>
           <div className="questionButton">
-            <h2>Information : </h2>{" "}
+            {this.renderSentenceWithOMoDCode()}
             <div dangerouslySetInnerHTML={{ __html: html_information }} />
-            <p> omod_code : {history.omod_code}</p>
-            <p>label : {history.label}</p>
+            {this.question_image()}
+            {
+              //<p> omod_code : {history.omod_code}</p>}
+              //<p>label : {history.label}</p>}
+            }
+
+            {this.renderLabel()}
             <Button onClick={() => this.state.resetWebsiteAction()}>
               {websiteText[this.state.lang]["Identify a new waste"]}
             </Button>
-            {this.renderLabel()}
           </div>
         </div>
       );

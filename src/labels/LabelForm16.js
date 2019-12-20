@@ -157,7 +157,7 @@ class LabelForm16 extends React.Component {
                 defaultValue={
                   date.getDate() +
                   "/" +
-                  date.getMonth() +
+                  (date.getMonth() + 1) +
                   "/" +
                   date.getFullYear()
                 }
@@ -247,7 +247,7 @@ class LabelForm16 extends React.Component {
 
           <Container>
             <Form.Label>
-              {labelText[this.state.language]["desinfectant used"]}
+              {labelText[this.state.language]["absorbant used"]}
             </Form.Label>
             <Row>
               <Col>
