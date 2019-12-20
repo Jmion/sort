@@ -16,6 +16,8 @@ A node is deffined as
         "information": "A information banner that will be shown before the question. Allows HTML formating",
         "pictogram" : "The name of a pictogram. See more info bellow" ,
         "moreInfo" : "Some information that will show up as a tooltip on the users screen. Allows HTML formating",
+        "moreInfoPicture" : "Optional, picture to show in tooltip. Needs to correspond to key of image stored in image/image.json",
+        "moreInfoTitle": "Title of the tooltip",
         "yesBranch": { Some other tree element (leaf or node) },
         "noBranch": { Some other tree element (leaf or node) }
 ```
@@ -30,7 +32,8 @@ A leaf is the final element of the tree. No new question will be asked to the us
 "isLeaf": "1",
 "information": "Some intresting informaiton on how to dispose of the waste. Allow HTLM formatting",
 "omod_code" : "N/A",
-"label": "N/A"
+"label": "N/A",
+"picture": "Optional, Allows the display of a single image. This value need to be the number of the image in image/image.json"
 ```
 
 All leaves need to have the variable _isLeaf_ set to 1
@@ -84,3 +87,8 @@ Some fields that are being requested by the form have settings that can be modif
 ```
 
 To see what settings are available to be tweaked please look at the content of the file.
+
+## Difference with the paper decision tree
+
+- Label 18 does not exist on the paper decision tree. It is the label for radioactive materials.
+- Label 19 is a copy of label 2 but with some field that are mandatory.

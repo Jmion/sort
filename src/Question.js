@@ -32,6 +32,7 @@ import LabelForm15 from "./labels/LabelForm15";
 import LabelForm16 from "./labels/LabelForm16";
 import LabelForm17 from "./labels/LabelForm17";
 import LabelForm18 from "./labels/LabelForm18";
+import LabelForm19 from "./labels/LabelForm19";
 import LabelFormTest from "./labels/LabelFormTest";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -188,7 +189,13 @@ class Question extends React.Component {
    */
   question_image() {
     if (this.state.history.picture !== "") {
-      return <Image src={images[this.state.history.picture]} fluid className="image_question"/>;
+      return (
+        <Image
+          src={images[this.state.history.picture]}
+          fluid
+          className="image_question"
+        />
+      );
     }
   }
 
@@ -386,6 +393,14 @@ class Question extends React.Component {
       case "18":
         return (
           <LabelForm18
+            formNumber={history.label}
+            omodCode={history.omod_code}
+            language={this.state.lang}
+          />
+        );
+      case "19":
+        return (
+          <LabelForm19
             formNumber={history.label}
             omodCode={history.omod_code}
             language={this.state.lang}
