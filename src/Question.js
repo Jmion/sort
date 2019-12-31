@@ -495,11 +495,6 @@ class Question extends React.Component {
             {this.renderSentenceWithOMoDCode()}
             <div dangerouslySetInnerHTML={{ __html: html_information }} />
             {this.question_image()}
-            {
-              //<p> omod_code : {history.omod_code}</p>}
-              //<p>label : {history.label}</p>}
-            }
-
             {this.renderLabel()}
             <Button onClick={() => this.state.resetWebsiteAction()}>
               {websiteText[this.state.lang]["Identify a new waste"]}
