@@ -24,6 +24,22 @@ The decision tree is located in `./data/treeEN.json` or `./data/treeFR.json` dep
 
 This is a multistep process. Please follow it carefully.
 
-1. Export the image that you wich to add as a **png**. If the image is displayed on the website is to large please resize the image.
+1. Export the image that you wish to add as a **png**. If the image is displayed on the website is to large please resize the image.
 2. Get a base64 version of the image. Sounds scarry, it isn't. It is a simple way used in websites to store images as text. We would recommend that you use a website to convert your image to base64 such as https://www.base64-image.de/
-3. Paste the base64 representation
+3. Paste the base64 representation in the `./image/images.json` with an previously usused key.
+4. Add the key value to the `treeEN.json` and `treeFR.json` for the corresponding question under the `"moreInfoPicture" : "THE NUMBER OF THE IMAGE IN images.json",` field
+
+### Adding an image to the information on how to dispose of waste (leaf)
+
+The procedure is the same as for the information popup. The only step that differes is step 4.
+
+1. Follow steps 1 to 3 of **Adding an image to the more information popup**
+2. Add the key value to the `treeEN.json` and `treeFR.json` for the corresponding question (leaf) under the `"picture" : "THE NUMBER OF THE IMAGE IN images.json",` field
+
+### Deleting an image
+
+The procedure described is the same for both the pop up and the images displayes in the leaves (area where detailed instructions on the disposal of waste are given).
+
+1. Find the number of the image that you wish to remove in the `treeXX.json` file.
+2. Remove it and replace it with `""`. For example `"picture": ""`
+3. If no other questions or information (leaves) are referencing the image number you can go into the `./images/images.json` and remove the entry corresponding tp the image.

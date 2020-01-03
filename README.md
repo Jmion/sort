@@ -1,4 +1,4 @@
-# This website is in Alpha testin
+# Special waste labeling
 
 Please note that this website is not yet ready to be used. We are still veryfing the corectness of the content.
 
@@ -70,3 +70,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Modify the website
+
+To modify the website head into the `src` folder.
