@@ -16,6 +16,8 @@ Our `App.js` is in charge of keeping track of what questions where answered and 
 
 ## How to modify stuff:
 
+For modifications please set up your enviroment by following the instructions on https://reactjs.org/docs/create-a-new-react-app.html. Once this is done you should be able to run `npm start` and have a server launch on localhost:3000 displaying you the current version of the website.
+
 ### Decision tree and other webiste text
 
 The decision tree is located in `./data/treeEN.json` or `./data/treeFR.json` depending on what language you wich to modify. Do know more on how to edit this please read the `README.md` in the `./data/` folder.
@@ -43,3 +45,15 @@ The procedure described is the same for both the pop up and the images displayes
 1. Find the number of the image that you wish to remove in the `treeXX.json` file.
 2. Remove it and replace it with `""`. For example `"picture": ""`
 3. If no other questions or information (leaves) are referencing the image number you can go into the `./images/images.json` and remove the entry corresponding tp the image.
+
+# Publishing it to the server
+
+Getting the website published is supper easy if you are comfortable using the linux terminal.
+
+0. First thing to do is to check that your website is OK! To do so run `npm start` in the terminal to launch a server to allow you to view the content of your website. If you get no errors and the modifications that you have made look OK then proceed to step 1.
+1. Start by running the `npm build` command to prepare the deployable version of the code. This should create a `build` directory where all the content for the website is ready to be deployed.
+1. Use scp to copy the files in the build direcory onto the server. The IP of the server is 10.95.32.14 and the username is `webuser`. And the password.... Well you should know it, or at least if you don't and you think that you should please contact dylan.portmann@epfl.ch or sebastian.bruckner@epfl.ch. They should know how to give you access. I wasn't going to put all the credentials into the documentation in case somebody that shouldn't be poking around gets his hands on this.
+
+1. Place the files that you just copied into the `/var/www/html/` folder.
+
+That's it! You have deployed or update the website. Congratulation!
