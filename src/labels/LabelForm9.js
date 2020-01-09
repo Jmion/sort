@@ -2,11 +2,8 @@ import React from "react";
 import radioactive from "../images/pictograms/radioactive.svg";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
-import FormCheck from "react-bootstrap/FormCheck";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import labelText from "../data/labelText.json";
 import labelSettings from "../data/labelSettings.json";
 import DangerPictogramCheckbox from "./DangerPictogramCheckbox";
@@ -17,7 +14,6 @@ import labels from "../images/labels/labels.json";
 import pictograms from "../images/labels/picotrgram.json"; //base64 encoded https://www.base64-image.de/
 
 import "./LabelForm.css";
-import Container from "react-bootstrap/Container";
 
 class LabelForm9 extends React.Component {
   constructor(props) {

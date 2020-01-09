@@ -1,5 +1,3 @@
-import ReactDOM from "react-dom";
-import logo from "./images/logo/logo_transparent512.png";
 import "./App.css";
 import epfl_logo from "./images/EPFL_logo.png";
 
@@ -8,11 +6,9 @@ import treeEN from "./data/treeEN.json";
 import treeFR from "./data/treeFR.json";
 import websiteText from "./data/websiteText.json";
 import Question from "./Question";
-import React, { useEffect, useRef } from "react";
-import { getApplicationKeyMap } from "react-hotkeys";
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import ScrollToBottom from "react-scroll-to-bottom";
 
 const zip = (arr1, arr2) => arr1.map((k, i) => [k, arr2[i]]); // zip function similar to python
 

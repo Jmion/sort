@@ -22,3 +22,7 @@ This function is called when the user submits the completed form to handle the e
 ## render
 
 This function renders the form to be filled in on the website.
+
+## constructor
+
+This function that creates the class received the OMoD code, the form number (could have been hard coded), and the language from the Question class

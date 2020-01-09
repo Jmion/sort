@@ -73,4 +73,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 # Modify the website
 
-To modify the website head into the `src` folder.
+To modify the website head into the `src` folder. To view the doc in src click [here](src/README.md)

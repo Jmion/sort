@@ -413,14 +413,18 @@ class Question extends React.Component {
     }
   }
 
+
+  /**
+   * Render the sentence at the begining of the form such as:
+   * Fill the form bellow or collect label number x (OMoD code xx xx xx) from the assigned responsible person or the assigned waste collection point
+   */
   renderSentenceWithOMoDCode() {
     let label_number = this.state.history.label;
     let omod = this.state.history.omod_code;
     if (label_number !== "N/A") {
       if (omod !== "N/A") {
         return (
-          <ol>
-            <li>
+          <div>
               {
                 websiteText[this.state.lang][
                   "Fill in the form below or collect label number"
@@ -433,13 +437,11 @@ class Question extends React.Component {
                   "from the assigned responsible person or the assigned waste collection point."
                 ]
               }{" "}
-            </li>
-          </ol>
+            </div>
         );
       } else {
         return (
-          <ol>
-            <li>
+            <div>
               {
                 websiteText[this.state.lang][
                   "Fill in the form below or collect label number"
@@ -451,8 +453,7 @@ class Question extends React.Component {
                   "from the assigned responsible person or the assigned waste collection point."
                 ]
               }{" "}
-            </li>
-          </ol>
+            </div>
         );
       }
     }
