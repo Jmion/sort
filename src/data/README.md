@@ -86,6 +86,8 @@ Some fields that are being requested by the form have settings that can be modif
     }
 ```
 
+You can also easly change what pictograms are visible per label. This allows you to quickyl remove danger pictograms that should not be available to the user.
+
 To see what settings are available to be tweaked please look at the content of the file.
 
 ## Difference with the paper decision tree

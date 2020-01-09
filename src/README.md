@@ -61,3 +61,11 @@ Getting the website published is supper easy if you are comfortable using the li
 1. Place the files that you just copied into the `/var/www/html/` folder.
 
 That's it! You have deployed or update the website. Congratulation!
+
+# Folder structure
+
+Data used for the website is located in `./data` . To have more information about the files in this direcotry please click [here](./data/README.md)
+
+Images are stored in the `./images` folder. To have more information about the files in this directory please click [here](./images/README.md)
+
+Labels are sotred in the `./labels` folder. To have more information about the files in this directory please click [here](./labels/README.md)
