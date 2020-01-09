@@ -12,7 +12,7 @@ Our main website component is called _index.js_ within this JS we render our sin
 
 Our `App.js` is in charge of keeping track of what questions where answered and rendering the appropriate questions. A question in this project is an object that represents a question that the user must awnser, or information about how to dispose of the waste as well as rendering the form to fill in to create the label. `App.js` simply take care of rendering the website in the correct language, dealing with the history of previously awnsered questions, and redering new questions/information once I user has anwsered them.
 
-`Question.js` get's all the infromation that it needs from `App.js` and renders the question or _leaf (information on how to dispose of the waste)_.
+`Question.js` get's all the information that it needs from `App.js` and renders the question or _leaf (information on how to dispose of the waste)_.
 
 ## How to modify stuff:
 
@@ -20,7 +20,7 @@ For modifications please set up your enviroment by following the instructions on
 
 ### Decision tree and other webiste text
 
-The decision tree is located in `./data/treeEN.json` or `./data/treeFR.json` depending on what language you wich to modify. Do know more on how to edit this please read the `README.md` in the `./data/` folder.
+The decision tree is located in `./data/treeEN.json` or `./data/treeFR.json` depending on what language you wish to modify. Do know more on how to edit this please read the `README.md` in the `./data/` folder. Click [here](./data/README.md) to go there now
 
 ### Adding an image to the more information pop up
 
@@ -45,6 +45,10 @@ The procedure described is the same for both the pop up and the images displayes
 1. Find the number of the image that you wish to remove in the `treeXX.json` file.
 2. Remove it and replace it with `""`. For example `"picture": ""`
 3. If no other questions or information (leaves) are referencing the image number you can go into the `./images/images.json` and remove the entry corresponding tp the image.
+
+### Modified required fields
+
+This is super easy but requires actually modifying the code. Go into the `./labels` directory open the label that you want to modify. In the render function you will see the different elements of the form and you can add or remove the required parameter for each field of the form.
 
 # Publishing it to the server
 
