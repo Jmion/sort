@@ -404,7 +404,7 @@
                                                 },
                                                 "noBranch": {
                                                     "isLeaf": "0",
-                                                    "question": "Contains mercury or derivatives",
+                                                    "question": "Material contaminated with Hg (mercury)",
                                                     "information": "",
                                                     "pictogram" : "" ,
                                                     "moreInfo" : "",

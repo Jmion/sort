@@ -307,7 +307,6 @@ class LabelForm7 extends React.Component {
                 }
               </Form.Label>
               <Form.Control
-                required
                 name="other comment"
                 placeholder={
                   labelText[this.state.language][

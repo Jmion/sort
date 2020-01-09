@@ -249,7 +249,7 @@ class LabelForm5 extends React.Component {
                 <Form.Control
                   required
                   name="pH"
-                  placeholder={labelText[this.state.language]["pH"]}
+                  placeholder={labelText[this.state.language]["pH placeholder"]}
                   type="number"
                   step={labelSettings["pH"]["step"]}
                   max={labelSettings["pH"]["max"]}

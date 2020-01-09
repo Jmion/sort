@@ -210,7 +210,6 @@ class LabelForm18 extends React.Component {
                   {labelText[this.state.language]["nuclide"]}
                 </Form.Label>
                 <Form.Control
-                  required
                   name="nuclide"
                   placeholder={labelText[this.state.language]["nuclide"]}
                   type="text"
@@ -226,7 +225,7 @@ class LabelForm18 extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Group controlId="mci">
-                  <Form.Label>mCi</Form.Label>
+                  <Form.Label>mCi *</Form.Label>
                   <Form.Control
                     required
                     value={this.state.mCi}
@@ -244,7 +243,7 @@ class LabelForm18 extends React.Component {
               </Col>
               <Col>
                 <Form.Group controlId="mbq">
-                  <Form.Label>MBq</Form.Label>
+                  <Form.Label>MBq *</Form.Label>
                   <Form.Control
                     required
                     value={this.state.MBq}
@@ -295,7 +294,7 @@ class LabelForm18 extends React.Component {
                 <Form.Label>{labelText[this.state.language]["pH"]}</Form.Label>
                 <Form.Control
                   name="pH"
-                  placeholder={labelText[this.state.language]["pH"]}
+                  placeholder={labelText[this.state.language]["pH placeholder"]}
                   type="number"
                   step={labelSettings["pH"]["step"]}
                   max={labelSettings["pH"]["max"]}

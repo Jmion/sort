@@ -242,7 +242,7 @@ class LabelForm3 extends React.Component {
                 <Form.Label>{labelText[this.state.language]["pH"]}</Form.Label>
                 <Form.Control
                   name="pH"
-                  placeholder={labelText[this.state.language]["pH"]}
+                  placeholder={labelText[this.state.language]["pH placeholder"]}
                   type="number"
                   step={labelSettings["pH"]["step"]}
                   max={labelSettings["pH"]["max"]}
