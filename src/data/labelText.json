@@ -25,8 +25,8 @@
     "special waste": "SPECIAL waste",
     "indicate all information": "indicate all information",
 
-    "substance": "Substances (please precise the concentration)",
-    "solvant": "Solvant",
+    "substance": "Substances (please precise the concentration) *",
+    "solvant": "Solvant *",
     "desinfectant used": "Desinfectant used:",
     "bleach": "bleach 10%",
     "other": "other",
