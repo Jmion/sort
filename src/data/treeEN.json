@@ -1,7 +1,7 @@
 
 {
     "isLeaf": "0",
-    "question": "Contaminated consumables (glassware, gloves, abosorbents, needles, ...)",
+    "question": "Consumables (glassware, gloves, absorbent, needles, …)",
     "information": "",
     "pictogram" : "" ,
     "moreInfo" : "",
@@ -9,7 +9,7 @@
     "moreInfoTitle": "",
     "yesBranch": { 
         "isLeaf": "0",
-        "question": "Contaminated Material",
+        "question": "Contaminated Material<p>(Object with traces (few droplets) of a chemical, a biohazard and/or a radionuclide it has been in contact with.)",
         "information": "",
         "pictogram" : "" ,
         "moreInfo" : "",
@@ -24,11 +24,44 @@
             "moreInfoPicture" : "",
             "moreInfoTitle": "",
             "yesBranch": {
-                "isLeaf": "1",
-                "information": "<ul><li><b>do not</b> recap syringes</li><li>put waste into <em>sharp box</em></li></ul> ",
-                "omod_code" : "18 01 01",
-                "label": "14",
-                "picture": ""
+                "isLeaf": "0",
+                "question": "Waste with radionuclide",
+                "information": "",
+                "pictogram" : "" ,
+                "moreInfo" : "",
+                "moreInfoPicture" : "",
+                "moreInfoTitle": "",
+                "yesBranch":{
+                    "isLeaf": "1",
+                    "information": "<b>do not</b> recap syringes<p>put waste into syringe container or container for sharps<p>See image below (left small sharps ex. needles, right big sharps ex. broken glass",
+                    "omod_code" : "N/A",
+                    "label": "18",
+                    "picture": "3"
+                },
+                "noBranch":{
+                    "isLeaf": "0",
+                    "question": "Contains (micro) organisms",
+                    "information": "",
+                    "pictogram" : "" ,
+                    "moreInfo" : "",
+                    "moreInfoPicture" : "",
+                    "moreInfoTitle": "",
+                    "yesBranch":{
+                        "isLeaf": "1",
+                        "information": "<b>do not</b> recap syringes<p>put waste into syringe container or container for sharps<p>If the sharps are contaminated with <b>biosafety level 2 material</b>, they <b>must be autoclaved</b>.<p>See image below (left small sharps ex. needles, right big sharps ex. broken glass",
+                        "omod_code" : "18 01 02",
+                        "label": "3",
+                        "picture": "3"
+                    },
+                    "noBranch":{
+                        "isLeaf": "1",
+                        "information": "<b>do not</b> recap syringes<p>put waste into syringe container or container for sharps<p>See image below (left small sharps ex. needles, right big sharps ex. broken glass",
+                        "omod_code" : "18 01 01",
+                        "label": "14",
+                        "picture": "3"
+                    }
+
+                }
             },
             "noBranch":{
                 "isLeaf": "0",
@@ -40,7 +73,7 @@
                 "moreInfoTitle": "",
                 "yesBranch": {
                     "isLeaf": "1",
-                    "information": "<ol><li>Remove label and pictogram and/or cover it with \"clean container\" label</li><li>dispose in the corresponding recycling containers</li></ol> ",
+                    "information": "Remove label and pictogram and/or cover it with \"clean container\" label<p>Dispose in the corresponding recycling containers",
                     "omod_code" : "N/A",
                     "label": "15",
                     "picture": ""
@@ -62,7 +95,7 @@
                     },
                     "noBranch": {
                         "isLeaf": "0",
-                        "question": "Material contaminates with (micro-)organisim",
+                        "question": "Material contaminated with (micro-)organisms",
                         "information": "",
                         "pictogram" : "" ,
                         "moreInfo" : "",
@@ -85,14 +118,14 @@
                             "moreInfoTitle": "",
                             "yesBranch": {
                                 "isLeaf": "1",
-                                "information": "<ul><li>Gloves, paper, small material: put in plastic container (rigid or soft)</li><li>Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" sertified container, seal, label with the name of the absorbant and the absorbed product. Bring to the assigned premises.</li><li>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.</li></ul>",
+                                "information": "Gloves, paper, small material: put in plastic container (rigid or soft)</li><li>Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" certified container, seal, label with the name of the absorbent and the absorbed product. Bring to the assigned premises.<p>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.",
                                 "omod_code" : "06 04 04",
                                 "label": "6",
                                 "picture": ""
                             },
                             "noBranch": {
                                 "isLeaf": "0",
-                                "question": "<ul><li>Universal absorbant contaminated with a chemical</li><li>Material contaminates with an oxidizer</li></ul>",
+                                "question": "Universal absorbent contaminated with a chemical<p>Material contaminated with an oxidizer",
                                 "information": "",
                                 "pictogram" : "oxidizer" ,
                                 "moreInfo" : "",
@@ -100,14 +133,14 @@
                                 "moreInfoTitle": "",
                                 "yesBranch": {
                                     "isLeaf": "1",
-                                    "information": "<ul><li>Put in a \"UN\" certified container (the oxidizer is covered with universal absorbent).</li><li>Label with the names of the absorbant & the absorbed product. Seal & bring ot the assigned waste premises. If presence of nanomaterial <b><i> confine in adapted sealed double pack</i></b> (bag or container).</li></ul>",
+                                    "information": "Put in a \"UN\" certified container (the oxidizer is covered with universal absorbent).<p>Label with the names of the absorbent and the absorbed product. Seal and bring it to the assigned waste premises. If presence of nanomaterial <b> seal in adapted secondary container</b> (bag or container).",
                                     "omod_code" : "15 02 02",
                                     "label": "16",
                                     "picture": ""
                                 },
                                 "noBranch": {
                                     "isLeaf": "0",
-                                    "question": "Material contaminated with traces of nanomaterial or with one of these hazards:",
+                                    "question": "Material contaminated with nanomateral or with one of these hazards:",
                                     "information": "",
                                     "pictogram" : "combo" ,
                                     "moreInfo" : "",
@@ -152,7 +185,7 @@
         "moreInfoTitle": "",
         "yesBranch": { 
             "isLeaf": "1",
-            "information": "<ol><li>Label with the name of the contact person and any known information about the waste</li><li><em>E-mail assigned waste responsible person. </em></p><b>Special disposal by the responsible person according to SCC advices.</b> </ol>",
+            "information": "Label with the name of the contact person and any known information about the waste<em><p>E-mail assigned waste responsible person. </em></p><b>Special disposal by the responsible person according to SCC advice.</b>",
             "omod_code" : "16 05 98",
             "label": "1",
             "picture": ""
@@ -167,7 +200,7 @@
             "moreInfoTitle": "",
             "yesBranch": { 
                 "isLeaf": "1",
-                "information": "All waste with radionuclide are managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
+                "information": "All radionuclide waste is managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
                 "omod_code" : "N/A",
                 "label": "18",
                 "picture": ""
@@ -197,14 +230,14 @@
                     "moreInfoTitle": "",
                     "yesBranch": {
                         "isLeaf": "1",
-                        "information": "Bring cylinders, sprays, catridges to the assigned waste premises. Inform the responsible person.",
+                        "information": "Bring cylinders, sprays and cartridges to the assigned waste premises. Inform the responsible person.",
                         "omod_code" : "N/A",
                         "label": "N/A",
                         "picture": ""
                      },
                     "noBranch": {
                         "isLeaf": "0",
-                        "question": "<ol><li>The substance is <b>stable</b> and is in its original container.</li><li>This container is closed with the original cap and the label is clearly legible.</li></ol>",
+                        "question": "The substance is in its original container and stable at room temperature (no heat, no gas release).<p>This container is closed with the original cap and the label is clearly legible.<p>",
                         "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
                         "pictogram" : "" ,
                         "moreInfo" : "",
@@ -212,7 +245,7 @@
                         "moreInfoTitle": "",
                         "yesBranch": { 
                             "isLeaf": "1",
-                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, <b>Seal with a ribbon</b>(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
+                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, Seal with(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
                             "omod_code" : "N/A",
                             "label": "N/A",
                             "picture": ""
@@ -280,21 +313,21 @@
                                         "yesBranch": { 
                                             "isLeaf": "0",
                                             "question": "Contains chemicals (cyanides, metals and/or others) ",
-                                            "information": "Deactivate with desinfectant <p>(bleach at 10%, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
+                                            "information": "Deactivate with desinfectant <p>(bleach, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
                                             "pictogram" : "" ,
                                             "moreInfo" : "",
                                             "moreInfoPicture" : "",
                                             "moreInfoTitle": "",
                                             "yesBranch": {
                                                 "isLeaf": "1",
-                                                "information": "Deactivated (micro-)organism waste. Precise: <ul><li>the used desinfectant</lil><li>the chemicals (cyanides, metal and/or others);</li><li>If presence of nanomaterial, <strong>confine in sealed double pack</strong></li>",
+                                                "information": "Deactivated (micro-)organism waste. Precise: <p>the used desinfectant<p>the chemicals (cyanides, metal and/or others);<p>If presence of nanomaterial, <strong>confine in secondary container</strong>",
                                                 "omod_code" : "18 01 02",
                                                 "label": "3",
                                                 "picture": ""
                                             },
                                             "noBranch": {
                                                 "isLeaf": "1",
-                                                "information": "Contact the biosafety team <p><a href=\"https://www.epfl.ch/campus/security-safety/activites-en-labo/dechets/dechets-biologiques/\" target=\"_blank\">More information here.</a></p>",
+                                                "information": "Contact the biosafety team <p><a href=\"hhttps://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">More information here.</a></p>",
                                                 "omod_code" : "N/A",
                                                 "label": "N/A",
                                                 "picture": ""
@@ -310,14 +343,14 @@
                                             "moreInfoTitle": "",
                                             "yesBranch": { 
                                                 "isLeaf": "1",
-                                                "information": "Contact the biosafety team <p><a href=\"https://www.epfl.ch/campus/security-safety/activites-en-labo/dechets/dechets-biologiques/\" target=\"_blank\">More information here.</a></p>",
+                                                "information": "Contact the biosafety team <p><a href=\"https://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">More information here.</a></p>",
                                                 "omod_code" : "16 05 06",
                                                 "label": "2",
                                                 "picture": ""
                                             },
                                             "noBranch": {
                                                 "isLeaf": "1",
-                                                "information": "Contact the biosafety team <p><a href=\"https://www.epfl.ch/campus/security-safety/activites-en-labo/dechets/dechets-biologiques/\" target=\"_blank\">More information here.</a></p>",
+                                                "information": "Contact the biosafety team <p><a href=\"https://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">More information here.</a></p>",
                                                 "omod_code" : "N/A",
                                                 "label": "N/A",
                                                 "picture": ""

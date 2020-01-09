@@ -87,13 +87,13 @@ class LabelForm18 extends React.Component {
       }
     }
 
-    let pictogramPlacement = calculatePictoSize(60, 29, nbPicto);
+    let pictogramPlacement = calculatePictoSize(40, 29, nbPicto);
     for (i = 0; i < pictogramPlacement[0]; i++) {
       for (var j = 0; j < pictogramPlacement[1]; j++) {
         if (pictogramPlacement[1] * i + j < pictograms_to_display.length) {
           doc.addImage(
             pictograms[pictograms_to_display[pictogramPlacement[1] * i + j]],
-            5 + pictogramPlacement[2] * j,
+            25 + pictogramPlacement[2] * j,
             13 + pictogramPlacement[2] * i,
             pictogramPlacement[2],
             pictogramPlacement[2]

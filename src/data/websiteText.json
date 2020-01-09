@@ -1,26 +1,32 @@
 {
-    "en":{
-        "button":{
-            "yes": "Yes",
-            "no": "No"
-        },
-        "waringReadInformation": "<p>Please read all the information displayed on the page.</p><p>Not doing so could lead to a dangerous situation</p>",
-        "footer": "Developped by Jeremy Mion in collaboration with EPFL's ISIC-GSCP Group of Chemical and Physical Safety",
-        "title": "Special waste sorter",
-        "undo button" : "Undo changes",
-        "more information" : "More information",
-        "Identify a new waste" : "Identify a new waste"
+  "en": {
+    "button": {
+      "yes": "Yes",
+      "no": "No"
     },
-    "fr":{
-        "button":{
-            "yes": "Oui",
-            "no": "Non"
-        },
-        "waringReadInformation": "<p>Veuillez lire toutes les informations affichées sur la page.</p> <p>Ne pas le faire pourrait conduire à une situation dangereuse.</p>",
-        "footer": "Développé par Jeremy Mion en collaboration avec l'ISIC-GSCP Groupe de Sécuritée Chimique et Physique",
-        "title": "Tri des déchets spéciaux",
-        "undo button" : "Annuler les modifications",
-        "more information" : "Plus d'information",
-        "Identify a new waste" : "Identifier un nouveau déchet"
-    }
+    "waringReadInformation": "Only stable waste, correctly sealed and labelled will be accepted <p>(contact <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> for help)<p>Please read all the information displayed on the page",
+    "footer": "Developped by Jeremy Mion in collaboration with EPFL's ISIC-GSCP Group of Chemical and Physical Safety",
+    "title": "My Waste",
+    "undo button": "Undo changes",
+    "more information": "More information",
+    "Identify a new waste": "Identify a new waste",
+    "Fill in the form below or collect label number": "Fill in the form below or collect label number",
+    "(OMoD code": "(OMoD code",
+    "from the assigned responsible person or the assigned waste collection point.": "from the assigned responsible person or the assigned waste collection point."
+  },
+  "fr": {
+    "button": {
+      "yes": "Oui",
+      "no": "Non"
+    },
+    "waringReadInformation": "<p>Veuillez lire toutes les informations affichées sur la page.</p> <p>Ne pas le faire pourrait conduire à une situation dangereuse.</p>",
+    "footer": "Développé par Jeremy Mion en collaboration avec l'ISIC-GSCP Groupe de Sécuritée Chimique et Physique",
+    "title": "Tri des déchets spéciaux",
+    "undo button": "Annuler les modifications",
+    "more information": "Plus d'information",
+    "Identify a new waste": "Identifier un nouveau déchet",
+    "Fill in the form below or collect label number": "Fill in the form below or collect label number",
+    "(OMoD code": "(OMoD code",
+    "from the assigned responsible person or the assigned waste collection point.": "from the assigned responsible person or the assigned waste collection point."
+  }
 }

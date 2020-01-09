@@ -421,9 +421,18 @@ class Question extends React.Component {
         return (
           <ol>
             <li>
-              Fill the form below or collect label number {label_number} (OMoD
-              code {omod}) from the assigned responsible person or the assigned
-              waste collection point.{" "}
+              {
+                websiteText[this.state.lang][
+                  "Fill in the form below or collect label number"
+                ]
+              }{" "}
+              {label_number} {websiteText[this.state.lang]["(OMoD code"]} {omod}
+              ){" "}
+              {
+                websiteText[this.state.lang][
+                  "from the assigned responsible person or the assigned waste collection point."
+                ]
+              }{" "}
             </li>
           </ol>
         );
@@ -431,9 +440,17 @@ class Question extends React.Component {
         return (
           <ol>
             <li>
-              Fill the form below or collect label number {label_number} from
-              the assigned responsible person or the assigned waste collection
-              point.{" "}
+              {
+                websiteText[this.state.lang][
+                  "Fill in the form below or collect label number"
+                ]
+              }{" "}
+              {label_number}{" "}
+              {
+                websiteText[this.state.lang][
+                  "from the assigned responsible person or the assigned waste collection point."
+                ]
+              }{" "}
             </li>
           </ol>
         );
