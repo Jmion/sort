@@ -157,7 +157,7 @@ class LabelForm8 extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["first name"]}
+                  {labelText[this.state.language]["first name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -170,7 +170,7 @@ class LabelForm8 extends React.Component {
               </Col>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["last name"]}
+                  {labelText[this.state.language]["last name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -184,7 +184,7 @@ class LabelForm8 extends React.Component {
             </Form.Row>
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"]}
+                {labelText[this.state.language]["group name"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -200,7 +200,7 @@ class LabelForm8 extends React.Component {
           <Form.Group controlId="formRemettant">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["remettant"]}
+                {labelText[this.state.language]["remettant"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -215,7 +215,7 @@ class LabelForm8 extends React.Component {
 
           <Form.Group controlId="comments">
             <Form.Label>
-              {labelText[this.state.language]["description"]}
+              {labelText[this.state.language]["description"] + " *"}
             </Form.Label>
             <Form.Control as="textarea" rows="3" required name="description" />
           </Form.Group>
