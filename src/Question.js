@@ -413,7 +413,6 @@ class Question extends React.Component {
     }
   }
 
-
   /**
    * Render the sentence at the begining of the form such as:
    * Fill the form bellow or collect label number x (OMoD code xx xx xx) from the assigned responsible person or the assigned waste collection point
@@ -425,35 +424,34 @@ class Question extends React.Component {
       if (omod !== "N/A") {
         return (
           <div>
-              {
-                websiteText[this.state.lang][
-                  "Fill in the form below or collect label number"
-                ]
-              }{" "}
-              {label_number} {websiteText[this.state.lang]["(OMoD code"]} {omod}
-              ){" "}
-              {
-                websiteText[this.state.lang][
-                  "from the assigned responsible person or the assigned waste collection point."
-                ]
-              }{" "}
-            </div>
+            {
+              websiteText[this.state.lang][
+                "Fill in the form below or collect label number"
+              ]
+            }{" "}
+            {label_number} {websiteText[this.state.lang]["(OMoD code"]} {omod}){" "}
+            {
+              websiteText[this.state.lang][
+                "from the assigned responsible person or the assigned waste collection point."
+              ]
+            }{" "}
+          </div>
         );
       } else {
         return (
-            <div>
-              {
-                websiteText[this.state.lang][
-                  "Fill in the form below or collect label number"
-                ]
-              }{" "}
-              {label_number}{" "}
-              {
-                websiteText[this.state.lang][
-                  "from the assigned responsible person or the assigned waste collection point."
-                ]
-              }{" "}
-            </div>
+          <div>
+            {
+              websiteText[this.state.lang][
+                "Fill in the form below or collect label number"
+              ]
+            }{" "}
+            {label_number}{" "}
+            {
+              websiteText[this.state.lang][
+                "from the assigned responsible person or the assigned waste collection point."
+              ]
+            }{" "}
+          </div>
         );
       }
     }
@@ -514,6 +512,7 @@ class Question extends React.Component {
             <div dangerouslySetInnerHTML={{ __html: html_information }} />
             {this.question_image()}
             {this.renderLabel()}
+            <p></p>
             <Button onClick={() => this.state.resetWebsiteAction()}>
               {websiteText[this.state.lang]["Identify a new waste"]}
             </Button>

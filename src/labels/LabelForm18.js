@@ -202,7 +202,7 @@ class LabelForm18 extends React.Component {
               <Form.Label>
                 {labelText[this.state.language]["other substances"]}
               </Form.Label>
-              <Form.Control required type="text" name="substance" />
+              <Form.Control type="text" name="substance" />
             </Col>
             <Col>
               <Form.Group controlId="nuclide">
@@ -210,6 +210,7 @@ class LabelForm18 extends React.Component {
                   {labelText[this.state.language]["nuclide"]}
                 </Form.Label>
                 <Form.Control
+                  required
                   name="nuclide"
                   placeholder={labelText[this.state.language]["nuclide"]}
                   type="text"
