@@ -89,6 +89,9 @@ ol {
 }
 
 footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
   background-color: black;
   color: rgb(204, 204, 204);
 }

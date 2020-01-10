@@ -219,6 +219,7 @@ class App extends React.Component {
             />
           )
         )}
+        
         <footer
           dangerouslySetInnerHTML={{
             __html: websiteText[this.state.lang]["footer"]
