@@ -168,7 +168,7 @@ class LabelForm18 extends React.Component {
           <Form.Group controlId="formGroupName">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"]}
+                {labelText[this.state.language]["group name"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -184,7 +184,7 @@ class LabelForm18 extends React.Component {
           <Form.Group controlId="formRemettant">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["remettant"]}
+                {labelText[this.state.language]["remettant"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -207,7 +207,7 @@ class LabelForm18 extends React.Component {
             <Col>
               <Form.Group controlId="nuclide">
                 <Form.Label>
-                  {labelText[this.state.language]["nuclide"]}
+                  {labelText[this.state.language]["nuclide"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -263,7 +263,7 @@ class LabelForm18 extends React.Component {
               <Col>
                 <Form.Group controlId="half-life">
                   <Form.Label>
-                    {labelText[this.state.language]["half-life"]}
+                    {labelText[this.state.language]["half-life"] + " *"}
                   </Form.Label>
                   <Form.Control
                     required
@@ -283,7 +283,6 @@ class LabelForm18 extends React.Component {
                   {labelText[this.state.language]["metal"]}
                 </Form.Label>
                 <Form.Control
-                  required
                   name="metal"
                   placeholder={
                     labelText[this.state.language]["metal placeholder"]

@@ -166,7 +166,7 @@ class LabelForm17 extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["first name"]}
+                  {labelText[this.state.language]["first name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -179,7 +179,7 @@ class LabelForm17 extends React.Component {
               </Col>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["last name"]}
+                  {labelText[this.state.language]["last name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -193,7 +193,7 @@ class LabelForm17 extends React.Component {
             </Form.Row>
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"]}
+                {labelText[this.state.language]["group name"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -209,7 +209,7 @@ class LabelForm17 extends React.Component {
           <Form.Group controlId="formRemettant">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["remettant"]}
+                {labelText[this.state.language]["remettant"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -226,14 +226,14 @@ class LabelForm17 extends React.Component {
             <Form.Label>
               {labelText[this.state.language]["substance"]}
             </Form.Label>
-            <Form.Control as="textarea" rows="3" required name="substance" />
+            <Form.Control as="textarea" rows="3" name="substance" />
           </Form.Group>
 
           <Form.Group controlId="materials">
             <Form.Label>
               {labelText[this.state.language]["materials"]}
             </Form.Label>
-            <Form.Control as="textarea" rows="3" required name="materials" />
+            <Form.Control as="textarea" rows="3" name="materials" />
           </Form.Group>
 
           <Form.Group controlId="formMetalPh">
@@ -243,7 +243,6 @@ class LabelForm17 extends React.Component {
                   {labelText[this.state.language]["metal"]}
                 </Form.Label>
                 <Form.Control
-                  required
                   name="metal"
                   placeholder={
                     labelText[this.state.language]["metal placeholder"]
