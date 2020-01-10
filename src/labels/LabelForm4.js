@@ -1,11 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
-import FormCheck from "react-bootstrap/FormCheck";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import labelText from "../data/labelText.json";
 import DangerPictogramCheckbox from "./DangerPictogramCheckbox";
 import calculatePictoSize from "./Helper.js";
@@ -15,7 +12,6 @@ import labels from "../images/labels/labels.json";
 import pictograms from "../images/labels/picotrgram.json"; //base64 encoded https://www.base64-image.de/
 
 import "./LabelForm.css";
-import Container from "react-bootstrap/Container";
 
 class LabelForm4 extends React.Component {
   constructor(props) {
@@ -155,7 +151,7 @@ class LabelForm4 extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["first name"]}
+                  {labelText[this.state.language]["first name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -168,7 +164,7 @@ class LabelForm4 extends React.Component {
               </Col>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["last name"]}
+                  {labelText[this.state.language]["last name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -183,7 +179,7 @@ class LabelForm4 extends React.Component {
             </Form.Row>
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"]}
+                {labelText[this.state.language]["group name"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -199,7 +195,7 @@ class LabelForm4 extends React.Component {
           <Form.Group controlId="formRemettant">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["remettant"]}
+                {labelText[this.state.language]["remettant"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -214,7 +210,7 @@ class LabelForm4 extends React.Component {
 
           <Form.Group controlId="comments">
             <Form.Label>
-              {labelText[this.state.language]["description"]}
+              {labelText[this.state.language]["description"] + " *"}
             </Form.Label>
             <Form.Control as="textarea" rows="3" required name="description" />
           </Form.Group>
