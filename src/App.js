@@ -165,13 +165,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar bg="dark" variant="dark" sticky="top">
-          <Navbar.Brand>
+          <Navbar.Brand onClick={this.resetWebsite}>
             <img
               alt=""
               src={epfl_logo}
               height="30"
               className="d-inline-block align-top epflLogo"
-            />
+              onClick={this.resetWebsite}
+            />{" "}
             {" " + websiteText[this.state.lang]["title"]}
           </Navbar.Brand>
 
@@ -219,7 +220,7 @@ class App extends React.Component {
             />
           )
         )}
-        
+
         <footer
           dangerouslySetInnerHTML={{
             __html: websiteText[this.state.lang]["footer"]
