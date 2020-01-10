@@ -167,7 +167,7 @@ class LabelForm3 extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["first name"]}
+                  {labelText[this.state.language]["first name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -180,7 +180,7 @@ class LabelForm3 extends React.Component {
               </Col>
               <Col>
                 <Form.Label>
-                  {labelText[this.state.language]["last name"]}
+                  {labelText[this.state.language]["last name"] + " *"}
                 </Form.Label>
                 <Form.Control
                   required
@@ -194,7 +194,7 @@ class LabelForm3 extends React.Component {
             </Form.Row>
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"]}
+                {labelText[this.state.language]["group name"] + " *"}
               </Form.Label>
               <Form.Control
                 required
@@ -210,7 +210,7 @@ class LabelForm3 extends React.Component {
           <Form.Group controlId="formRemettant">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["remettant"]}
+                {labelText[this.state.language]["remettant"] + " *"}
               </Form.Label>
               <Form.Control
                 required
