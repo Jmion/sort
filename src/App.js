@@ -148,9 +148,12 @@ class App extends React.Component {
    */
   resetWebsite = () => {
     console.log("RESET request");
+
     this.setState(prevState => ({
+      resetCounter: prevState.resestCounter + 1,
+      previousHistory: prevState.history,
       history: [prevState.history[0]],
-      resestCounter: prevState.resestCounter + 1,
+      previousAwnsers: prevState.currentAwnsers,
       currentAwnsers: []
     }));
   };
