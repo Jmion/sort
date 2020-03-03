@@ -94,3 +94,29 @@ To see what settings are available to be tweaked please look at the content of t
 
 - Label 18 does not exist on the paper decision tree. It is the label for radioactive materials.
 - Label 19 is a copy of label 2 but with some field that are mandatory.
+
+## Known issues and how to fix them
+
+Cells not refreshing or rendering corectly.
+In the following case:
+
+```JS
+"noBranch": {
+    "isLeaf": "0",
+    "question": "Paint waste",
+    "information": "",
+    "pictogram": "",
+    "moreInfo": "",
+    "moreInfoPicture": "",
+    "moreInfoTitle": "",
+    "yesBranch": {
+        "isLeaf": "1",
+        "information": "Paint waste",
+        "omod_code": "08 01 11",
+        "label": "4",
+        "picture": ""
+    },
+    ...
+```
+
+We will have an issue with the website rendering. The React renderer uses the information in the question and information fields to determine if a new render of the cell is required. Due to this fact the example above will cause a bug. A simple way around this limitation is to ensure that the question and information strings are not identical. A single space such as `"information": "Paint waste ",` would suffice to solve the issue.
