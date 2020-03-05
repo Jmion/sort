@@ -3,9 +3,9 @@
     "question": "Consumables (glassware, gloves, absorbent, needles, …)",
     "information": "",
     "pictogram": "",
-    "moreInfo": "Testest",
+    "moreInfo": "",
     "moreInfoPicture": "",
-    "moreInfoTitle": "Title",
+    "moreInfoTitle": "",
     "yesBranch": {
         "isLeaf": "0",
         "question": "Contaminated Material<p>(Object with traces (few droplets) of a chemical, a biohazard and/or a radionuclide it has been in contact with.)",
