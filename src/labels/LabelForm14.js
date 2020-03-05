@@ -216,7 +216,11 @@ class LabelForm14 extends React.Component {
 
           <Form.Group controlId="comments">
             <Form.Label>
-              {labelText[this.state.language]["description"]}
+              {
+                labelText[this.state.language][
+                  "description heavy metal warning"
+                ]
+              }
             </Form.Label>
             <Form.Control as="textarea" rows="3" name="description" />
           </Form.Group>

@@ -99,7 +99,7 @@ class Question extends React.Component {
   onClickColorChange(response) {
     this.setState({ currentAwnsers: response });
     if (response !== this.state.currentAwnsers) {
-      this.state.onClickAction(response, this.state.idx);
+      this.state.onClickAction(response, this.state.idx); // Render next question by informing app.js
       this.setColor(response);
     }
   }
