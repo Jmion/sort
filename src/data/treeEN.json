@@ -3,9 +3,9 @@
     "question": "Consumables (glassware, gloves, absorbent, needles, …)",
     "information": "",
     "pictogram": "",
-    "moreInfo": "",
+    "moreInfo": "Testest",
     "moreInfoPicture": "",
-    "moreInfoTitle": "",
+    "moreInfoTitle": "Title",
     "yesBranch": {
         "isLeaf": "0",
         "question": "Contaminated Material<p>(Object with traces (few droplets) of a chemical, a biohazard and/or a radionuclide it has been in contact with.)",
@@ -59,7 +59,6 @@
                         "label": "14",
                         "picture": "3"
                     }
-
                 }
             },
             "noBranch": {
@@ -117,7 +116,7 @@
                             "moreInfoTitle": "",
                             "yesBranch": {
                                 "isLeaf": "1",
-                                "information": "Gloves, paper, small material: put in plastic container (rigid or soft)</li><li>Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" certified container, seal, label with the name of the absorbent and the absorbed product. Bring to the assigned premises.<p>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.",
+                                "information": "Gloves, paper, small material: put in plastic container (rigid or soft)Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" certified container, seal, label with the name of the absorbent and the absorbed product. Bring to the assigned premises.<p>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.",
                                 "omod_code": "06 04 04",
                                 "label": "6",
                                 "picture": ""
@@ -132,14 +131,14 @@
                                 "moreInfoTitle": "",
                                 "yesBranch": {
                                     "isLeaf": "1",
-                                    "information": "Put in a \"UN\" certified container (the oxidizer is covered with universal absorbent).<p>Label with the names of the absorbent and the absorbed product. Seal and bring it to the assigned waste premises. If presence of nanomaterial <b> seal in adapted secondary container</b> (bag or container).",
+                                    "information": "Put in a \"UN\" certified container (the oxidizer is covered with universal absorbent).<p>Label with the names of the absorbent and the absorbed product. Seal and bring it to the assigned waste premises. If presence of nanomaterial <b> confine in adapted secondary container</b> (bag or container).",
                                     "omod_code": "15 02 02",
                                     "label": "16",
                                     "picture": ""
                                 },
                                 "noBranch": {
                                     "isLeaf": "0",
-                                    "question": "Material contaminated with nanomateral or with one of these hazards:",
+                                    "question": "Material contaminated with nanomaterial or with one of these hazards:",
                                     "information": "",
                                     "pictogram": "combo",
                                     "moreInfo": "",
@@ -147,7 +146,7 @@
                                     "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "1",
-                                        "information": "<ul><li> If no neutralisation is required, leave the substance evaporating in a fume hood,</li><li>Put in a plastic container for toxic waste,</li><li>On the label, precise the material and the contaminent.</li></ul><p>If presence of nanomaterial: confine in adapted sealed double pack (bag or container).</p>",
+                                        "information": "<ul>If no neutralisation is required, leave the substance evaporating in a fume hood,Put in a plastic container for toxic waste,On the label, precise the material and the contaminent.</ul><p>If presence of nanomaterial: confine in adapted sealed double pack (bag or container).</p>",
                                         "omod_code": "15 01 10",
                                         "label": "17",
                                         "picture": ""
@@ -165,11 +164,10 @@
                     }
                 }
             }
-
         },
         "noBranch": {
             "isLeaf": "1",
-            "information": "<ul><li>Larger items must be put in the recycling bin at the waste collection point : <a href=\"https://www.epfl.ch/about/sustainability/waste/wastecollectioncenter/\" target=\"_blank\">More information here.</a></li><li>For small uncontaminated items, use the bin with the blue EPFL bags or the recycling bins : <a href=\"https://www.epfl.ch/about/sustainability/waste/\" target=\"_blank\">More information here.</a> </li></ul>",
+            "information": "<ul>Larger items must be put in the recycling bin at the waste collection point : <a href=\"https://www.epfl.ch/about/sustainability/waste/wastecollectioncenter/\" target=\"_blank\">More information here.</a>For small uncontaminated items, use the bin with the blue EPFL bags or the recycling bins : <a href=\"https://www.epfl.ch/about/sustainability/waste/\" target=\"_blank\">More information here.</a> </ul>",
             "omod_code": "N/A",
             "label": "N/A",
             "picture": "2"
@@ -245,14 +243,14 @@
                         "moreInfoTitle": "",
                         "yesBranch": {
                             "isLeaf": "1",
-                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, Seal with(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
+                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, seal with parafilm&#xae; or teflon&#xae;.</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
                             "omod_code": "N/A",
                             "label": "N/A",
                             "picture": ""
                         },
                         "noBranch": {
                             "isLeaf": "0",
-                            "question": "Unstable (reactive) waste:<p><ul><li>containing nitric acid or a category 1 oxidizer,</li><li>reacting with air,</li><li>moisture sensitive and/or</li><li>unstable at room temperature.</li></ul>",
+                            "question": "Unstable (reactive) waste:<p><ul>containing nitric acid or a category 1 oxidizer, reacting with air,moisture sensitive and/or unstable at room temperature.</ul>",
                             "information": "",
                             "pictogram": "",
                             "moreInfo": "",
@@ -354,7 +352,7 @@
                                     "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "1",
-                                        "information": "<strong>Confine in sealed double pack</strong> and label with with the form below",
+                                        "information": "<strong>Confine in secondary container</strong> and label with with the form below",
                                         "omod_code": "16 05 06",
                                         "label": "19",
                                         "picture": ""
@@ -384,7 +382,7 @@
                                             "moreInfoTitle": "",
                                             "yesBranch": {
                                                 "isLeaf": "1",
-                                                "information": "<ul><li>Basify to pH> 9</li></ul>",
+                                                "information": "<ul><b>Basify to pH>9</b></ul>",
                                                 "omod_code": "06 03 11",
                                                 "label": "5",
                                                 "picture": ""
@@ -526,17 +524,12 @@
                                             }
                                         }
                                     }
-
                                 }
-
                             }
-
                         }
                     }
                 }
             }
         }
-
     }
-
 }
