@@ -168,10 +168,11 @@ class LabelForm18 extends React.Component {
           <Form.Group controlId="formGroupName">
             <Form.Row>
               <Form.Label>
-                {labelText[this.state.language]["group name"] + " *"}
+                {labelText[this.state.language]["group name"] +
+                  (false ? " *" : "")}
               </Form.Label>
               <Form.Control
-                required
+                required={false}
                 name="group name"
                 placeholder={
                   labelText[this.state.language]["group name placeholder"]

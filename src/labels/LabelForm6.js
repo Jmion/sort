@@ -26,18 +26,18 @@ class LabelForm6 extends React.Component {
     this.state = {
       formNumber: this.props.formNumber,
       omodCode: this.props.omodCode,
-      language: this.props.language
+      language: this.props.language,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  jsPdfGenerator = data => {
+  jsPdfGenerator = (data) => {
     var options = {
       orientation: "l",
       unit: "mm",
       format: "a4",
-      putOnlyUsedFonts: true
+      putOnlyUsedFonts: true,
     };
 
     // creating the document
@@ -62,7 +62,7 @@ class LabelForm6 extends React.Component {
 
     // Name
     doc.text(6, 69, data.get("first name") + " " + data.get("last name"), {
-      maxWidth: 15
+      maxWidth: 15,
     });
 
     // date
@@ -216,7 +216,6 @@ class LabelForm6 extends React.Component {
               </Form.Label>
               <Form.Control
                 required
-                defaultValue="ISIC-CH/PH-1015 Lausanne"
                 name="remettant"
                 placeholder={
                   labelText[this.state.language]["remettant placeholder"]

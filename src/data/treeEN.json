@@ -243,14 +243,14 @@
                         "moreInfoTitle": "",
                         "yesBranch": {
                             "isLeaf": "1",
-                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, seal with parafilm&#xae; or teflon&#xae;.</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
+                            "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen,<b> seal with parafilm&#xae; or teflon&#xae;</b>.</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
                             "omod_code": "N/A",
                             "label": "N/A",
                             "picture": ""
                         },
                         "noBranch": {
                             "isLeaf": "0",
-                            "question": "Unstable (reactive) waste:<p><ul>containing nitric acid or a category 1 oxidizer, reacting with air,moisture sensitive and/or unstable at room temperature.</ul>",
+                            "question": "Unstable (reactive) waste:<p><ul>containing nitric acid or a category 1 oxidizer,</ul><ul>reacting with air,</ul><ul>moisture sensitive and/or</ul><ul>unstable at room temperature.</ul>",
                             "information": "",
                             "pictogram": "",
                             "moreInfo": "",

@@ -23,18 +23,19 @@ class LabelForm3 extends React.Component {
     this.state = {
       formNumber: this.props.formNumber,
       omodCode: this.props.omodCode,
-      language: this.props.language
+      language: this.props.language,
+      otherRequired: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  jsPdfGenerator = data => {
+  jsPdfGenerator = (data) => {
     var options = {
       orientation: "l",
       unit: "mm",
       format: "a4",
-      putOnlyUsedFonts: true
+      putOnlyUsedFonts: true,
     };
 
     // creating the document
@@ -59,7 +60,7 @@ class LabelForm3 extends React.Component {
 
     // Name
     doc.text(6, 75, data.get("first name") + " " + data.get("last name"), {
-      maxWidth: 15
+      maxWidth: 15,
     });
 
     // date
@@ -282,20 +283,23 @@ class LabelForm3 extends React.Component {
                   name="other"
                   label={labelText[this.state.language]["other"]}
                   type="checkbox"
+                  onClick={() => {
+                    this.setState((prevState) => ({
+                      otherRequired: !prevState.otherRequired,
+                    }));
+                  }}
                   id={"autre"}
                 />
               </Col>
             </Row>
             <Row>
               <Form.Label>
-                {
-                  labelText[this.state.language][
-                    "If other is selected please specify"
-                  ]
-                }
+                {labelText[this.state.language][
+                  "If other is selected please specify"
+                ] + (this.state.otherRequired ? " *" : "")}
               </Form.Label>
               <Form.Control
-                required
+                required={this.state.otherRequired}
                 name="other comment"
                 placeholder={
                   labelText[this.state.language][
