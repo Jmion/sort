@@ -77,12 +77,6 @@ class LabelForm6 extends React.Component {
     doc.text(42, 81, data.get("solvent"), { maxWidth: 110 });
 
     doc.setFontType("bold");
-    if (data.get("liquid") != null) {
-      doc.text(69, 60.1, "X");
-    }
-    if (data.get("solid") != null) {
-      doc.text(90.3, 60.1, "X");
-    }
 
     const pictograms_keys = Object.keys(pictograms);
 
@@ -266,38 +260,6 @@ class LabelForm6 extends React.Component {
               </Col>
             </Form.Row>
           </Form.Group>
-
-          <Container>
-            <Form.Label>
-              {
-                labelText[this.state.language][
-                  "Waste containing Mercury or its derivatives"
-                ]
-              }
-            </Form.Label>
-            <Row>
-              <Col>
-                <Form.Check
-                  custom
-                  className="checkbox_margin"
-                  name="liquid"
-                  label={labelText[this.state.language]["liquid"]}
-                  type="checkbox"
-                  id={"liquid"}
-                />
-              </Col>
-              <Col>
-                <Form.Check
-                  custom
-                  className="checkbox_margin"
-                  name="solid"
-                  label={labelText[this.state.language]["solid"]}
-                  type="checkbox"
-                  id={"solid"}
-                />
-              </Col>
-            </Row>
-          </Container>
 
           <DangerPictogramCheckbox
             language={this.state.language}
