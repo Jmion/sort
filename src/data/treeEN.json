@@ -3,9 +3,9 @@
     "question": "Consumables (glassware, gloves, absorbent, needles, …)",
     "information": "",
     "pictogram": "",
-    "moreInfo": "",
+    "moreInfo": "Testest",
     "moreInfoPicture": "",
-    "moreInfoTitle": "",
+    "moreInfoTitle": "Title",
     "yesBranch": {
         "isLeaf": "0",
         "question": "Contaminated Material<p>(Object with traces (few droplets) of a chemical, a biohazard and/or a radionuclide it has been in contact with.)",
@@ -320,7 +320,7 @@
                                     },
                                     "noBranch": {
                                         "isLeaf": "0",
-                                        "question": "Contains nano-material",
+                                        "question": "Contains nanomaterial",
                                         "information": "",
                                         "pictogram": "",
                                         "moreInfo": "",

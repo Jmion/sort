@@ -1,430 +1,528 @@
-
 {
+    "isLeaf": "0",
+    "question": "Consommables (verrerie, gants, absorbant, aiguilles, …)",
+    "information": "",
+    "pictogram": "",
+    "moreInfo": "",
+    "moreInfoPicture": "",
+    "moreInfoTitle": "Titre",
+    "yesBranch": {
         "isLeaf": "0",
-        "question": "Verrerie, gants, absorbants, aiguilles, ....",
+        "question": "Matériel contaminé<p>(Objet avec traces (quelques gouttes) d'un chimique, matériel biologique et/ou d'un radionucléide.)",
         "information": "",
-        "pictogram" : "" ,
-        "moreInfo" : "",
-        "yesBranch": { 
+        "pictogram": "",
+        "moreInfo": "",
+        "moreInfoPicture": "",
+        "moreInfoTitle": "",
+        "yesBranch": {
             "isLeaf": "0",
-            "question": "Matière contaminée",
+            "question": "Objet pointu/coupant souillé (aiguille, seringue ou autre)",
             "information": "",
-            "pictogram" : "" ,
-            "moreInfo" : "",
+            "pictogram": "",
+            "moreInfo": "",
+            "moreInfoPicture": "",
+            "moreInfoTitle": "",
             "yesBranch": {
                 "isLeaf": "0",
-                "question": "Used needles and syringes",
+                "question": "Déchet avec radionucléide",
                 "information": "",
-                "pictogram" : "" ,
-                "moreInfo" : "",
+                "pictogram": "",
+                "moreInfo": "",
+                "moreInfoPicture": "",
+                "moreInfoTitle": "",
                 "yesBranch": {
                     "isLeaf": "1",
-                    "information": "<ul><li><b>do not</b> recap</li><li>put into syringe box</li></ul> ",
-                    "omod_code" : "18 01 01",
-                    "label": "14"
+                    "information": "<b>ne pas</b> recapuchonner les aiguilles<p>mettre les déchets dans récipient pour aiguilles ou objets coupants<p>Voir images ci-dessous (à gauche pour les petits objets comme les aiguilles; à droite pour les plus gros objets comme de la verrerie cassée",
+                    "omod_code": "N/A",
+                    "label": "18",
+                    "picture": "3"
                 },
-                "noBranch":{
+                "noBranch": {
                     "isLeaf": "0",
-                    "question": "Cleaned containers without cap",
+                    "question": "Contient des (micro)organismes",
                     "information": "",
-                    "pictogram" : "" ,
-                    "moreInfo" : "",
+                    "pictogram": "",
+                    "moreInfo": "",
+                    "moreInfoPicture": "",
+                    "moreInfoTitle": "",
                     "yesBranch": {
                         "isLeaf": "1",
-                        "information": "<ul><li>Remove label and pictogram and/or cover it with \"clean container\" label</li><li>dispose in the corresponding recycling containers</li></ul> ",
-                        "omod_code" : "N/A",
-                        "label": "15"
+                        "information": "<b>ne pas</b> recapuchonner les aiguilles<p>mettre les déchets dans récipient pour aiguilles ou objets coupants<p>Si les objets sont contaminés avec <b>du matériel biologique de niveau 2</b>, ils <b>doivent être autoclavés</b>.<p>Voir images ci-dessous (à gauche pour les petits objets comme les aiguilles; à droite pour les plus gros objets comme de la verrerie cassée",
+                        "omod_code": "18 01 02",
+                        "label": "3",
+                        "picture": "3"
                     },
-                    "noBranch":{
+                    "noBranch": {
+                        "isLeaf": "1",
+                        "information": "<b>ne pas</b> recapuchonner les aiguilles<p>mettre les déchets dans récipient pour aiguilles ou objets coupants<p>Voir images ci-dessous (à gauche pour les petits objets comme les aiguilles; à droite pour les plus gros objets comme de la verrerie cassée",
+                        "omod_code": "18 01 01",
+                        "label": "14",
+                        "picture": "3"
+                    }
+                }
+            },
+            "noBranch": {
+                "isLeaf": "0",
+                "question": "Récipient nettoyé et rincé sans son capuchon d'origine",
+                "information": "",
+                "pictogram": "",
+                "moreInfo": "",
+                "moreInfoPicture": "",
+                "moreInfoTitle": "",
+                "yesBranch": {
+                    "isLeaf": "1",
+                    "information": "Retiré l'étiquette et pictogramme et/ou recouvrir avec l'étiquette \"récipient nettoyé et rincé\" <p>Jeter le déchet dans la poubelle de recyclage",
+                    "omod_code": "N/A",
+                    "label": "15",
+                    "picture": ""
+                },
+                "noBranch": {
+                    "isLeaf": "0",
+                    "question": "Matériel avec radionucliédes",
+                    "information": "",
+                    "pictogram": "",
+                    "moreInfo": "",
+                    "moreInfoPicture": "",
+                    "moreInfoTitle": "",
+                    "yesBranch": {
+                        "isLeaf": "1",
+                        "information": "Contacter l'expert en radioprotection du laboratoire (sinon contacter <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> )",
+                        "omod_code": "N/A",
+                        "label": "18",
+                        "picture": ""
+                    },
+                    "noBranch": {
                         "isLeaf": "0",
-                        "question": "Material with radionuclide",
+                        "question": "Matériel contaminé avec des (micro-)organismes",
                         "information": "",
-                        "pictogram" : "" ,
-                        "moreInfo" : "",
+                        "pictogram": "",
+                        "moreInfo": "",
+                        "moreInfoPicture": "",
+                        "moreInfoTitle": "",
                         "yesBranch": {
                             "isLeaf": "1",
-                            "information": "Contact radioprotection expert of the laboratory (otherwise contact <a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a> )",
-                            "omod_code" : "N/A",
-                            "label": "18"
+                            "information": "Contacter le service de biosécurité de l'EPFL <p><a href=\"https://www.epfl.ch/campus/security-safety/activites-en-labo/dechets/dechets-biologiques/\" target=\"_blank\">Davantage d'information ici.</a></p>",
+                            "omod_code": "N/A",
+                            "label": "N/A",
+                            "picture": ""
                         },
                         "noBranch": {
                             "isLeaf": "0",
-                            "question": "Material contaminates with (micro-)organisim",
+                            "question": "Matériel contaminé avec du mercure",
                             "information": "",
-                            "pictogram" : "" ,
-                            "moreInfo" : "",
+                            "pictogram": "",
+                            "moreInfo": "",
+                            "moreInfoPicture": "",
+                            "moreInfoTitle": "",
                             "yesBranch": {
                                 "isLeaf": "1",
-                                "information": "Contact the biosafety team",
-                                "omod_code" : "N/A",
-                                "label": "N/A"
+                                "information": "Gants, papier, petit matériel: mettre dans récipients en plastique (rigide ou souple); en cas de déversement: mettre tous le matériel (EPI, absorbant contaminé, ...) dans un récipient certifié \"UN\", refermer et étiqueter avec les noms de l'absorbant et du produit absorbé. Apporter le récipient au lieu de collecte assigné au groupe.<p>Equipement / appareil: mettre dans un récipient plastique rigide, le refermer et étiqueter. Apporter le récipient au lieu de collecte assigné au groupe.",
+                                "omod_code": "06 04 04",
+                                "label": "6",
+                                "picture": ""
                             },
                             "noBranch": {
                                 "isLeaf": "0",
-                                "question": "Material contaminated with mercury",
+                                "question": "Absorbant Nétosol contaminé avec un chimique <p>Matériel contaminé avec un oxydant",
                                 "information": "",
-                                "pictogram" : "" ,
-                                "moreInfo" : "",
+                                "pictogram": "oxidizer",
+                                "moreInfo": "",
+                                "moreInfoPicture": "",
+                                "moreInfoTitle": "",
                                 "yesBranch": {
                                     "isLeaf": "1",
-                                    "information": "<ul><li>Gloves, paper, small material: put in plastic container (rigid or soft)</li><li>Spill: put all used material (PPE, contaminated absorbent, ...) in a \"UN\" sertified container, seal, label with the name of the absorbant and the absorbed product. Bring to the assigned premises.</li><li>Equipment / apparatus: put in plastic box, close it, label and bring it to the Assigned premises.</li></ul>",
-                                    "omod_code" : "06 04 04",
-                                    "label": "6"
+                                    "information": "Mettre dans un récipient certifié \"UN\" (l'oxydant est recouvert d'absorbant Nétosol).<p>Etiqueter en précisant les noms de l'absorbant et du produit absorbé. Fermer le récipient et apportez-le au lieu de collecte assigné au groupe. S'il y a des traces de nano <b>, mettre le récipient dans un emballage secondaire adapté</b> (sac plastique ou récipient en plastique rigide).",
+                                    "omod_code": "15 02 02",
+                                    "label": "16",
+                                    "picture": ""
                                 },
                                 "noBranch": {
                                     "isLeaf": "0",
-                                    "question": "<ul><li>Universal absorbant contaminated with a chemical</li><li>Material contaminates with an oxidizer</li></ul>",
+                                    "question": "Matériel contaminé avec des nanomatériaux ou avec l'un des dangers suivants:",
                                     "information": "",
-                                    "pictogram" : "oxidizer" ,
-                                    "moreInfo" : "",
+                                    "pictogram": "combo",
+                                    "moreInfo": "",
+                                    "moreInfoPicture": "",
+                                    "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "1",
-                                        "information": "<ul><li>Put in a \"UN\" certified container (the oxidizer is covered with universal absorbant).</li><li>Label with the names of the absorbant & the absorbed product. Seal & bring to the assigned waste premises. If presence of nanomaterial <b><i> confine in adapted sealed double pack</i></b> (bag or container).</li></ul>",
-                                        "omod_code" : "15 02 02",
-                                        "label": "16"
+                                        "information": "<ul>Si le déchet n'a pas besoin d'être neutralisé, il faut laisser les substances s'évaporer dans une chapelle; Mettre dans un récipient pour déchets toxiques; Précicer sur l'étiquette le matérriel et le contaminant.</ul><p>S'il y a des traces de nano, <b>mettre le récipient dans un emballage secondaire adapté</b> (sac plastique ou récipient en plastique rigide).</p>",
+                                        "omod_code": "15 01 10",
+                                        "label": "17",
+                                        "picture": ""
                                     },
                                     "noBranch": {
-                                        "isLeaf": "0",
-                                        "question": "Material contaminated with traces of nanomaterial or with one of these hazards:",
-                                        "information": "",
-                                        "pictogram" : "combo" ,
-                                        "moreInfo" : "",
-                                        "yesBranch": {
-                                            "isLeaf": "1",
-                                            "information": "<ul><li> If no neutralisation is required, leave the substance evaporating in a fume hood,</li><li>Put in a plastic container for toxic waste,</li><li>On the label, precise the material and the contaminent.</li></ul><p>If presence of nanomaterial: confine in adapted sealed double pack (bag or container).</p>",
-                                            "omod_code" : "15 01 10",
-                                            "label": "17"
-                                        },
-                                        "noBranch": {
-                                            "isLeaf": "1",
-                                            "information": "Label <i>Particular waste (procise all components, hazards and the pH)</i>",
-                                            "omod_code" : "16 05 06",
-                                            "label": "2" }
+                                        "isLeaf": "1",
+                                        "information": "Etiqueter <i>Déchet particulier (preciser tous les composants, dangers et le pH)</i>",
+                                        "omod_code": "16 05 06",
+                                        "label": "2",
+                                        "picture": ""
                                     }
                                 }
                             }
                         }
                     }
                 }
-    
-            },
-            "noBranch":{
-                "isLeaf": "1",
-                "information": "<p>These items must be put in the corresponding bin for un-contaminated waste. Larger items must be put in the recycling bin at the waste collection point <a href=\"https://securite.epfl.ch/waste\" target=\"_blank\">More information here.</a></p>",
-                "omod_code" : "N/A",
-                "label": "N/A"
             }
         },
-        "noBranch":{
+        "noBranch": {
+            "isLeaf": "1",
+            "information": "<ul>Les objets plus gros doivent être mis dans les containers de recyclage aux points de collecte: <a href=\"https://www.epfl.ch/about/sustainability/waste/wastecollectioncenter/\" target=\"_blank\">Plus d'information ici.</a>Mettre les petits objets non-contaminés dans les poubelles avec sacs EPFL bleus ou dans les récipients de recyclage : <a href=\"https://www.epfl.ch/about/sustainability/waste/\" target=\"_blank\">Plus d'information ici.</a> </ul>",
+            "omod_code": "N/A",
+            "label": "N/A",
+            "picture": "2"
+        }
+    },
+    "noBranch": {
+        "isLeaf": "0",
+        "question": "Déchet chimique complètement inconnu <p> <em>Sélectionner Oui uniquement s'il n'y a AUCUNE information connue</em></p>",
+        "information": "",
+        "pictogram": "",
+        "moreInfo": "",
+        "moreInfoPicture": "",
+        "moreInfoTitle": "",
+        "yesBranch": {
+            "isLeaf": "1",
+            "information": "Etiqueter avec le nom de la personne de contact et toute infomration par rapport au déchet<em><p>E-mailer le remettant assigné à votre groupe. </em></p><b>Elimination particulière par le remettant selon conseil du SCC.</b>",
+            "omod_code": "16 05 98",
+            "label": "1",
+            "picture": ""
+        },
+        "noBranch": {
             "isLeaf": "0",
-            "question": "Completely unknown chemical waste",
+            "question": "Déchet avec radionucléide",
             "information": "",
-            "pictogram" : "" ,
-            "moreInfo" : "",
-            "yesBranch": { 
+            "pictogram": "",
+            "moreInfo": "",
+            "moreInfoPicture": "",
+            "moreInfoTitle": "",
+            "yesBranch": {
                 "isLeaf": "1",
-                "information": "<p>Attention only for exceptional cases</p><p>Label with the name of the contact person and any known information about the waste</p><p><em>E-mail assigned waste responsible person.</em></p><b>Special disposal by the responsible person according to SCC advices.</b>",
-                "omod_code" : "16 05 98",
-                "label": "1"
+                "information": "Tout déchet avec radionucléide doit être géré par l'expert en radioprotection assigné au groupe.<p><em>Sinon, contactez <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
+                "omod_code": "N/A",
+                "label": "18",
+                "picture": ""
             },
             "noBranch": {
                 "isLeaf": "0",
-                "question": "Waste with radionuclide",
+                "question": "Explosif",
                 "information": "",
-                "pictogram" : "" ,
-                "moreInfo" : "",
-                "yesBranch": { 
+                "pictogram": "exploding_bomb",
+                "moreInfo": "",
+                "moreInfoPicture": "",
+                "moreInfoTitle": "",
+                "yesBranch": {
                     "isLeaf": "1",
-                    "information": "All waste with radionuclide are managed by the radioprotection expert of the laboratory.<p><em>Otherwise contact <a href=\"mailto:scc@epfl.ch?subject=Radionuclide%20waste%20request\">scc@epfl.ch</a></em></p>",
-                    "omod_code" : "N/A",
-                    "label": "18"
+                    "information": "Contacter <a href=\"mailto:securite@epfl.ch?subject=Explosive%20waste%20request\">securite@epfl.ch</a>",
+                    "omod_code": "N/A",
+                    "label": "N/A",
+                    "picture": ""
                 },
                 "noBranch": {
                     "isLeaf": "0",
-                    "question": "Explosive",
+                    "question": "Etat physique <b>gaz</b>?",
                     "information": "",
-                    "pictogram" : "exploding_bomb" ,
-                    "moreInfo" : "",
-                    "yesBranch": { 
+                    "pictogram": "",
+                    "moreInfo": "",
+                    "moreInfoPicture": "",
+                    "moreInfoTitle": "",
+                    "yesBranch": {
                         "isLeaf": "1",
-                        "information": "Contact <a href=\"mailto:securite@epfl.ch?subject=Explosive%20waste%20request\">securite@epfl.ch</a>",
-                        "omod_code" : "N/A",
-                        "label": "N/A"
+                        "information": "Apporter cylindre, spray, cartouche au local de dépôt assigné. Le signaler au remettant responsable.",
+                        "omod_code": "N/A",
+                        "label": "N/A",
+                        "picture": ""
                     },
                     "noBranch": {
                         "isLeaf": "0",
-                        "question": "Is the physical state a <b>gas</b>?",
-                        "information": "",
-                        "pictogram" : "" ,
-                        "moreInfo" : "",
+                        "question": "La substance est dans son flacon d’origine et elle est stable a température ambiante (ne chauffe pas, pas de formation de gaz).<p>Ce flacon est fermé avec le bouchon d’origine et l’étiquette est entièrement lisible.<p>",
+                        "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
+                        "pictogram": "",
+                        "moreInfo": "",
+                        "moreInfoPicture": "",
+                        "moreInfoTitle": "",
                         "yesBranch": {
                             "isLeaf": "1",
-                            "information": "Bring cylinders, sprays, catridges to the assigned waste premises. Inform the responsible person.",
-                            "omod_code" : "N/A",
-                            "label": "N/A"
-                         },
+                            "information": "<p>Si la substance est pyrophorique, mettre le contenu sous argon ou azote,<b> sceller avec un ruban parafilm&#xae; ou téflon&#xae;</b>.</p>Apporter au magasin/ local de dépôt assigné.<b> Le signaler</b> au remettant responsable.",
+                            "omod_code": "N/A",
+                            "label": "N/A",
+                            "picture": ""
+                        },
                         "noBranch": {
                             "isLeaf": "0",
-                            "question": "<ol><li>The substance is <b>stable</b> and is in its original container.</li><li>This container is closed with the original cap and the label is clearly legible.</li></ol>",
-                            "information": "<p>Liquid or solid</p><p>Seperate the layers and treat <b>separately</b></p>",
-                            "pictogram" : "" ,
-                            "moreInfo" : "",
-                            "yesBranch": { 
-                                "isLeaf": "1",
-                                "information": "<p>If the substance is pyrophoric, put the content under argon or nitrogen, <b>Seal with a ribbon</b>(parafilm&#xae; or teflon&#xae;).</p>Bring to the assigned waste disposal premises.<b> Inform</b> the assigned responsible person.",
-                                "omod_code" : "N/A",
-                                "label": "N/A"
+                            "question": "Déchet instable (= réactif):<p><ul>contenant de l’acide nitrique ou un oxydant de catégorie 1,</ul><ul>instable à l'air ambiant,</ul><ul>instable à l'humidité et/ou</ul><ul>instable à température ambiante.</ul>",
+                            "information": "",
+                            "pictogram": "",
+                            "moreInfo": "",
+                            "moreInfoPicture": "",
+                            "moreInfoTitle": "",
+                            "yesBranch": {
+                                "isLeaf": "0",
+                                "question": "Savez-vous déjà comment appliquer les instructions de stabilisation du déchet ?",
+                                "information": "Traiter le déchet selon les instructions du SCC (<a href=\"mailto:scc@epfl.ch?subject=Unstable%20waste%20request\">scc@epfl.ch</a>) car toute substance instable doit être stabilisée dans le laboratoire où elle a été utilisée/produite.",
+                                "pictogram": "",
+                                "moreInfo": "",
+                                "moreInfoPicture": "",
+                                "moreInfoTitle": "",
+                                "yesBranch": {
+                                    "isLeaf": "1",
+                                    "information": "Si le déchet n'est pas stable à température ambiante, il <b>doit être stocké dans un réfrigérator ou congélateur EX (ATEX).</b>",
+                                    "omod_code": "16 05 06",
+                                    "label": "2",
+                                    "picture": ""
+                                },
+                                "noBranch": {
+                                    "isLeaf": "1",
+                                    "information": "Merci d'envoyer votre requête à <a href=\"mailto:scc@epfl.ch?subject=Unstable%20waste%20request\">scc@epfl.ch</a>.",
+                                    "omod_code": "N/A",
+                                    "label": "N/A",
+                                    "picture": ""
+                                }
                             },
                             "noBranch": {
                                 "isLeaf": "0",
-                                "question": "Unstable (reactive waste containing nitric acid or a category 1 oxidizer.",
+                                "question": "Contient des (micro-)organismes",
                                 "information": "",
-                                "pictogram" : "oxidizer" ,
-                                "moreInfo" : "",
+                                "pictogram": "",
+                                "moreInfo": "",
+                                "moreInfoPicture": "",
+                                "moreInfoTitle": "",
                                 "yesBranch": {
-                                    "isLeaf": "1",
-                                    "information": "<ul><li>Treat according to SCC instructions (<a href=\"mailto:scc@epfl.ch\">scc@epfl.ch</a>)</li><li>Pour into a white high density polyethylene (HDPE) container. Once the solution stabilised, close with a <b>security cap</b> (with overpressure release valve).</li><li>Label particular waste (precise all components, hazards and the pH)</li></ul>",
-                                    "omod_code" : "N/A",
-                                    "label": "N/A" },
-                                "noBranch": {
                                     "isLeaf": "0",
-                                    "question": "<ul><li>Reacts with air,</li><li>Moisture sensitive and/or</li><li>Thermally unstable</li></ul>",
+                                    "question": "Liquide",
                                     "information": "",
-                                    "pictogram" : "" ,
-                                    "moreInfo" : "",
+                                    "pictogram": "",
+                                    "moreInfo": "",
+                                    "moreInfoPicture": "",
+                                    "moreInfoTitle": "",
                                     "yesBranch": {
                                         "isLeaf": "0",
-                                        "question": "Stable at room temperature",
-                                        "information": "<h3>Any unstable substance must be deactivated in the laboratory where it has been (prod)used.</h3> If it is an explosive, contact <a href=\"mailto:securite@epfl.ch\">securite@epfl.ch</a><ul><li>Put into an adapted container on which a safety cap can be srewwed or put into a \"UN\" certified container (fille with Nétosol&reg; absorbent to block the flask inside).</li></ul><i>If substance still unstable</i><ul><li>Put under insert atmosphere (argon or nitrogen), seal and store away from light.</li></ul>",
-                                        "pictogram" : "" ,
-                                        "moreInfo" : "",
+                                        "question": "Contient des chimiques (cyanides, métaux et/ou autres) ",
+                                        "information": "Inactivation avec un désinfectant <p>(eau de Javel, Virkon® ou autre)</p> <strong>Attention aux incompatibilités</strong>",
+                                        "pictogram": "",
+                                        "moreInfo": "",
+                                        "moreInfoPicture": "",
+                                        "moreInfoTitle": "",
                                         "yesBranch": {
                                             "isLeaf": "1",
-                                            "information": "Label <i>Particular waste (procise all components, hazards and the pH)</i>",
-                                            "omod_code" : "16 05 06",
-                                            "label": "2" },
+                                            "information": "Déchet de (micro-)organismes inactivés. Indiquez: <p>désinfectant utilisé et les produits chimiques (cyanures, métaux ou autres);<p>S’il y a des nanomatériaux <strong>mettre sous double emballage étanche</strong>",
+                                            "omod_code": "18 01 02",
+                                            "label": "3",
+                                            "picture": ""
+                                        },
                                         "noBranch": {
                                             "isLeaf": "1",
-                                            "information": "<ul><li>put into a rigid overpack, fill with Néstol&reg; absorbent,</li><li>seal and label accordingly,</li><li>store in an EX refrigerator or freezer</li></ul><h4>Label <i>Particular waste</i> <b>to be transported regrigerated</b> (precise all components).</h4>",
-                                            "omod_code" : "16 05 06",
-                                            "label": "2"}
-                                     },
+                                            "information": "Contacter l’équipe biosécurité <p><a href=\"hhttps://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">Plus d'information ici.</a></p>",
+                                            "omod_code": "N/A",
+                                            "label": "N/A",
+                                            "picture": ""
+                                        }
+                                    },
                                     "noBranch": {
                                         "isLeaf": "0",
-                                        "question": "Contains (micro) organisms",
+                                        "question": "Contient des nanomatériaux",
                                         "information": "",
-                                        "pictogram" : "" ,
-                                        "moreInfo" : "",
+                                        "pictogram": "",
+                                        "moreInfo": "",
+                                        "moreInfoPicture": "",
+                                        "moreInfoTitle": "",
                                         "yesBranch": {
+                                            "isLeaf": "1",
+                                            "information": "Contacter l’équipe biosécurité <p><a href=\"https://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">More information here.</a></p>",
+                                            "omod_code": "16 05 06",
+                                            "label": "2",
+                                            "picture": ""
+                                        },
+                                        "noBranch": {
+                                            "isLeaf": "1",
+                                            "information": "Contacter l’équipe biosécurité <p><a href=\"https://www.epfl.ch/campus/security-safety/en/lab-safety/waste/biological-waste/\" target=\"_blank\">More information here.</a></p>",
+                                            "omod_code": "N/A",
+                                            "label": "N/A",
+                                            "picture": ""
+                                        }
+                                    }
+                                },
+                                "noBranch": {
+                                    "isLeaf": "0",
+                                    "question": "Contient des nanomatériaux",
+                                    "information": "",
+                                    "pictogram": "",
+                                    "moreInfo": "",
+                                    "moreInfoPicture": "",
+                                    "moreInfoTitle": "",
+                                    "yesBranch": {
+                                        "isLeaf": "1",
+                                        "information": "<strong>Mettre sous double emballage étanche</strong> et étiqueter grâce au  formulaire ci-dessous",
+                                        "omod_code": "16 05 06",
+                                        "label": "19",
+                                        "picture": ""
+                                    },
+                                    "noBranch": {
+                                        "isLeaf": "0",
+                                        "question": "Déchet de peinture",
+                                        "information": "",
+                                        "pictogram": "",
+                                        "moreInfo": "",
+                                        "moreInfoPicture": "",
+                                        "moreInfoTitle": "",
+                                        "yesBranch": {
+                                            "isLeaf": "1",
+                                            "information": "Etiquette de déchet de peinture",
+                                            "omod_code": "08 01 11",
+                                            "label": "4",
+                                            "picture": ""
+                                        },
+                                        "noBranch": {
                                             "isLeaf": "0",
-                                            "question": "Liquid",
+                                            "question": "Solution aqueuse contenant des ions cyanures à plus de 50 mg/L",
                                             "information": "",
-                                            "pictogram" : "" ,
-                                            "moreInfo" : "",
-                                            "yesBranch": { 
-                                                "isLeaf": "0",
-                                                "question": "Contains chemicals (cyanides, metals and/or others) ",
-                                                "information": "Deactivate with desinfectant <p>(bleach at 10%, Virkon® or other)</p> <strong>Consider possible incompatibilities</strong>",
-                                                "pictogram" : "" ,
-                                                "moreInfo" : "",
-                                                "yesBranch": {
-                                                    "isLeaf": "1",
-                                                    "information": "Deactivated (micro-)organism waste. Precise: <ul><li>the used desinfectant</lil><li>the chemicals (cyanides, metal and/or others);</li><li>If presence of nanomaterial, <strong>confine in sealed double pack</strong></li>",
-                                                    "omod_code" : "18 01 02",
-                                                    "label": "3"
-                                                },
-                                                "noBranch": {
-                                                    "isLeaf": "1",
-                                                    "information": "Contact the biosafety team",
-                                                    "omod_code" : "N/A",
-                                                    "label": "N/A"
-                                                }
+                                            "pictogram": "",
+                                            "moreInfo": "",
+                                            "moreInfoPicture": "",
+                                            "moreInfoTitle": "",
+                                            "yesBranch": {
+                                                "isLeaf": "1",
+                                                "information": "<ul><b>Basifier à pH>9</b></ul>",
+                                                "omod_code": "06 03 11",
+                                                "label": "5",
+                                                "picture": ""
                                             },
                                             "noBranch": {
                                                 "isLeaf": "0",
-                                                "question": "Contains nano-material",
+                                                "question": "Contient du mercure (Hg)",
                                                 "information": "",
-                                                "pictogram" : "" ,
-                                                "moreInfo" : "",
-                                                "yesBranch": { 
+                                                "pictogram": "",
+                                                "moreInfo": "",
+                                                "moreInfoPicture": "",
+                                                "moreInfoTitle": "",
+                                                "yesBranch": {
                                                     "isLeaf": "1",
-                                                    "information": "Contact the biosafety team",
-                                                    "omod_code" : "16 05 06",
-                                                    "label": "2"
-                                                },
-                                                "noBranch": {
-                                                    "isLeaf": "1",
-                                                    "information": "Contact the biosafety team",
-                                                    "omod_code" : "N/A",
-                                                    "label": "N/A"
-                                                }
-                                            }
-                                         },
-                                        "noBranch": {
-                                            "isLeaf": "0",
-                                            "question": "Contains nanomaterial",
-                                            "information": "",
-                                            "pictogram" : "" ,
-                                            "moreInfo" : "",
-                                            "yesBranch": {
-                                                "isLeaf": "0",
-                                                "question": "In suspension",
-                                                "information": "",
-                                                "pictogram" : "" ,
-                                                "moreInfo" : "",
-                                                "yesBranch": {  
-                                                    "isLeaf": "1",
-                                                    "information": "<strong>Confine in sealed double pack</strong> and label with: <u>Nanomaterial, liquid waste</u>:<ul><li>name of the substance or mixture and name(s) of the solvent(s)</li><li>hazard pictograms</li>",
-                                                    "omod_code" : "16 05 06",
-                                                    "label": "2"
-                                                },
-                                                "noBranch": {
-                                                    "isLeaf": "1",
-                                                    "information": "<strong>Confine in sealed double pack</strong> and label with: <u>Nanomaterial, solid waste</u>:<ul><li>name of the substance or mixture and name(s) of the solvent(s)</li><li>hazard pictograms</li>",
-                                                    "omod_code" : "16 05 06",
-                                                    "label": "2"
-                                                }
-                                             },
-                                            "noBranch": {
-                                                "isLeaf": "0",
-                                                "question": "Paint waste",
-                                                "information": "",
-                                                "pictogram" : "" ,
-                                                "moreInfo" : "",
-                                                "yesBranch": { 
-                                                    "isLeaf": "1",
-                                                    "information": "Paint waste",
-                                                    "omod_code" : "08 01 11",
-                                                    "label": "4"
+                                                    "information": "Déchet contenant du mercure <i>(préciser les componsants)</i>",
+                                                    "omod_code": "06 04 04",
+                                                    "label": "6",
+                                                    "picture": ""
                                                 },
                                                 "noBranch": {
                                                     "isLeaf": "0",
-                                                    "question": "Aqueous solution with cyanide anions >50 mg/L",
+                                                    "question": "Liquide",
                                                     "information": "",
-                                                    "pictogram" : "" ,
-                                                    "moreInfo" : "",
-                                                    "yesBranch": { 
-                                                        "isLeaf": "1",
-                                                        "information": "<p>Basify to pH> 9</p><p>Waste of basified cyanides <i>(precise the components)</i></p>",
-                                                        "omod_code" : "06 03 11",
-                                                        "label": "5"
-
-                                                    },
-                                                    "noBranch": {
+                                                    "pictogram": "",
+                                                    "moreInfo": "",
+                                                    "moreInfoPicture": "",
+                                                    "moreInfoTitle": "",
+                                                    "yesBranch": {
                                                         "isLeaf": "0",
-                                                        "question": "Contains mercury or derivatives",
-                                                        "information": "",
-                                                        "pictogram" : "" ,
-                                                        "moreInfo" : "",
-                                                        "yesBranch": { 
-                                                            "isLeaf": "1",
-                                                            "information": "Waste containing mercury <i>(precise the components)</i>",
-                                                            "omod_code" : "06 04 04",
-                                                            "label": "6"
-                                                        },
-                                                        "noBranch": {
+                                                        "question": "Solutions aqueuses neutres, acides ou basiques",
+                                                        "information": "<p><strong>Seulement une phase.</strong></p><p>Sinon il faut les séparer.</p>",
+                                                        "pictogram": "",
+                                                        "moreInfo": "",
+                                                        "moreInfoPicture": "",
+                                                        "moreInfoTitle": "",
+                                                        "yesBranch": {
                                                             "isLeaf": "0",
-                                                            "question": "Liquid",
+                                                            "question": "Solution acide à pH ≤ 3",
                                                             "information": "",
-                                                            "pictogram" : "" ,
-                                                            "moreInfo" : "",
-                                                            "yesBranch": { 
-                                                                "isLeaf": "0",
-                                                                "question": "Acidic, basic or neutral aqueous solutions",
-                                                                "information": "<p><strong>Only one layer.</strong></p><p>Otherwise the layers must be separated.</p>",
-                                                                "pictogram" : "" ,
-                                                                "moreInfo" : "",
-                                                                "yesBranch": { 
-                                                                    "isLeaf": "0",
-                                                                    "question": "Acidic solution pH ≤ 3",
-                                                                    "information": "",
-                                                                    "pictogram" : "" ,
-                                                                    "moreInfo" : "",
-                                                                    "yesBranch": {
-                                                                        "isLeaf": "1",
-                                                                        "information": "<p>Acidic aqueous waste <strong>without</strong> HNO<sub>3</sub></p><p><i>(precise the main acid, the other substances and the <b>pH</b>)</i></p>",
-                                                                        "omod_code" : "06 01 06",
-                                                                        "label": "11"
-                                                                     },
-                                                                    "noBranch": {
-                                                                        "isLeaf": "0",
-                                                                        "question": "Basic (alkaline) solution pH ≥ 10",
-                                                                        "information": "",
-                                                                        "pictogram" : "" ,
-                                                                        "moreInfo" : "",
-                                                                        "yesBranch": { 
-                                                                            "isLeaf": "1",
-                                                                            "information": "<p>Basic (alkaline) aqueous waste</p><p><i>(precise the alkaline substance, the other substances and the <b>pH</b>)</i></p>",
-                                                                            "omod_code" : "06 02 05",
-                                                                            "label": "12"
-                                                                        },
-                                                                        "noBranch": {
-                                                                            "isLeaf": "1",
-                                                                            "information": "<p>Aqueous solution 3 < pH < 10<p/><p>Aqueous waste<i>(precise the components and the <b>pH</b>)</i>",
-                                                                            "omod_code" : "07 01 01",
-                                                                            "label": "13"
-                                                                        }
-                                                                    }
-                                                                },
-                                                                "noBranch": {
-                                                                    "isLeaf": "0",
-                                                                    "question": "Oil & petrol",
-                                                                    "information": "",
-                                                                    "pictogram" : "" ,
-                                                                    "moreInfo" : "",
-                                                                    "yesBranch": { 
-                                                                        "isLeaf": "1",
-                                                                        "information": "Oil waste",
-                                                                        "omod_code" : "13 02 08",
-                                                                        "label": "8"
-                                                                    },
-                                                                    "noBranch": {
-                                                                        "isLeaf": "0",
-                                                                        "question": "Halogenated substance or solvent >2%",
-                                                                        "information": "",
-                                                                        "pictogram" : "" ,
-                                                                        "moreInfo" : "",
-                                                                        "yesBranch": {
-                                                                            "isLeaf": "1",
-                                                                            "information": "Halogenated waste <i>(precise the components)</i>",
-                                                                            "omod_code" : "07 01 03",
-                                                                            "label": "9"
-                                                                         },
-                                                                        "noBranch": {
-                                                                            "isLeaf": "1",
-                                                                            "information": "Non-halogenated waste  <i>(precise the components)</i>",
-                                                                            "omod_code" : "07 01 04",
-                                                                            "label": "10"
-                                                                        }
-                                                                    }
-                                                                }
+                                                            "pictogram": "",
+                                                            "moreInfo": "",
+                                                            "moreInfoPicture": "",
+                                                            "moreInfoTitle": "",
+                                                            "yesBranch": {
+                                                                "isLeaf": "1",
+                                                                "information": "<p>Déchet de solution aqueuse acide <strong>sans</strong> HNO<sub>3</sub></p><p><i>(précisez l'acide majoritaire, les autres substances et le <b>pH</b>)</i></p>",
+                                                                "omod_code": "06 01 06",
+                                                                "label": "11",
+                                                                "picture": ""
                                                             },
                                                             "noBranch": {
                                                                 "isLeaf": "0",
-                                                                "question": "Mineral salts with or without residues of chemicals (ex: alumina, used silica, silica gel)",
+                                                                "question": "Solution basique (alcaline) à pH ≥ 10",
                                                                 "information": "",
-                                                                "pictogram" : "" ,
-                                                                "moreInfo" : "",
-                                                                "yesBranch": { 
+                                                                "pictogram": "",
+                                                                "moreInfo": "",
+                                                                "moreInfoPicture": "",
+                                                                "moreInfoTitle": "",
+                                                                "yesBranch": {
                                                                     "isLeaf": "1",
-                                                                    "information": "Mineral waste <i>(precise the components)</i>",
-                                                                    "omod_code" : "16 03 03",
-                                                                    "label": "7"
+                                                                    "information": "<p>Déchet d'une solution basique (alcaline)</p><p><i>(précisez la substance alcaline, les autres substances et le <b>pH</b>)</i></p>",
+                                                                    "omod_code": "06 02 05",
+                                                                    "label": "12",
+                                                                    "picture": ""
                                                                 },
                                                                 "noBranch": {
                                                                     "isLeaf": "1",
-                                                                    "information": "To be treated case by case <i>(precise the components)</i>",
-                                                                    "omod_code" : "16 05 06",
-                                                                    "label": "2"
+                                                                    "information": "<p>Solution aqureuse 3 < pH < 10<p/><p>Déchet aqueux<i>(précisez les composants et le <b>pH</b>)</i>",
+                                                                    "omod_code": "07 01 01",
+                                                                    "label": "13",
+                                                                    "picture": ""
                                                                 }
                                                             }
+                                                        },
+                                                        "noBranch": {
+                                                            "isLeaf": "0",
+                                                            "question": "Huile & pétrole",
+                                                            "information": "",
+                                                            "pictogram": "",
+                                                            "moreInfo": "",
+                                                            "moreInfoPicture": "",
+                                                            "moreInfoTitle": "",
+                                                            "yesBranch": {
+                                                                "isLeaf": "1",
+                                                                "information": "Déchet d’huile",
+                                                                "omod_code": "13 02 08",
+                                                                "label": "8",
+                                                                "picture": ""
+                                                            },
+                                                            "noBranch": {
+                                                                "isLeaf": "0",
+                                                                "question": "Substance ou solvant halogéné >2%",
+                                                                "information": "",
+                                                                "pictogram": "",
+                                                                "moreInfo": "",
+                                                                "moreInfoPicture": "",
+                                                                "moreInfoTitle": "",
+                                                                "yesBranch": {
+                                                                    "isLeaf": "1",
+                                                                    "information": "Déchet halogéné <i>(précisez les composants)</i>",
+                                                                    "omod_code": "07 01 03",
+                                                                    "label": "9",
+                                                                    "picture": ""
+                                                                },
+                                                                "noBranch": {
+                                                                    "isLeaf": "1",
+                                                                    "information": "Déchet non-halogéné <i>(précisez les composants)</i>",
+                                                                    "omod_code": "07 01 04",
+                                                                    "label": "10",
+                                                                    "picture": ""
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "noBranch": {
+                                                        "isLeaf": "0",
+                                                        "question": "Sels minéraux avec ou sans résidu chimique (ex: alumine, silice usagée, gel de silice)",
+                                                        "information": "",
+                                                        "pictogram": "",
+                                                        "moreInfo": "",
+                                                        "moreInfoPicture": "",
+                                                        "moreInfoTitle": "",
+                                                        "yesBranch": {
+                                                            "isLeaf": "1",
+                                                            "information": "Déchet d’origine minérale <i>(précisez les composants)</i>",
+                                                            "omod_code": "16 03 03",
+                                                            "label": "7",
+                                                            "picture": ""
+                                                        },
+                                                        "noBranch": {
+                                                            "isLeaf": "1",
+                                                            "information": "A traiter au cas par cas <i>(précisez les composants)</i>",
+                                                            "omod_code": "16 05 06",
+                                                            "label": "2",
+                                                            "picture": ""
                                                         }
                                                     }
                                                 }
                                             }
-
                                         }
-
                                     }
                                 }
                             }
@@ -432,7 +530,6 @@
                     }
                 }
             }
-    
         }
-    
     }
+}
