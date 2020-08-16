@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+If you are within EPFL intranet you can access the website via this [link](http://mywaste.epfl.ch/) 
+
 ## Available Scripts
 
 In the project directory, you can run:
