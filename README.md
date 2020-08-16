@@ -1,8 +1,14 @@
 # Special waste labeling
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developed as a semester project to address the need of labeling chemical waste. This project was done in colaboration with the ISIC-GSCP Group of Chemical and Physical Safety. 
+
+This website brings a solution to the need of properly identifying hazardous waste and then properly filling out the corresponding label. By automating the process we have manage to reduce the number of misclasified wastes. This was achived by forcing the users to anwser all the question and not skip ahead to where he thinks it should be. The other advantage is that we can ensure that the required fields on the label are filled in before the user is allowed to bring the waste to the collection point.
+
 
 If you are within EPFL intranet you can access the website via this [link](http://mywaste.epfl.ch/) 
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
