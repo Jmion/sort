@@ -1,0 +1,64 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{parskip}
+
+% Set default font to Sans Serif per style guidelines
+\babelfont{rm}{Noto Sans}
+
+% Custom command for a clean horizontal line
+\newcommand{\linebar}{%
+  \vspace{1pt}\hrule height 0.5pt\hfill\vspace{5pt}%
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+\begin{document}
+
+% Personal Header
+\begin{center}
+    {\LARGE \textbf{Jeremy Mion}} \\
+    \vspace{5pt}
+    \small
+    Kloten, Switzerland | +41 77 460 1570 | \href{mailto:jeremy@mion.pro}{jeremy@mion.pro} \\
+    \href{https://linkedin.com/in/jeremy-mion/}{linkedin.com/in/jeremy-mion} | \href{https://github.com/Jmion}{github.com/Jmion}
+\end{center}
+\linebar
+\vspace{10pt}
+
+% Date & Destination
+\hfill Zurich, Switzerland \\
+\hfill May 23, 2026 \\
+
+\vspace{10pt}
+
+\textbf{Subject: Application for Software Engineer (Req ID: ASHREQ-6929) --- Observe by Snowflake}
+
+\vspace{10pt}
+
+Dear Hiring Team at Observe by Snowflake,
+
+I am writing to express my strong interest in the Software Engineer position for the Observe platform at Snowflake in Zurich. Having spent the last few years engineering backend services, data modeling strategies, and performance optimizations for large systems, I find Observe's mission of transforming troubleshooting through an open and highly scalable data lakehouse incredibly compelling.
+
+My background is centered around building and owning distributed data systems. During my work at Oracle Labs, I designed and owned backend services that processed millions of software artifacts and vulnerability data. One of my key challenges was designing an optimized schema and ingestion pipeline for a large scale database that integrated messy data from multiple open source repositories. I solved this by implementing a hybrid architecture of raw ingestion tables and pre-aggregated query tables, which minimized joins and kept query performance highly predictable under heavy load. This directly aligns with Observe's objective of processing hundreds of terabytes of telemetry data efficiently and at a low cost.
+
+Furthermore, I have spent significant time working with extensive telemetry datasets. During my time at Swisscom, I managed and processed multi terabyte mobile network log data using Spark and Python to design a positioning system for emergency services. By understanding the underlying data flow and building highly parallelized pipelines, we managed to reduce the location error by 66 percent. I understand how critical high quality logs and structured context are when things go wrong in production. I also served on an SRE rotation where we relied heavily on structured logging and tracing. That experience taught me that observability systems are only as good as the developer experience they provide. If an alert does not point directly to the root cause, it is just noise.
+
+The opportunity to work on Observe by Snowflake excites me because of the engineering approach you are taking. Building a platform that consolidates metrics, logs, and traces using open standards like Apache Iceberg on top of the Snowflake AI Data Cloud is a logical step forward for enterprise infrastructure. I enjoy working on foundational systems where system design, reliability, and low latency are core requirements. I thrive in teams that prioritize clean, readable code and practical infrastructure design over unnecessary complexity.
+
+I would welcome the opportunity to discuss how my systems engineering background and data processing experience can contribute to the team in Zurich. Thank you for your time and consideration.
+
+Sincerely,
+
+\vspace{20pt}
+
+Jeremy Mion
+
+\end{document}
